@@ -11,3 +11,5 @@ result-*
 .astro
 
 node_modules
+
+dist
