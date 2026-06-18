@@ -1,0 +1,133 @@
+---
+title: Din første nettside
+---
+
+import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+
+Nå skal du lage din første nettside. Følg stegene nøye   dette er grunnlaget for alt du skal gjøre videre.
+
+## Åpne prosjektet ditt i VS Code
+
+Start med å åpne mappen du opprettet i forrige modul:
+
+1. Åpne VS Code
+2. `Fil → Åpne mappe...` → velg `mitt-prosjekt`
+3. Du skal se mappen i sidepanelet til venstre
+
+Hvis mappen er tom, ser du bare mappenavnet. Det er helt normalt.
+
+## Start OpenCode
+
+Åpne OpenCode-appen. Du skal se et chat-vindu. Skriv følgende prompt:
+
+> *Du er en erfaren webutvikler. Lag en HTML-side for et produkt. Siden skal ha en stor overskrift, et avsnitt som beskriver produktet, og et bilde. Bruk moderne HTML5 og gjør koden ryddig.*
+
+Trykk Enter eller klikk på send-knappen.
+
+## Hva skjer nå?
+
+OpenCode vil generere en komplett HTML-fil. Den vil:
+
+1. Foreslå en endring i `index.html`
+2. Vise en diff (grønne linjer er nye, røde linjer er fjernet)
+3. Vente på at du aksepterer eller forkaster forslaget
+
+**Les gjennom forslaget.** Du trenger ikke forstå alt, men prøv å få en følelse av hva som skjer. Spør deg selv: Ser dette fornuftig ut?
+
+Klikk "Aksepter" hvis du er fornøyd.
+
+## Se resultatet i nettleseren
+
+Finn `index.html` i VS Codes sidepanel. Høyreklikk på filen og velg "Åpne i nettleser" eller gå til mappen og dobbeltklikk på filen.
+
+Du skal nå se din første nettside i nettleseren! Gratulerer! 
+
+## Gjør en endring
+
+Nå skal du oppleve magien ved Vibe Coding   å gjøre endringer uten å skrive kode selv.
+
+Skriv denne prompten i OpenCode:
+
+> *Legg til en liste med tre fordeler ved produktet under avsnittet. Bruk en HTML-liste.*
+
+OpenCode vil oppdatere filen. Aksepter endringen og last nettleseren på nytt (Cmd+R på Mac, F5 på Windows). Listen skal nå vises på siden.
+
+Fortsett å eksperimentere. Prøv disse promptene én om gangen:
+
+- *"Endre overskriften til noe mer fengende"*
+- *"Legg til en footer med kontaktinformasjon"*
+- *"Gjør bildet større og sentrer det"*
+
+Etter hver prompt: les forslaget, aksepter, oppdater nettleseren, se resultatet.
+
+## To viktige fallgruver allerede nå
+
+### Fallgruve 1: Illusjonen av perfeksjon
+
+Det første du må være oppmerksom på er at KI-generert kode *ser* profesjonell ut   men den kan inneholde feil. En vanlig feil er at KI-en bruker et bilde som ikke finnes, eller refererer til en CSS-fil som ikke er opprettet.
+
+**Slik unngår du dette:** Test alltid i nettleseren. Hvis noe ser rart ut, spør OpenCode: *"Hvorfor vises ikke bildet?"* eller *"Fungerer alt som det skal?"*
+
+### Fallgruve 2: Godta uten å lese
+
+Det største feilgrepet nybegynnere gjør er å trykke "Aksepter" på alle forslag uten å se hva som endres. Dette fører til at du mister kontroll over koden din.
+
+**Slik unngår du dette:** Les alltid diffen (de grønne og røde linjene) før du aksepterer. Still deg selv spørsmålet: "Ser dette riktig ut?" Hvis du er usikker, spør OpenCode: *"Forklar hva denne endringen gjør."*
+
+## Hva gjør jeg hvis noe går gammelt?
+
+Det er lett å rote til ting. Her er redningsplanen:
+
+| Problem | Løsning |
+|---|---|
+| Koden ble verre | Trykk Cmd+Z (Mac) eller Ctrl+Z (Windows) for å angre |
+| OpenCode overskrev noe viktig | Spør: *"Kan du legge tilbake [det som forsvant]?"* |
+| Alt er ødelagt | Lag en ny fil. Spør OpenCode: *"Lag en helt ny index.html fra bunnen"* |
+| Jeg vet ikke hva som skjedde | Spør OpenCode: *"Hva endret du i forrige svar?"* |
+
+Det er alltid en vei ut. Å miste kontrollen og måtte starte på nytt er en naturlig del av læringsprosessen.
+
+## Oppsummering av arbeidsflyten
+
+<Steps>
+1. Skriv en prompt i OpenCode
+2. Les forslaget og diffen
+3. Aksepter hvis det ser bra ut
+4. Oppdater nettleseren og se resultatet
+5. Skriv en ny prompt for å forbedre eller utvide
+</Steps>
+
+Gjenta disse stegene. Hver runde tar deg nærmere en ferdig nettside.
+
+---
+
+## Sjekkliste før du går videre
+
+- [ ] Jeg har laget min første HTML-side med OpenCode
+- [ ] Jeg har sett den i nettleseren
+- [ ] Jeg har gjort min første endring gjennom en prompt
+- [ ] Jeg leser diffen før jeg aksepterer endringer
+- [ ] Jeg vet hvordan jeg angrer hvis noe går galt
+
+<Quiz
+  chapter={3}
+  questions={[
+    {
+      question: "Hva bør du gjøre før du aksepterer et forslag fra OpenCode?",
+      options: [
+        { label: "Trykke aksepter med en gang   KI-en vet best", feedback: "Nei! Du bør alltid lese gjennom forslaget først." },
+        { label: "Les diffen og spør deg selv om endringen ser riktig ut", feedback: "Riktig! Du må alltid kvalitetssikre før du aksepterer." },
+        { label: "Lukke øynene og trykke", feedback: "Absolutt ikke! Da mister du kontrollen." },
+      ],
+    },
+    {
+      question: "Hva gjør du hvis en endring ødelegger nettsiden din?",
+      options: [
+        { label: "Få panikk og starte helt på nytt", feedback: "Du kan ofte fikse det enklere enn som så." },
+        { label: "Trykke Cmd+Z / Ctrl+Z for å angre, eller be OpenCode om å reversere endringen", feedback: "Riktig! Det finnes alltid en vei tilbake." },
+        { label: "Slette hele prosjektet", feedback: "Alt for drastisk. Angre eller spør KI-en om hjelp." },
+      ],
+    },
+  ]}
+/>

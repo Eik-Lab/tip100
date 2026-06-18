@@ -1,0 +1,237 @@
+---
+title: Prompting som en proff
+---
+
+import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+
+En **prompt** er beskjeden du gir KI-en for å forklare hva du vil at den skal lage. Kvaliteten på prompten avgjør hvor bra resultatet blir. Dårlige prompts gir dårlig kode   gode prompts gir magi.
+
+På denne siden lærer du å skrive prompts som gir deg full kontroll over vibe coding-opplevelsen.
+
+## Anatomien til en god prompt
+
+En god prompt har fem grunnpilarer. Tenk på dem som en oppskrift   utelater du én, blir resultatet uforutsigbart.
+
+**1. Rolle**
+Fortell KI-en hvem den er. En spesifikk rolle gir bedre svar.
+`Du er en erfaren React-utvikler`
+
+**2. Kontekst**
+Gi nødvendig bakgrunnsinformasjon. Hva er målet? Hva er rammene?
+`Vi bygger en handleliste-app for eldre brukere`
+
+**3. Oppgave**
+Beskriv nøyaktig hva du vil ha laget. Vær konkret og presis.
+`Lag en komponent som viser en handleliste ...`
+
+**4. Format**
+Spesifiser hvordan svaret skal leveres. Én fil? Flere filer? Pseudokode?
+`Skriv koden i en enkelt React-fil med Tailwind CSS`
+
+**5. Begrensninger**
+Fortell hva KI-en **ikke** skal gjøre. Dette hindrer feil og uønsket kode.
+`Ikke bruk eksterne biblioteker`
+
+:::tip
+Start alle prompts med en tydelig **rolle**   det gjør en markant forskjell i kvaliteten på svaret du får.
+:::
+
+## Fremgangsmåte: iterativ prompt-utvikling
+
+Ikke forvent å treffe perfekt på første forsøk. Vibe coding er en samtale, ikke en bestilling.
+
+<Steps>
+1. **Skriv en første prompt**   bruk de fem pilarene. Vær så presis du kan.
+
+2. **Vurder resultatet**   fungerer koden? Ser det bra ut? Gjør den det du ba om?
+
+3. **Iterer med oppfølgingsprompter**   i stedet for å skrive en ny prompt fra bunnen, gi konkrete tilbakemeldinger:
+ : *"Endre fargene til blå og hvit"*
+ : *"Legg til en bekreftelsesdialog før sletting"*
+ : *"Gjør den mobilvennlig"*
+
+4. **Når du er fornøyd**   spar koden og gå videre til neste funksjon.
+</Steps>
+
+:::note[Iterasjon er nøkkelen]
+Profesjonelle vibe-codere bruker ofte 5-10 oppfølgingsprompter per funksjon. Første versjon er sjelden den beste.
+:::
+
+## Gode og dårlige prompts   eksempler
+
+Her ser du forskjellen på en vag prompt og en godt strukturert prompt.
+
+<Tabs sync="false">
+  <TabItem label="Dårlig" icon="seti:ignore">
+    &gt; *Lag en nettside*
+
+    **Problemer:**
+  : Ingen rolle
+  : Ingen kontekst
+  : Veldig vag oppgave
+  : Ingen format-spesifikasjon
+  : Ingen begrensninger
+
+    Du får tilbake noe helt tilfeldig   sannsynligvis ikke det du så for deg.
+  </TabItem>
+  <TabItem label="God" icon="seti:spark">
+
+    &gt; Du er en erfaren frontend-utvikler. Lag en enkel mobilvennlig nettside for en kaffebar. Nettsiden skal ha en meny med priser og et kontakt-skjema. Bruk HTML, CSS og JavaScript   ingen rammeverk. Designet skal være varmt og innbydende med jordfarger.
+
+    **Hvorfor dette fungerer:**
+  : Rolle: *erfaren frontend-utvikler*
+  : Kontekst: *kaffebar*
+  : Oppgave: *meny med priser og kontakt-skjema*
+  : Format: *HTML, CSS og JavaScript*
+  : Begrensning: *ingen rammeverk*
+  </TabItem>
+</Tabs>
+
+### Flere sammenligninger
+
+**Dårlig: Todo-app**
+"Lag en todo-app."
+*Får du en halvveis fungerende app med tilfeldig design og uten lagring.*
+
+**God: Todo-app**
+"Du er en React-utvikler. Lag en todo-app med mulighet for å legge til, slette og markere oppgaver som fullført. Dataene skal lagres i localStorage. Bruk Tailwind CSS for styling. Skriv all kode i App.jsx."
+*Får en komplett, lagrende og pent stilet app   rett til bruk.*
+
+**Dårlig: Spør etter hjelp**
+"Det virker ikke, fiks det."
+*KI-en gjetter hva som er galt. Sjansen for å få riktig svar er lav.*
+
+**God: Be om feilsøking**
+"Du er en debugger. Jeg får feilen 'Cannot read property map of undefined' i komponenten UserList. Her er koden: [lim inn kode]. Hva er problemet og hvordan løser jeg det?"
+*Gir deg en presis diagnose og en løsning med en gang.*
+
+## Prompt-mønstre for vanlige oppgaver
+
+Her er nyttige prompt-maler du kan bruke om og om igjen:
+
+### "Legg til..."   nye funksjoner
+
+> *"Du er en webutvikler. Legg til en [funksjon] på nettsiden min. Den skal plasseres [hvor] og se slik ut: [beskrivelse]."*
+
+### "Endre..."   modifisere eksisterende kode
+
+> *"Du er en CSS-utvikler. Endre [hva] på nettsiden min til [ny verdi]. Fargen skal være [farge], størrelsen skal være [størrelse]."*
+
+### "Fiks..."   feilsøking
+
+> *"Du er en debugger. Jeg får denne feilmeldingen: [lim inn feil]. Her er koden som er relevant: [lim inn kode]. Hva er problemet og hvordan fikser jeg det?"*
+
+### "Forklar..."   lære
+
+> *"Du er en lærer. Forklar hva denne koden gjør, linje for linje, som om jeg er nybegynner: [lim inn kode]."*
+
+### "Hvordan..."   konseptlæring
+
+> *"Du er en lærer. Forklar hvordan [konsept] fungerer i webutvikling. Gi et enkelt eksempel."*
+
+## Effektiv tilbakemelding
+
+Når du itererer på kode, er måten du gir tilbakemelding på avgjørende. Sammenlign:
+
+| Dårlig tilbakemelding | God tilbakemelding | Hvorfor |
+|---|---|---|
+| "Det funker ikke" | "Knappen gjør ingenting når jeg klikker. Jeg forventer at den skal vise en melding." | Spesifikk → lettere å fikse |
+| "Gjør det penere" | "Endre bakgrunnsfargen til #f0f0f0 og legg til 20px padding rundt innholdet" | Konkret → forutsigbart resultat |
+| "For mye tekst" | "Reduser skriftstørrelsen på avsnittene til 14px og øk linjeavstanden til 1.8" | Målbart → akkurat det du får |
+
+## Teknikker for bedre prompts
+
+### 1. Bygg stein for stein
+
+Ikke be om alt på en gang. Start med et skjelett og utvid:
+
+<Tabs>
+  <TabItem label="Runde 1: Skjelett" icon="seti:folder">
+    Du er en HTML-utvikler. Lag en side med en header, en hovedseksjon og en footer. Kun HTML & CSS.
+  </TabItem>
+  <TabItem label="Runde 2: Innhold" icon="seti:file">
+    Legg til en kort tekst i hovedseksjonen om fordelene med 3D-printing. Bruk en behagelig blå fargepalett.
+  </TabItem>
+  <TabItem label="Runde 3: Interaksjon" icon="seti:atom">
+    Legg til en knapp som bytter mellom mørk og lys modus.
+  </TabItem>
+</Tabs>
+
+### 2. Gi eksempler
+
+Vis KI-en hva du mener. Si *"Lag en kort om meg-seksjon som denne: [eksempel]"* eller lim inn eksisterende kode som stilreferanse.
+
+### 3. Bruk negativ prompting
+
+Like viktig som å si hva du vil   si hva du **ikke** vil.
+
+| Si dette | Ikke dette |
+|---|---|
+| *Ikke bruk eksterne avhengigheter* | *Hold det enkelt* |
+| *Ingen popup-vinduer* | *Brukervennlig* |
+| *Skriv ren CSS, ikke Tailwind* | *Pent design* |
+
+### 4. Kjør på nytt
+
+Får du et svar som er *nesten* riktig? Bare si *"Gjør det om igjen, men ..."* og spesifiser hva som må endres. Hver gang KI-en genererer på nytt, blir resultatet litt annerledes.
+
+## Fallgruver i prompting
+
+### Fallgruve: For vage prompts
+Den vanligste feilen. "Lag en nettside" gir et tilfeldig resultat. Bruk de fem pilarene.
+
+### Fallgruve: Én prompt for alt
+Å be om en hel nettside i én prompt fører til rotete kode som er vanskelig å endre. Bygg steg for steg.
+
+### Fallgruve: Norsk vs. engelsk
+OpenCode forstår norsk godt, men den er trent på mest engelsk kode. For komplekse oppgaver kan engelsk gi bedre resultater. Eksperimenter og se hva som fungerer best for deg.
+
+### Fallgruve: Forvente perfeksjon på første forsøk
+Første svar er sjelden perfekt. Forvent å gi 3-5 oppfølgingsprompter per funksjon.
+
+## Sjekkliste: Er prompten din klar?
+
+- [ ] Har jeg gitt KI-en en **rolle**? (*"Du er en erfaren ..."*)
+- [ ] Har jeg gitt tilstrekkelig **kontekst**?
+- [ ] Er **oppgaven** konkret og presis?
+- [ ] Har jeg spesifisert **format** eller teknologi?
+- [ ] Har jeg lagt til **begrensninger**?
+- [ ] Har jeg delt opp i flere trinn om nødvendig?
+
+## Oppgave: Skriv din første gode prompt
+
+Prøv selv! Skriv en prompt til en KI-assistent som skal lage noe enkelt, for eksempel:
+
+- En visittkort-side for deg selv
+- En nedtellings-timer til et arrangement
+- En enkel kalkulator
+- Et quiz-spill med tre spørsmål
+
+Bruk de fem pilarene og fremgangsmåten over. Iterer med oppfølgingsspørsmål til du er fornøyd.
+
+:::tip[Husk]
+Det er lov å feile! Vibe coding handler om å eksperimentere. Hver prompt du skriver gjør deg bedre til å kommunisere med KI.
+:::
+
+<Quiz
+  chapter={3}
+  questions={[
+    {
+      question: "Hva er de fem grunnpilarene i en god prompt?",
+      options: [
+        { label: "Rolle, kontekst, oppgave, format og begrensninger", feedback: "Riktig! Disse fem pilarene gir KI-en nok informasjon til å gi et godt svar." },
+        { label: "Spørsmål, svar, kommentar, feedback og vurdering", feedback: "Dette er elementer i en samtale, ikke i en prompt." },
+        { label: "Tittel, farge, størrelse, font og layout", feedback: "Dette er design-elementer, ikke prompt-pilarer." },
+      ],
+    },
+    {
+      question: "Hvor mange oppfølgingsprompter bør du forvente å trenge per funksjon?",
+      options: [
+        { label: "0-1   førstegangsforsøket er alltid best", feedback: "Sjelden! Første forsøk er sjelden perfekt." },
+        { label: "5-10 oppfølgingsprompter er normalt", feedback: "Riktig! Profesjonelle brukere itererer mange ganger per funksjon." },
+        { label: "Minst 50   alt under er slurv", feedback: "50 er altfor mye for en enkelt funksjon. 5-10 er normalt." },
+      ],
+    },
+  ]}
+/>

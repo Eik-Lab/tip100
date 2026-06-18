@@ -1,0 +1,139 @@
+---
+title: Vanlige fallgruver med AI koding
+---
+
+import { Tabs, TabItem, Steps } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+
+Vibe Coding er et kraftig verktoy, men det har fallgruver. Mange av dem handler ikke om teknologi, men om hvordan vi mennesker forholder oss til KI. Når vi tror for mye på KI-en, eller når vi slutter a tenke selv, oppstar problemene.
+
+Denne siden går gjennom de vanligste fallgruvene og hvordan du unngar dem.
+
+## Fallgruve 1: Blind tillit
+
+KI-en høres alltid trygg og overbevisende ut. Den sier aldri "Jeg er usikker" eller "Dette vet jeg ikke". Den later som den vet alt. Dette kalles automasjonsbias. Vi stoler mer på maskiner enn vi burde.
+
+**Eksempel:** Du spor "Kan jeg bruke funksjonen getElementByClassName?" KI-en svarer "Ja, her er et eksempel!" uten a fortelle at funksjonen egentlig heter getElementsByClassName (merkelapp i flertall). Du kopierer koden, den fungerer ikke, og du skjonner ikke hvorfor.
+
+**Slik unngar du det:**
+- Verifiser alltid at koden faktisk fungerer
+- Test i nettleseren
+- Spor KI-en: "Er du sikker på at [konkret funksjon] finnes i moderne JavaScript?"
+- Jo viktigere koden er, desto mer bor du verifisere
+
+## Fallgruve 2: Akseptere endringer uten a lese dem
+
+Når OpenCode foreslår en endring, viser den en diff. Gronne linjer er nye, rode linjer er fjernet. Nybegynnere har en tendens til a trykke "Aksepter" uten a lese.
+
+**Hvorfor dette er farlig:** KI-en kan ha endret noe du ikke ville endre. Den kan ha slettet fungerende kode. Den kan ha lagt til noe du ikke forstå.
+
+**Slik unngar du det:** Les alltid diffen for du aksepterer. Still deg selv sporsmalet: "Forstår jeg hva denne endringen gjør?" Hvis du er usikker, spor: "Forklar hva denne endringen gjør, linje for linje."
+
+## Fallgruve 3: Illusjonen av forståelse
+
+Du bruker KI til a generere en nettside. Den fungerer. Du foler at du kan webutvikling. Men hvis noe går galt, har du ingen anelse om hva du skal gjøre.
+
+**Hvorfor dette er farlig:** Du overvurderer din egen kunnskap. Når du forlater kurset og ikke lenger har OpenCode, kan du ikke fikse nettsiden din.
+
+**Slik unngar du det:** 
+- Les koden KI-en genererer. Ikke bare aksepter den.
+- Spor "Forklar hva denne koden gjør" for hver ny funksjon
+- Etter kurset: prov a endre sma ting manuelt for a bygge forståelse
+
+## Fallgruve 4: Kopier og lim uten tilpasning
+
+Du finner et eksempel på nettet eller KI-en gir deg kode som nesten passer. Du kopierer den inn og habper det fungerer.
+
+**Hvorfor dette er farlig:** Koden er skrevet for noen andres prosjekt, med andres filnavn, andres klassenavn, andres struktur. Den vil sannsynligvis ikke fungere i ditt prosjekt uten endringer.
+
+**Slik unngar du det:** Fortell KI-en om ditt spesifikke prosjekt. Gi kontekst om filnavn, klasser og struktur for du ber om kode. Da kan KI-en tilpasse svaret til din situasjon.
+
+## Fallgruve 5: La KI-en ta arkitekturbeslutninger
+
+Du spor: "Hvordan bor jeg organisere denne nettsiden?" KI-en gir et forslag. Du folger det uten a tenke selv.
+
+**Hvorfor dette er farlig:** KI-en ser ikke helheten i prosjektet ditt. Den gir et generisk svar som kanskje ikke passer dine behov. For TIP100 er det ofte bedre med en enkel, flat struktur enn en kompleks mappestruktur.
+
+**Slik unngar du det:** Du bestemmer strukturen. KI-en fyller inn detaljene. Bestem selv hvor mange seksjoner siden skal ha, og hvilken rekkefolge de skal stå i.
+
+## Fallgruve 6: Spaghettikode
+
+Etter mange runder med prompting blir koden rotete. Det er blandet HTML, CSS og JavaScript i samme fil, klassenavn gir ikke mening lenger, og det er fem forskjellige mater a gjøre samme ting på.
+
+**Slik unngar du det:** Be med jevne mellomrom: "Rydd opp i koden. Del HTML, CSS og JS i separate filer. Gi klassenavnene fornuftige navn." Eller, enda bedre: be om separate filer fra starten.
+
+## Fallgruve 7: Svart boks problemet
+
+Du har en nettside som fungerer, men du har ingen anelse om hvordan. Hvis noe går galt, kan du ikke feilsøke fordi du ikke forstår koden.
+
+**Slik unngar du det:** Hold sidene enkle. En side med 3-4 seksjoner kan du holde i hodet. En side med 15 seksjoner og 500 linjer kode er umulig a forstå uten a kunne kode. Enkelt er bedre enn komplekst.
+
+## Fallgruve 8: Ferdighetsforvitring
+
+Du blir sa vant til at KI-en skriver all koden at du slutter a lære. Når KI-en blir bedre, blir du darligere.
+
+**Slik unngar du det:** Etter kurset, prov a skrive sma ting manuelt. For eksempel: lag en HTML-side for hand uten KI. Sa bruk KI til a legge til funksjonalitet. Balansen mellom a lære selv og bruke KI er nokkelen.
+
+## Fallgruve 9: KI hallusinerer apiser og biblioteker
+
+KI-en kan finne på biblioteker som ikke finnes. For eksempel: "Bruk smoothScroll.js biblioteket for a lage jevn scrolling." Dette biblioteket finnes ikke. KI-en fant det opp.
+
+**Slik unngar du det:** Hvis KI-en refererer til et bibliotek eller en funksjon du ikke kjenner igjen, spor: "Finnes [navn] i moderne JavaScript, eller er det noe du har funnet på?"
+
+## Fallgruve 10: Samarbeidsutfordringer i grupper
+
+I TIP100 jobber dere i grupper. Hvis alle i gruppen prompte OpenCode samtidig, oppstar det kaos. Hvem endrer hva? Hvem sin kode er den riktige? Hvordan slar dere sammen arbeid?
+
+**Slik unngar du det:**
+- Bruk GitHub for a samarbeide (se GitHub-siden)
+- Avtal hvem som prompte hva
+- Ha en person som er ansvarlig for a godkjenne endringer
+- Bruk kommentarer i koden for a forklare hva hver seksjon gjør
+
+## Selvtest: Din tillit til KI
+
+Sett poengsum fra 1 til 10 på hvert punkt:
+
+| Sporsmal | Poeng |
+|---|---|
+| Jeg leser alltid diffen for jeg aksepterer | / 10 |
+| Jeg tester alltid i nettleseren etter en endring | / 10 |
+| Jeg spor KI-en om a forklare kode jeg ikke forstår | / 10 |
+| Jeg kan forklare hva hoveddelene av nettsiden min gjør | / 10 |
+| Jeg vet hva jeg skal gjøre hvis KI-en gir meg feil kode | / 10 |
+
+Totalt: / 50. Under 30 betyr at du stoler for mye på KI-en. Over 40 betyr at du har en sunn balanse.
+
+---
+
+## Sjekkliste for sunn KI-bruk
+
+- [ ] Jeg leser alltid endringene for jeg aksepterer dem
+- [ ] Jeg tester i nettleseren etter hver endring
+- [ ] Jeg spor KI-en om a forklare kode jeg ikke forstår
+- [ ] Jeg bestemmer strukturen selv, KI-en fyller inn detaljene
+- [ ] Jeg holder koden enkel slik at jeg kan forstå den
+- [ ] Jeg lager sikkerhetskopier for store endringer
+- [ ] Jeg er klar over at KI kan ta feil og tar feil oftere enn jeg tror
+
+<Quiz
+  chapter={3}
+  questions={[
+    {
+      question: "Hva er automasjonsbias?",
+      options: [
+        { label: "At maskiner automatisk blir bedre over tid", feedback: "Nei, det handler om menneskelig psykologi." },
+        { label: "At mennesker stoler mer på maskiner enn de burde, fordi maskiner høres overbevisende ut", feedback: "Riktig! KI høres alltid trygg ut, selv når den tar feil." },
+        { label: "At KI foretrekker a jobbe alene uten mennesker", feedback: "KI har ingen preferanser. Det handler om hvordan vi oppfatter KI." },
+      ],
+    },
+    {
+      question: "Hva bor du gjøre hvis du ikke forstår koden KI-en har generert?",
+      options: [
+        { label: "Akseptere den uansett, KI-en vet best", feedback: "Nei, hvis du ikke forstår den, kan du ikke feilsøke den." },
+        { label: "Sporre KI-en om a forklare koden, linje for linje", feedback: "Riktig! Bruk KI-en som lærer. Jo mer du forstår, jo bedre kontroll har du." },
+        { label: "Slette den og be om noe enklere", feedback: "A be om forklaring er bedre enn a gi opp." },
+      ],
+    },
+  ]}
+/>

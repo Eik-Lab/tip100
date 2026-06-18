@@ -1,0 +1,178 @@
+---
+title: Feilsøking og debugging med AI
+---
+
+import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+
+Feilsøking   å finne og fikse feil i kode   er den viktigste ferdigheten du kan utvikle som utvikler. Når du vibecoder, vil ting gå galt. Ofte. Nøkkelen er å vite hvordan du kommer deg ut av problemer.
+
+## Tankesettet: Feil er informasjon
+
+Når noe ikke fungerer, har du ikke mislyktes   du har fått informasjon. Feilmeldingen forteller deg nøyaktig hva som er galt. Du må bare lære å lese den.
+
+## De fire vanligste feiltypene
+
+### 1. Syntaksfeil   "skrivefeil"
+
+Syntaksfeil er som skrivefeil i et språk. Noe er feil stavet eller strukturen er feil.
+
+```
+Uncaught SyntaxError: Unexpected token '}'
+```
+
+Betyr: Du har en ekstra krøllparentes } et sted, eller du glemte å lukke noe.
+
+### 2. Referansefeil   "fant ikke"
+
+```
+Uncaught ReferenceError: myFunction is not defined
+```
+
+Betyr: Du prøver å bruke noe som ikke finnes. Har du glemt å definere funksjonen? Har du skrevet navnet feil? (JavaScript skiller mellom store og små bokstaver!)
+
+### 3. TypeError   "feil type"
+
+```
+Uncaught TypeError: Cannot read property 'length' of undefined
+```
+
+Betyr: Du prøver å lese en egenskap på noe som er `undefined` (ikke definert). For eksempel: du tror en variabel inneholder en tekst, men den inneholder ingenting.
+
+### 4. Logiske feil   "gjør feil ting"
+
+Koden kjører uten feilmelding, men resultatet er feil. For eksempel: en kalkulator som gir 2 + 2 = 22 (den behandler tall som tekst).
+
+Dette er de vanskeligste feilene å finne, fordi det ikke kommer noen feilmelding.
+
+## Hvordan lese en feilmelding
+
+I nettleseren: høyreklikk → Inspiser → Console (konsoll). Her vises alle feilmeldinger.
+
+En feilmelding ser slik ut:
+
+```
+script.js:15 Uncaught TypeError: Cannot read property 'style' of null
+    at HTMLButtonElement.<anonymous> (script.js:15:32)
+```
+
+Dette betyr:
+- **script.js:15**: feilen er i filen `script.js` på linje 15
+- **TypeError: Cannot read property 'style' of null**: du prøver å endre stil på et element som ikke finnes (null)
+- **`HTMLButtonElement.<anonymous>`**: feilen skjedde i en funksjon som kjørte da en knapp ble klikket
+
+## Slik ber du OpenCode om feilsøking
+
+Den største feilen nybegynnere gjør: skrive *"Det funker ikke, fiks det"* og forvente magi.
+
+### Dårlig:
+
+> *Det funker ikke.*
+
+KI-en må gjette hva som er galt. 80% sjanse for feil svar.
+
+### God:
+
+> *Du er en erfaren debugger. Jeg får denne feilen i nettleserkonsollen:*
+> ```
+> script.js:15 Uncaught TypeError: Cannot read property 'style' of null
+>     at HTMLButtonElement.<anonymous> (script.js:15:32)
+> ```
+> *Her er koden min: [lim inn koden rundt linje 15]*
+> *Hva er problemet og hvordan fikser jeg det?*
+
+KI-en får: feilmelding, kontekst (koden), og en spesifikk rolle. Nær 100% sjanse for riktig svar.
+
+### Enda bedre: Forstå feilen selv først
+
+Prøv å forstå feilen før du spør KI-en. Les linjenummeret. Se på koden. Ofte ser du feilen med en gang   du skrev `getElementById` i stedet for `getElementById` (små/store bokstaver betyr noe i JavaScript!).
+
+Når du har prøvd selv og fortsatt står fast   da spør du KI-en. Du vil lære mye mer på denne måten.
+
+## Fremgangsmåte ved feil
+
+<Steps>
+1. **Les feilmeldingen**   hva står det? Hvilken fil og linje?
+2. **Se på koden**   kan du se feilen med en gang?
+3. **Hvis ikke, lim inn feil + kode i OpenCode** med en god prompt
+4. **Prøv løsningen KI-en foreslår**
+5. **Test i nettleseren**
+6. **Hvis det fortsatt ikke fungerer, gjenta med mer kontekst**
+</Steps>
+
+## Fallgruver i feilsøking
+
+### Fallgruve: KI-en hallusinerer løsninger
+
+KI-en kan foreslå en løsning som ser overbevisende ut, men som ikke fungerer. Den kan finne opp funksjoner som ikke finnes, eller referere til metoder som ikke eksisterer i din versjon av JavaScript.
+
+**Slik unngår du:** Test alltid. Hvis løsningen ikke fungerer, gi beskjed: *"Den løsningen fungerte ikke. Kan du foreslå en annen tilnærming?"*
+
+### Fallgruve: Den uendelige løkken av dårlige fikser
+
+Du spør KI-en om å fikse noe. Det blir verre. Du spør igjen. Det blir enda verre. Etter 5 runder er koden et uhåndterlig rot.
+
+**Slik unngår du:** Hvis 3 forsøk ikke fungerer, stopp. Gå tilbake til en versjon som fungerte (Cmd+Z eller fra sikkerhetskopi) og prøv en annen tilnærming. Noen ganger er det raskere å starte på nytt enn å fortsette å fikse.
+
+### Fallgruve: Kaste bort fungerende kode
+
+Når du ber OpenCode om å fikse noe, kan den komme tilbake med en helt ny versjon av koden din   og du mister endringer du var fornøyd med.
+
+**Slik unngår du:** Lagre alltid før du ber om en fiks. Hvis du har VS Code, trykk Cmd+S før hver prompt. Da kan du angre hvis noe går galt.
+
+### Fallgruve: "Det virker ikke" uten kontekst
+
+KI-en vet ikke hva du har gjort, hva du forventet, eller hva som faktisk skjer. Gi den minst disse tre tingene:
+1. Hva du prøvde å oppnå
+2. Hva som faktisk skjedde
+3. Hva du allerede har prøvd
+
+## Refleksjon: Hvorfor feilsøking gjør deg bedre
+
+Hver gang du feilsøker, lærer du noe nytt om hvordan kode fungerer. Jo flere feil du fikser, jo bedre blir du til å:
+- Gjenkjenne vanlige feil
+- Forstå hvordan HTML, CSS og JavaScript henger sammen
+- Kommunisere presist med KI-en
+- Vite når du skal stole på KI-en og når du bør være skeptisk
+
+## Oppgave: Feilsøk med vilje
+
+1. Lag en kopi av prosjektet ditt (sikkerhetskopi)
+2. Spør OpenCode: *"Kan du med vilje lage en versjon av index.html som har en feil? Ikke fortell meg hva feilen er."*
+3. Åpne siden i nettleseren
+4. Se etter feilmeldinger i konsollen (høyreklikk → Inspiser → Console)
+5. Prøv å finne og fikse feilen selv
+6. Hvis du ikke klarer det, spør OpenCode om hjelp   men husk å gi feilmeldingen og kontekst
+
+Dette er en av de beste måtene å lære seg feilsøking på. Øvelse gjør mester.
+
+---
+
+## Sjekkliste før du går videre
+
+- [ ] Jeg vet hvordan jeg åpner nettleserkonsollen for å se feilmeldinger
+- [ ] Jeg vet at jeg bør inkludere feilmelding og kode når jeg ber OpenCode om hjelp
+- [ ] Jeg vet at 3 mislykkede forsøk betyr at jeg bør prøve en annen tilnærming
+- [ ] Jeg lagrer alltid før jeg ber om en fiks
+
+<Quiz
+  chapter={3}
+  questions={[
+    {
+      question: "Hva er den viktigste informasjonen å gi OpenCode når du feilsøker?",
+      options: [
+        { label: "Bare si 'det funker ikke'", feedback: "Det gir KI-en for lite informasjon til å hjelpe deg." },
+        { label: "Feilmeldingen, koden rundt feilen og hva du forventet skulle skje", feedback: "Riktig! Med denne informasjonen kan KI-en gi en presis diagnose." },
+        { label: "Hvilken farge du har på skjermen", feedback: "Det er ikke relevant for feilsøking." },
+      ],
+    },
+    {
+      question: "Hva bør du gjøre hvis OpenCode ikke klarer å fikse en feil etter 3 forsøk?",
+      options: [
+        { label: "Spør den 10 ganger til med samme prompt", feedback: "Det vil sannsynligvis ikke hjelpe." },
+        { label: "Gå tilbake til en fungerende versjon og prøv en annen tilnærming", feedback: "Riktig! Noen ganger må du starte på nytt med en annen strategi." },
+        { label: "Slett alt og start helt fra begynnelsen", feedback: "For drastisk. Gå tilbake til siste fungerende versjon." },
+      ],
+    },
+  ]}
+/>

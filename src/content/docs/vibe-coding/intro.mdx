@@ -1,0 +1,102 @@
+---
+title: Introduksjon til Vibe Coding
+---
+
+import Quiz from "../../../components/Quiz.astro";
+
+Velkommen til Vibe Coding   en helt ny måte å lage nettsider og digitale produkter på. I stedet for å skrive hver linje kode for hånd, samarbeider du med en kunstig intelligens (KI) som skriver koden for deg, basert på instruksjonene du gir.
+
+## Hva er Vibe Coding?
+
+Vibe Coding er et begrep som beskriver utvikling hvor du lar KI-assistenter som OpenCode generere mesteparten av koden. Du forklarer hva du vil ha på vanlig språk (norsk eller engelsk), og KI-en skriver HTML, CSS og JavaScript for deg.
+
+Tenk på det som å ha en senior utvikler som sitter ved siden av deg og gjør alt det tunge skrivearbeidet   mens du bestemmer hva som skal lages og kvalitetssikrer resultatet.
+
+**Hva du kan bygge med Vibe Coding:**
+- Landingssider og produktnettsider
+- Portefølje- og visittkortsider
+- Enkle verktøy og kalkulatorer
+- Prototyper for nye idéer
+- Interaktive quizzer og gallerier
+
+Hva du **ikke** bør bygge med KI alene: bank- og betalingssystemer, medisinske applikasjoner, innloggingssystemer med brukerdata, eller annen kode som håndterer sensitiv informasjon. KI kan gjøre feil, og du er ansvarlig for sluttproduktet.
+
+## Hvordan fungerer en KI-assistent?
+
+KI-assistenter som OpenCode er trent på enorme mengder kode fra internett. Når du skriver en prompt (beskjeden du gir KI-en), analyserer den hva du spør om og genererer kode basert på mønstre den har lært.
+
+Dette betyr at KI-en:
+- Er veldig god på vanlige, velkjente oppgaver
+- Kan foreslå flere måter å løse samme problem
+- Av og til tar feil, og er veldig overbevisende når den tar feil
+- Kan finne på funksjoner eller biblioteker som ikke finnes (hallusinering)
+
+**Dette er den viktigste beskjeden i hele kurset: KI tar feil. Ofte. Den høres trygg og overbevisende ut, men den tar feil. Du må alltid sjekke koden den genererer.**
+
+## Tankesettet for Vibe Coding
+
+For å lykkes med Vibe Coding trenger du riktig tankesett:
+
+1. **Iterer, ikke perfeksjoner**   Første versjon er sjelden den beste. Planlegg 5-10 oppfølgingsprompter per sideelement.
+
+2. **Eksperimenter**   Prøv forskjellige formuleringer. Hvis en prompt ikke fungerer, omformuler den.
+
+3. **Feil er læring**   Når koden ikke virker, er det en mulighet til å forstå hvordan ting henger sammen. Ikke bare be KI-en fikse det   spør hvorfor det ble feil.
+
+4. **Verifiser alt**   Test hver funksjon. Sjekk koden. Åpne nettleseren og se at alt fungerer.
+
+5. **Du bestemmer**   KI-en er verktøyet, du er arkitekten. Du bestemmer retning, struktur og kvalitetsnivå.
+
+## Hva du vil lære i dette kurset
+
+Kurset tar deg fra null til en publisert nettside, steg for steg:
+
+| Modul | Tema |
+|---|---|
+| 1 | Hva er Vibe Coding? (denne siden) |
+| 2 | Slik fungerer nettsider |
+| 3 | Installasjon av verktøy |
+| 4 | Din første nettside |
+| 5 | Prompting som en proff |
+| 6 | Forstå HTML-koden |
+| 7 | Design og styling |
+| 8 | Gjør nettsiden interaktiv |
+| 9 | Bygg et prosjekt steg for steg |
+| 10 | Feilsøking med AI |
+| 11 | Publisering |
+| 12 | Sikkerhet og personvern |
+| 13 | Vanlige fallgruver |
+| 14 | Etikk og ansvarlig bruk |
+
+På slutten av kurset vil du ha bygget og publisert din egen nettside   uten å kunne kode fra før.
+
+---
+
+## Sjekkliste før du går videre
+
+- [ ] Jeg forstår at KI kan ta feil og at jeg må verifisere koden
+- [ ] Jeg vet hva Vibe Coding er og hva det kan brukes til
+- [ ] Jeg har riktig tankesett: iterer, eksperimenter, verifiser
+- [ ] Jeg vet hva jeg skal bygge (en nettside for produktidéen min)
+
+<Quiz
+  chapter={3}
+  questions={[
+    {
+      question: "Hva er den viktigste regelen i Vibe Coding?",
+      options: [
+        { label: "Å skrive all kode for hånd", feedback: "Nei, Vibe Coding handler om å bruke KI til å skrive kode." },
+        { label: "Å alltid verifisere koden KI-en genererer   den kan ta feil", feedback: "Riktig! KI hallusinerer og tar feil oftere enn du tror. Du må alltid sjekke." },
+        { label: "Å gjøre alt i én stor prompt", feedback: "Nei, Vibe Coding handler om å iterere i små steg." },
+      ],
+    },
+    {
+      question: "Hva er en 'hallusinasjon' i en KI-assistent?",
+      options: [
+        { label: "At KI-en drømmer seg bort", feedback: "Nesten! I overført betydning: KI-en finner på ting som ikke finnes." },
+        { label: "At KI-en later som den vet noe den ikke vet, og finner på funksjoner eller biblioteker", feedback: "Riktig! KI-er er trent på å være overbevisende, ikke på å være korrekte." },
+        { label: "At KI-en nekter å svare", feedback: "Nei, det kalles å avvise et spørsmål, ikke hallusinere." },
+      ],
+    },
+  ]}
+/>

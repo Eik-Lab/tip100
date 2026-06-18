@@ -1,0 +1,151 @@
+---
+title: Etikk og ansvarlig bruk
+---
+
+import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+
+Vibe Coding gir deg superkrefter. Du kan bygge nettsider og verktoy på minutter som tidligere tok uker. Men med stor makt folger stort ansvar. Denne siden handler om etikk, AI-deklarasjon og når du bor la vere a bruke KI.
+
+## AI deklarasjon: Hva, hvorfor og hvordan
+
+En AI-deklarasjon er en erklaring der du oppgir at du har brukt KI til a generere kode, og hvilke verktoy og prompts du har brukt.
+
+### Hvorfor er det viktig?
+
+1. **Åpenhet:** Leserne av koden din fortjener a vite om den er skrevet av et menneske eller en maskin
+2. **Akademisk integritet:** TIP100 og universitetet krever at du oppgir KI-bruk
+3. **Profesjonalitet:** I arbeidslivet vil kollegaene dine vite hva som er KI-generert
+4. **Kvalitetssikring:** Noen deler av koden bor gjennomgas ekstra noye hvis de er KI-generert
+
+### Hvordan skrive en AI-deklarasjon
+
+For TIP100-innleveringen din, legg til en seksjon som dette i dokumentasjonen:
+
+> **AI-deklarasjon**
+> 
+> Denne nettsiden er laget med assistanse fra OpenCode (versjon X.X).
+> 
+> Folgende prompts ble brukt:
+> - "Lag en HTML-side for et produkt med..."
+> - "Endre fargepaletten til..."
+> - "Legg til et kontaktskjema med validering"
+> 
+> All KI-generert kode er gjennomgatt og testet for funksjonalitet og sikkerhet.
+> Jeg forstår hvordan hoveddelene av koden fungerer.
+
+Du trenger ikke liste alle prompts, men de viktigste.
+
+## Opphavsrett og intellektuell eiendom
+
+Hvem eier koden som KI-en genererer? Dette er et juridisk omrade som fortsatt er uavklart, men her er hovedreglene:
+
+### Det du bor vite
+
+| Situasjon | Hvem eier koden? |
+|---|---|
+| Du promptet KI-en og den genererte koden | Sannsynligvis du, men det er omdiskutert |
+| Du limte inn andres kode i prompten | Den opprinnelige forfatteren kan ha krav |
+| KI-en reproduserte noe den har sett i treningdata | Juridisk grasonen |
+| Du jobber for et selskap | Selskapet eier koden (sjekk kontrakten) |
+
+### Praktiske rad
+
+- **Ikke lim inn andres kode i prompts** uten tillatelse. Hvis du kopierer kode fra nettet og ber KI-en endre den, kan du krenke opphavsretten.
+- **Dokumenter kildene dine.** Hvis KI-en har brukt et eksempel fra et bestemt sted, noter det.
+- **Var forsiktig med Codex og opplering.** Husk at promptene dine kan bli brukt til a trene fremtidige KI-modeller. Ikke del sensitiv informasjon.
+
+## Skjevheter i KI-modeller
+
+KI-modeller er trent på data fra internett, og internett inneholder skjevheter. Dette kan pavirke koden KI-en genererer på flere mater:
+
+### Eksempler på skjevheter
+
+- **Design:** KI kan foreslå design som passer best for vestlige, mannlige brukere
+- **Sprak:** KI kan anta at brukerne snakker engelsk
+- **Tilgjengelighet:** KI glemmer ofte a lage kode som fungerer for blinde eller bevegelseshemmede brukere
+- **Kulturelle antakelser:** KI kan anta at alle har samme type internettforbindelse, enhet eller kulturell bakgrunn
+
+### Hva du kan gjøre
+
+Spor KI-en:
+
+> *"Gjør nettsiden min tilgjengelig for blinde brukere. Legg til alt-tekst på bilder og sorg for at skjermlesere kan navigere den."*
+
+> *"Sjekk at nettsiden min fungerer for brukere som bare bruker tastaturet (uten mus)."*
+
+## Miljopavirkning
+
+KI-bruk har en miljokostnad. Et enkelt KI-sporsmal bruker omtrent 10 ganger mer energi enn et vanlig nettsok. Når du ber KI-en regenerere svar gang etter gang, bruker du betydelig med strom.
+
+**Slik kan du være mer miljobevisst:**
+- Tenk gjennom prompten for du skriver den, slik at du trenger farre forsok
+- Ikke trykk "generer på nytt" 20 ganger for a få en liten fargeendring
+- Når du er fornoyd, stopp. Du trenger ikke perfeksjon.
+
+## Profesjonelt ansvar
+
+Som utvikler har du et ansvar for koden du publiserer, enten du har skrevet den selv eller KI har generert den.
+
+### Når du IKKE bor bruke KI
+
+| Situasjon | Hvorfor |
+|---|---|
+| Kode som behandler pasientinformasjon | Helsepersonelloven stiller krav til programvare |
+| Kode som handterer betalinger | Finansielle transaksjoner krever sertifisering |
+| Kode som styrer fysiske maskiner | Sikkerhetskritiske systemer ma verifiseres noye |
+| Innloggingssystemer med brukerdata | Personopplysninger krever sikker handtering |
+| Kode som skal brukes i eksamen | Sjekk institusjonens retningslinjer for KI-bruk |
+
+### Huskeregelen
+
+KI er et verktoy for a oke produktiviteten din, ikke en erstatning for din dommekraft. Du er ansvarlig for alt som går galt, selv om KI-en skrev koden.
+
+## Fremtiden for koding med KI
+
+KI-assistenter blir stadig bedre. Om to ar vil dagens verktoy virke primitive. Men noen ting vil ikke forandre seg:
+
+- **Forståelse av grunnleggende konsepter** vil alltid være verdifullt
+- **Kritisk tenkning** blir viktigere, ikke mindre viktig
+- **Evnen til a stille gode sporsmal** blir en av de viktigste ferdighetene
+- **Menneskelig dommekraft** kan ikke erstattes av maskiner
+
+De beste utviklerne i fremtiden vil være de som forstår bade kode OG KI. Dette kurset gir deg et godt grunnlag for begge deler.
+
+---
+
+## Avsluttende tanker
+
+Du har nå gjennomgart hele Vibe Coding kurset. Du har lært a:
+- Installere og bruke OpenCode
+- Skrive effektive prompts
+- Forstå HTML, CSS og JavaScript grunnleggende
+- Bygge et komplett prosjekt
+- Feilsøke med KI
+- Publisere nettsiden din
+- Gjenkjenne sikkerhetsrisikoer
+- Bruke KI på en ansvarlig mate
+
+Du vet nå nok til a bruke KI som et kraftig verktoy, men ogsa til a gjenkjenne når den forer deg på villspor. Bruk det klokt.
+
+<Quiz
+  chapter={3}
+  questions={[
+    {
+      question: "Hvorfor bor du skrive en AI-deklarasjon for prosjektet ditt?",
+      options: [
+        { label: "Fordi det er ulovlig a bruke KI uten a deklarere det", feedback: "Ikke nodvendigvis ulovlig, men det er god praksis og ofte et krav i akademia." },
+        { label: "Fordi det viser åpenhet om hvordan koden er laget, og er et krav i TIP100", feedback: "Riktig! Åpenhet om KI-bruk er viktig for akademisk integritet og profesjonalitet." },
+        { label: "Fordi KI-en krever det", feedback: "KI-en krever ingenting. Det er et menneskelig etisk valg." },
+      ],
+    },
+    {
+      question: "Hvem er ansvarlig hvis KI-generert kode inneholder en feil som forarsaker problemer?",
+      options: [
+        { label: "Utvikleren av KI-verktoyet", feedback: "Nei, ansvaret ligger hos den som publiserer koden." },
+        { label: "Du som publiserer koden", feedback: "Riktig! Du er ansvarlig for alt du publiserer, enten du skrev det selv eller KI gjorde det." },
+        { label: "Ingen, det er et uhell", feedback: "Nei, som utvikler har du ansvar for a kvalitetssikre koden din." },
+      ],
+    },
+  ]}
+/>

@@ -1,0 +1,176 @@
+---
+title: Bygg et prosjekt steg for steg
+---
+
+import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
+
+Nå har du alle verktøyene du trenger. I denne modulen skal du bygge et komplett prosjekt   en landingsside for produktidéen din   fra start til slutt. Du skal ikke gjøre alt i én prompt. Du skal bygge stein for stein, akkurat som en ekte utvikler.
+
+## Arbeidsflyten
+
+<Steps>
+1. **Planlegg**   skisser på papir før du skriver en eneste prompt
+2. **Skjelett**   én prompt for HTML-strukturen
+3. **Design**   iterer på CSS i runder
+4. **Funksjonalitet**   legg til JavaScript der det trengs
+5. **Puss og poler**   test, forbedre, gjenta
+6. **Publiser**   last opp så verden kan se den
+</Steps>
+
+## Fase 1: Planlegg på papir
+
+Før du åpner OpenCode, ta et ark og tegn opp nettsiden din. Hvilke seksjoner skal den ha?
+
+En typisk produkt-landingsside har:
+
+```
+┌──────────────────────────┐
+│  NAVIGASJON              │
+│  Logo  |  Link  |  Link  │
+├──────────────────────────┤
+│  HERO (Stor overskrift)  │
+│  "Produktnavn"           │
+│  Kjøp-knapp              │
+├──────────────────────────┤
+│  FORDELER                │
+│  [Ikon] [Ikon] [Ikon]    │
+│  Rask  Billig  Enkel     │
+├──────────────────────────┤
+│  OM PRODUKTET            │
+│  Tekst og bilde          │
+├──────────────────────────┤
+│  TESTIMONIALS            │
+│  Sitater fra brukere     │
+├──────────────────────────┤
+│  KONTAKT                 │
+│  Skjema med epost        │
+├──────────────────────────┤
+│  FOOTER                  │
+│  Linker og copyright     │
+└──────────────────────────┘
+```
+
+Ikke overtenk dette. En enkel side med 4-5 seksjoner er perfekt.
+
+## Fase 2: Skjelettet   én prompt
+
+Start med én prompt som lager hele HTML-strukturen:
+
+> *Du er en erfaren frontend-utvikler. Lag en komplett HTML-side for en produkt-landingsside. Produktet heter [navn] og løser [problem]. Siden skal ha: en navigasjonsmeny, en hero-seksjon med overskrift og knapp, en fordeler-seksjon med tre punkter, en om-seksjon, en testimonials-seksjon, et kontaktskjema og en footer. Bruk semantisk HTML5. Skriv all kode i index.html. Ikke legg til CSS eller JavaScript ennå, kun HTML.*
+
+Aksepter resultatet. Åpne i nettleseren. Du vil se en kjempestor side uten farger. Det er helt normalt. Strukturen er på plass.
+
+## Fase 3: Design   iterer i runder
+
+Nå skal du style siden. Gjør dette i runder, ikke alt på en gang.
+
+### Runde 1: Grunnleggende stil
+
+> *Du er en CSS-utvikler. Lag en style.css-fil og link den til index.html. Gi siden et rent, moderne design. Bruk en lys bakgrunn (#f8f9fa), mørk tekst (#333), og en aksentfarge i blå (#2563eb). Sett en pen font (systemfont) og god linjeavstand.*
+
+### Runde 2: Navigasjon og hero
+
+> *Gjør navigasjonen til en horisontal meny med hvit bakgrunn og skygge. Hero-seksjonen skal ha en gradientbakgrunn, hvit tekst og en sentrert layout. Gjør kjøp-knappen stor og blå med runde hjørner.*
+
+### Runde 3: Fordeler og layout
+
+> *Fordeler-seksjonen skal vises som tre kort i et rutenett (3 kolonner på store skjermer, 1 på mobil). Kortene skal ha hvit bakgrunn, skygge, padding og sentrert tekst. Legg til et ikon (emoji) over hver fordel.*
+
+### Runde 4: Mobilvennlig
+
+> *Gjør hele siden mobilvennlig. Bruk media queries slik at alt ser bra ut på mobiltelefoner. Navigasjonen skal bli en hamburgermeny på små skjermer.*
+
+### Runde 5: Finpuss
+
+> *Legg til en subtil animasjon: kortene skal gli inn når man scroller til dem. Footer skal være mørk med hvit tekst. Testimonials skal ha anførselstegn og kursiv tekst.*
+
+Merk hvordan hver runde bygger på den forrige. Totalt 5 prompt-runder for design. Det er normalt.
+
+## Fase 4: Funksjonalitet
+
+Når designet er på plass, kan du legge til interaktivitet:
+
+> *Du er en JavaScript-utvikler. Legg til en script.js-fil og link den til index.html. Legg til en "Til toppen"-knapp som vises når brukeren scroller nedover. Kontaktskjemaet skal vise en bekreftelsesmelding når man trykker "Send".*
+
+## Fase 5: Puss og poler
+
+Gå gjennom hele siden i nettleseren. Se etter:
+
+- [ ] Ødelagte bilder (mangler fil)
+- [ ] Linker som ikke fungerer
+- [ ] Tekst som flyter utenfor bokser
+- [ ] Rare mellomrom eller overlapp
+- [ ] Dårlig mobilvisning
+- [ ] JavaScript-feil (sjekk konsollen: høyreklikk → Inspiser → Console)
+
+For hvert problem du finner, skriv en prompt til OpenCode og fiks det.
+
+## Case study: "Kaffelykke"   En fullstendig byggeprosess
+
+Her er et eksempel på hvordan en student bygde en side for et fiktivt produkt kalt **Kaffelykke   et abonnement på spesialkaffe**.
+
+### Prompt 1: Skjelett
+> *Du er en frontend-utvikler. Lag HTML for en landingsside for "Kaffelykke", et månedlig kaffeabonnement. Seksjoner: navigasjon, hero (overskrift + CTA), tre abonnementsnivåer, om oss, kundesitater, kontaktskjema, footer.*
+
+### Prompt 2: Grunnstil
+> *Lag style.css. Moderne design, varm fargepalett (brun #4a2c2a, krem #fdf6f0, aksent #d4a574). Systemfont.*
+
+### Prompt 3: Hero
+> *Hero med stort bakgrunnsbilde (unsplash), hvit tekst, sentrert. CTA-knapp i aksentfarge.*
+
+### Prompt 4: Abonnementskort
+> *Tre kort i flex-row. Hvitt bakgrunn, skygge, border-radius. Første og siste litt mindre, midterste (anbefalt) litt større med merket "Mest populær".*
+
+### Prompt 5: Mobil
+> *Gjør responsiv. 1 kolonne på mobil. Hamburger-meny.*
+
+### Prompt 6: JavaScript
+> *Legg til JS: hamburgertoggle, til-toppen-knapp, skjemabekreftelse.*
+
+### Prompt 7: Polering
+> *Legg til scrolleffekter: fade-in når seksjoner kommer til syne.*
+
+Totalt: 7 prompts. Ikke 1. Merk rekkefølgen: struktur → design → layout → responsiv → funksjonalitet → effekter.
+
+## Fallgruver i prosjektarbeid
+
+### Fallgruve: Scope creep
+
+Du begynner med å lage en enkel side. Plutselig ber du om en handlekurv, et nyhetsbrev, et chat-vindu og en interaktiv tidslinje. Før du vet ordet av det, er siden ødelagt.
+
+**Løsning:** Sett en grense. "Siden skal ha maks 6 seksjoner." Legg til funksjoner kun når basen fungerer perfekt.
+
+### Fallgruve: Én gigantisk prompt
+
+Noen skriver *"Lag en komplett nettside for produktet mitt med HTML, CSS og JS, med animasjoner, responsivt design, kontaktskjema, lysbildefremviser, mørk-modus, nedtellingstidtaker og et nyhetsbrev"* i én prompt.
+
+Resultatet blir rotete kode som er umulig å vedlikeholde.
+
+**Løsning:** Én funksjon per prompt. Bygg stein for stein.
+
+### Fallgruve: Aldri lagre underveis
+
+Du har gjort 15 endringer. Plutselig ødelegger en prompt alt. Du kan ikke angre 15 ganger.
+
+**Løsning:** Lagre kopier av prosjektet ditt med jevne mellomrom. Høyreklikk på mappen i VS Code → "Dupliser". Eller bruk GitHub (se egen side om GitHub).
+
+### Fallgruve: Refaktorering i det uendelige
+
+Du bruker 2 timer på å flytte rundt på kode som allerede fungerer, bare fordi KI-en foreslo en "bedre struktur".
+
+**Løsning:** Hvis det fungerer og ser bra ut   la det være. "Hvis det ikke er ødelagt, ikke fiks det."
+
+### Fallgruve: Tro at alt må være perfekt
+
+Nettsiden din trenger ikke å være vakker. Den trenger å fungere, formidle budskapet og være din egen. En enkel, fungerende side er bedre enn en halvferdig, avansert side.
+
+## Oppgave: Bygg din landingsside
+
+Start nå. Følg arbeidsflyten over. Ikke gå videre til neste side før du har en fungerende nettside.
+
+Husk:
+- Planlegg på papir først
+- Én prompt om gangen
+- Test i nettleseren etter hver endring
+- Ikke vær redd for å feile: det er en del av prosessen
+- 5-10 prompts er normalt for en komplett side

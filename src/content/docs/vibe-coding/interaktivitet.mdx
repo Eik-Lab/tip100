@@ -1,0 +1,145 @@
+---
+title: Gjør nettsiden interaktiv
+---
+
+import { Steps } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+
+Nå har du en nettside med struktur og design. Men den gjør ingenting   den er statisk. For å få nettsiden til å *reagere* på brukeren, trenger du JavaScript.
+
+JavaScript er det mest komplekse språket av de tre, og det er her KI-en oftest gjør feil. Det er helt greit   du trenger ikke å kunne JavaScript. Du trenger bare å vite nok til å se om svaret KI-en gir er fornuftig.
+
+## Hva er JavaScript?
+
+JavaScript er programmeringsspråket som kjører i nettleseren. Det kan:
+
+- Reagere på klikk, tastetrykk og musebevegelser
+- Endre innhold på siden uten å laste den på nytt
+- Sende og motta data fra servere
+- Validere skjemaer før de sendes
+- Lage animasjoner og overganger
+
+## Enkle interaksjoner
+
+Den enkleste formen for interaktivitet er en knapp som gjør noe når du klikker.
+
+### Eksempel: Klikk på en knapp
+
+Lag en knapp i HTML:
+```html
+<button id="minKnapp">Klikk meg!</button>
+```
+
+Legg til JavaScript som reagerer på klikk:
+```javascript
+document.getElementById("minKnapp").addEventListener("click", function() {
+  alert("Hei! Du klikket på knappen!");
+});
+```
+
+Du trenger ikke skrive dette manuelt. Be OpenCode:
+
+> *"Du er en JavaScript-utvikler. Legg til en knapp på nettsiden min som viser en melding når du klikker på den."*
+
+### Eksempel: Bytt tema (mørk/lys modus)
+
+> *"Du er en JavaScript-utvikler. Legg til en knapp som bytter mellom mørk og lys modus på nettsiden min. Husk å style begge modiene."*
+
+Dette er en av de mest populære funksjonene å be KI-en om, og den gir en umiddelbar "wow"-effekt.
+
+## Skjemaer og brukerinput
+
+Skjemaer lar brukeren sende informasjon til deg.
+
+> *"Du er en webutvikler. Legg til et kontaktskjema på nettsiden min med felter for navn, e-post og melding. Skjemaet skal se pent ut og ha en send-knapp."*
+
+:::caution
+JavaScript alene kan ikke sende e-post eller lagre data i en database. For å håndtere skjemainnsending trenger du en server. For TIP100-prosjektet er det nok å vise en bekreftelsesmelding når brukeren trykker "Send".
+:::
+
+## Slik jobber du med JavaScript i OpenCode
+
+JavaScript er vanskeligst for KI-en. Derfor er fremgangsmåten ekstra viktig:
+
+<Steps>
+1. **Beskriv nøyaktig hva du vil at skal skje**
+   > *"Når brukeren klikker på 'Legg til i handlekurv'-knappen, skal teksten endres til 'Lagt til!' og fargen skal bli grønn."*
+2. **Test i nettleseren**
+3. **Hvis det ikke fungerer, lim inn feilmeldingen** og spør OpenCode om hjelp
+4. **Hvis 3 forsøk ikke fungerer, start med en enklere versjon**
+</Steps>
+
+## Vanlige ting å be om
+
+Her er noen JavaScript-funksjoner studenter ofte ber OpenCode om:
+
+| Funksjon | Prompt |
+|---|---|
+| Nedtellingstidtaker | *"Legg til en nedtelings-timer som viser dager, timer, minutter og sekunder til en gitt dato."* |
+| Lys/mørk-modus | *"Legg til en bryter som bytter mellom lys og mørk modus. Husk å lagre valget."* |
+| Lysbildefremviser | *"Lag en bildegalleri-fremviser med forrige/neste-knapper og prikk-indikatorer."* |
+| "Les mer"-knapp | *"Lag en 'Les mer'-knapp som utvider og skjuler lang tekst."* |
+| Til toppen-knapp | *"Legg til en 'Til toppen'-knapp som vises når brukeren scroller nedover."* |
+
+## Fallgruver i JavaScript
+
+### Fallgruve: KI-en hallusinerer JavaScript
+JavaScript er der KI-en oftest finner på ting som ikke finnes. Den kan finne opp funksjoner som `scrollToSmooth()` (fins ikke) eller bruke utdaterte API-er.
+
+**Slik unngår du:** Test alltid i nettleseren. Hvis det ikke fungerer, spør: *"Finnes funksjonen [navn] i moderne JavaScript?"*
+
+### Fallgruve: JavaScript som bremser siden
+Dårlig skrevet JavaScript kan gjøre siden treg. Hvis siden blir treg etter at du la til JavaScript, spør: *"Kan du optimalisere JavaScript-en så siden ikke blir treg?"*
+
+### Fallgruve: Sikkerhetshull
+KI-en kan generere JavaScript som er usikkert   for eksempel som viser brukerinput direkte på siden uten å rense den. Dette kalles XSS (Cross-Site Scripting). Vi går i dybden på sikkerhet i en senere modul, men vær oppmerksom allerede nå.
+
+**Slik unngår du:** Hvis JavaScript-en din håndterer tekst fra brukeren og viser den på siden, spør: *"Er denne koden sikker mot XSS-angrep?"*
+
+### Fallgruve: Én stor JavaScript-fil
+KI-en har en tendens til å legge all JavaScript i én stor fil eller til og med inline i HTML-en. Be heller om en egen `script.js`-fil: *"Legg JavaScript i en egen script.js-fil."*
+
+## Oppgave: Gjør siden din levende
+
+1. Be OpenCode om å legge til en enkel interaksjon på nettsiden din
+2. Test i nettleseren
+3. Legg til en til   og en til
+4. Eksperimenter!
+
+Forslag til prompt-rekkefølge:
+> *"Legg til en 'Til toppen'-knapp som vises når jeg scroller nedover."*
+
+> *"Legg til en bildefremviser med forrige/neste-knapper for produktbildene."*
+
+> *"Legg til en nedtellings-timer til [en relevant dato]."*
+
+---
+
+## Sjekkliste før du går videre
+
+- [ ] Jeg har lagt til minst én JavaScript-funksjon på nettsiden
+- [ ] Jeg har testet at den fungerer i nettleseren
+- [ ] Jeg vet at JavaScript er der KI-en oftest tar feil
+- [ ] Jeg vet hvordan jeg feilsøker hvis JavaScript ikke virker
+
+<Quiz
+  chapter={3}
+  questions={[
+    {
+      question: "Hvor gjør KI-en oftest feil?",
+      options: [
+        { label: "I HTML-strukturen", feedback: "HTML er relativt enkelt, så KI-en gjør sjelden store feil her." },
+        { label: "I JavaScript   det er her KI-en oftest hallusinerer", feedback: "Riktig! JavaScript er komplekst, og KI-en finner ofte på funksjoner eller API-er som ikke finnes." },
+        { label: "I CSS   farger blir alltid feil", feedback: "CSS er ganske forutsigbart for KI-en." },
+      ],
+    },
+    {
+      question: "Hva bør du gjøre hvis JavaScript-en ikke fungerer etter 3 forsøk?",
+      options: [
+        { label: "Fortsette å spørre den samme prompten 20 ganger", feedback: "Hvis det ikke fungerer etter 3 forsøk, prøv en annen tilnærming." },
+        { label: "Starte med en enklere versjon eller be om en helt annen løsning", feedback: "Riktig! Noen ganger må du forenkle eller be om en alternativ tilnærming." },
+        { label: "Gi opp og slett alt", feedback: "Ikke gi opp! Prøv en enklere versjon først." },
+      ],
+    },
+  ]}
+/>

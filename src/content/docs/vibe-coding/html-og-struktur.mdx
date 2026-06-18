@@ -1,0 +1,189 @@
+---
+title: Forstå HTML-koden
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+
+KI-en skriver HTML for deg, men du må forstå nok til å lese koden, vite hva den gjør, og oppdage feil. Denne siden gir deg den grunnleggende forståelsen du trenger.
+
+## Hva er en HTML-tagg?
+
+En HTML-tagg er en markør som forteller nettleseren hva slags innhold noe er. Taggen har et navn og står i vinkelparenteser:
+
+```html
+<h1>Dette er en overskrift</h1>
+```
+
+Her er `<h1>` start-taggen, `Dette er en overskrift` er innholdet, og `</h1>` er slutt-taggen (merk skråstreken).
+
+De fleste HTML-elementer har både start- og slutt-tagg. Noen få har bare én tagg:
+
+```html
+<img src="bilde.jpg" alt="Beskrivelse">
+<br> <!-- linjeskift -->
+```
+
+## Skjelettet til en HTML-side
+
+Hver HTML-side har samme grunnstruktur:
+
+```html
+<!DOCTYPE html>
+<html lang="nb">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min nettside</title>
+  </head>
+  <body>
+    <h1>Velkommen!</h1>
+    <p>Dette er min nettside.</p>
+  </body>
+</html>
+```
+
+| Del | Hva den gjør |
+|---|---|
+| `<!DOCTYPE html>` | Forteller nettleseren at dette er en HTML5-side |
+| `<html>` | Rot-elementet   alt annet ligger inni her |
+| `<head>` | Metadata: tittel, språk, innstillinger (usynlig for brukeren) |
+| `<title>` | Teksten som vises i nettleserfanen |
+| `<body>` | Alt brukeren ser på siden |
+| `lang="nb"` | Forteller at siden er på norsk |
+
+## De vanligste HTML-elementene
+
+Her er elementene du kommer til å bruke mest:
+
+### Overskrifter
+
+```html
+<h1>Viktigste overskrift (bruk bare én per side)</h1>
+<h2>Underoverskrift</h2>
+<h3>Neste nivå</h3>
+<h4>Neste nivå</h4>
+<h5>Neste nivå</h5>
+<h6>Minste overskrift</h6>
+```
+
+`<h1>` er den viktigste og største. `<h6>` er den minste. Bruk dem i rekkefølge   ikke hopp fra `<h1>` til `<h4>`.
+
+### Tekst og avsnitt
+
+```html
+<p>Dette er et avsnitt med tekst.</p>
+<strong>Viktig tekst (fet)</strong>
+<em>Uthevet tekst (kursiv)</em>
+```
+
+### Lister
+
+```html
+<ul>
+  <li>Første punkt</li>
+  <li>Andre punkt</li>
+</ul>
+
+<ol>
+  <li>Første steg</li>
+  <li>Andre steg</li>
+</ol>
+```
+
+`<ul>` = unummerert liste (punktliste). `<ol>` = nummerert liste.
+
+### Bilder og linker
+
+```html
+<img src="bilder/produkt.jpg" alt="Bilde av produktet">
+<a href="https://example.com">Besøk nettsiden</a>
+```
+
+`src` sier hvor bildet ligger. `alt` er tekst som vises hvis bildet ikke lastes (viktig for tilgjengelighet).
+
+`href` sier hvor linken går. Teksten mellom `<a>` og `</a>` er det brukeren klikker på.
+
+### Seksjoner og beholdere
+
+```html
+<div>Generell beholder (brukes til layout)</div>
+<section>En tematisk seksjon</section>
+<header>Topptekst på siden eller en seksjon</header>
+<footer>Bunntekst</footer>
+<nav>Navigasjonsmeny</nav>
+<main>Hovedinnholdet på siden</main>
+```
+
+`<div>` er den mest generelle beholderen. De andre har semantisk betydning   de forteller hva innholdet *er*, noe som hjelper både nettlesere og søkemotorer.
+
+## Attributter
+
+Attributter gir ekstra informasjon om et element:
+
+```html
+<img src="bilde.jpg" alt="Beskrivelse" width="500" class="produktbilde">
+<a href="side2.html" target="_blank" id="min-link">Åpne i ny fane</a>
+```
+
+`class` brukes til CSS-styling (samme klasse kan brukes på flere elementer).
+`id` brukes til unik identifikasjon (kun ett element per id).
+`target="_blank"` åpner linken i en ny fane.
+
+## Hekking: tagger inni tagger
+
+HTML-elementer kan ligge inni hverandre. Dette kalles **hekking**:
+
+```html
+<div>
+  <h1>Overskrift</h1>
+  <p>Et avsnitt med et <a href="...">en link</a> inni.</p>
+</div>
+```
+
+Regelen er: den innerste taggen må lukkes før den ytterste.
+
+ Riktig: `<div><p>Tekst</p></div>`
+ Galt: `<div><p>Tekst</div></p>`
+
+## Hvordan lese KI-generert HTML
+
+Når OpenCode genererer HTML, gjør den ofte disse feilene:
+
+| Problem | Hva du kan gjøre |
+|---|---|
+| Altfor mye hekking (div-inni-div-inni-div) | Be OpenCode: *"Forenkle strukturen   fjern unødvendige div-er"* |
+| Bruker utdaterte tagger som `<center>` eller `<font>` | Be OpenCode: *"Bruk moderne HTML5, ikke utdaterte tagger"* |
+| Glemmer `alt`-tekst på bilder | Be OpenCode: *"Legg til beskrivende alt-tekst på alle bilder"* |
+| Lager veldig lange sider i én fil | Be OpenCode: *"Del opp i flere seksjoner med semantiske HTML-tagger"* |
+
+## Oppgave: Utforsk koden
+
+1. Åpne `index.html` i VS Code
+2. Spør OpenCode: *"Forklar hva hver HTML-tagg på siden min gjør"*
+3. Spør OpenCode: *"Er det noen forbedringer du ville gjort i HTML-strukturen?"*
+4. Spør OpenCode: *"Legg til en navigasjonsmeny med tre linker øverst på siden"*
+
+Etter hver prompt: les koden, prøv å se hva som er nytt. Jo mer du leser, jo mer forstår du.
+
+<Quiz
+  chapter={3}
+  questions={[
+    {
+      question: "Hva er forskjellen på `<h1>` og `<h2>`?",
+      options: [
+        { label: "`<h1>` er større og viktigere enn `<h2>`", feedback: "Riktig! `<h1>` er den viktigste overskriften og bør brukes bare én gang." },
+        { label: "`<h1>` er for tekst og `<h2>` er for bilder", feedback: "Nei, begge er overskrifter." },
+        { label: "Det er ingen forskjell", feedback: "Jo, `<h1>` er viktigere og større enn `<h2>`." },
+      ],
+    },
+    {
+      question: "Hva gjør `alt`-attributtet på et `<img>`-element?",
+      options: [
+        { label: "Gjør bildet større", feedback: "Nei, `width` og `height` styrer størrelsen." },
+        { label: "Gir en tekstbeskrivelse som vises hvis bildet ikke lastes", feedback: "Riktig! `alt`-tekst er også viktig for blinde brukere og søkemotorer." },
+        { label: "Legger til en ramme rundt bildet", feedback: "Nei, det gjør CSS." },
+      ],
+    },
+  ]}
+/>

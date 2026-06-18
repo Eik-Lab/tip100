@@ -1,0 +1,144 @@
+---
+title: Slik fungerer nettsider
+---
+
+import { Steps } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+
+Før du begynner å vibe-code er det viktig å forstå det grunnleggende: Hva er egentlig en nettside? Hva skjer når du åpner en i nettleseren? Og hva er HTML, CSS og JavaScript?
+
+Uten denne grunnforståelsen vil feilmeldinger være helt uforståelige, og du vil være prisgitt KI-en for alt.
+
+## En nettside er bare filer
+
+En nettside er i bunn og grunn en samling filer på en datamaskin. Når du besøker en nettside, skjer dette:
+
+<Steps>
+1. **Du skriver en adresse** (f.eks. `tip100.no`) i nettleseren
+2. **Nettleseren sender en forespørsel** til en server (en datamaskin som står på hele tiden)
+3. **Serveren sender tilbake filene** som utgjør nettsiden
+4. **Nettleseren leser filene** og tegner opp siden på skjermen din
+</Steps>
+
+Hvis du åpner en HTML-fil lokalt på din egen datamaskin (dobbeltklikker på den), hopper du over server-steget   nettleseren leser filen direkte fra harddisken din. Det er helt fint for testing og utvikling.
+
+## De tre språkene på nettet
+
+En nettside er bygget av tre forskjellige språk som jobber sammen:
+
+### HTML   Strukturen (skjelettet)
+
+HTML (HyperText Markup Language) definerer hva som skal være på siden: overskrifter, avsnitt, bilder, linker og knapper. Det er strukturen alt annet bygger på.
+
+```html
+<h1>Velkommen til min nettside</h1>
+<p>Dette er et avsnitt om produktet mitt.</p>
+<img src="produktbilde.jpg" alt="Bilde av produktet">
+```
+
+HTML består av **tagger** (elementer) som forteller nettleseren hva innholdet betyr. `<h1>` betyr "dette er en viktig overskrift", `<p>` betyr "dette er et avsnitt", `<img>` betyr "dette er et bilde".
+
+### CSS   Designet (klærne)
+
+CSS (Cascading Style Sheets) bestemmer hvordan ting ser ut: farger, fonter, størrelser, avstander og plassering på siden.
+
+```css
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  color: #333;
+  font-size: 2rem;
+}
+```
+
+CSS velger ut HTML-elementer (f.eks. `h1`) og sier hvordan de skal styles.
+
+### JavaScript   Oppførselen (musklene)
+
+JavaScript er programmeringsspråket som gjør nettsiden levende: knapper som reagerer på klikk, skjemaer som validerer, innhold som oppdateres uten å laste siden på nytt.
+
+```javascript
+document.querySelector("button").addEventListener("click", function() {
+  alert("Hei, du klikket på meg!");
+});
+```
+
+JavaScript er det mest komplekse av de tre, og det er her KI-en oftest gjør feil.
+
+## Hvordan de tre språkene jobber sammen
+
+Tenk på en nettside som et menneske:
+
+| Språk | Analogi | Rolle |
+|---|---|---|
+| HTML | Skjelettet | Bestemmer hva som finnes og hvor ting er plassert |
+| CSS | Klær og sminke | Bestemmer farger, fasong og stil |
+| JavaScript | Muskler og nerver | Bestemmer bevegelse og reaksjon på input |
+
+Uten HTML har du ingenting. Uten CSS ser alt likt ut. Uten JavaScript er siden statisk.
+
+## Filer og mapper
+
+En typisk nettside har denne strukturen:
+
+```
+mitt-prosjekt/
+├── index.html        # Hovedsiden (alltid index.html)
+├── style.css         #CSS-styling (kan hete hva som helst)
+├── script.js         # JavaScript (kan hete hva som helst)
+└── bilder/
+    ├── logo.png
+    └── produkt.jpg
+```
+
+HTML-filen `index.html` er inngangsporten. CSS og JavaScript lenkes til fra HTML-filen slik:
+
+```html
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+```
+
+`href` og `src` er **stier** som forteller nettleseren hvor filene ligger. Hvis filene ligger i en mappe, må stien inkludere mappenavnet: `bilder/logo.png`.
+
+## Hvorfor dette er viktig for Vibe Coding
+
+Når du vibecoder og KI-en genererer kode for deg, vil du se HTML, CSS og JavaScript. Hvis du ikke vet forskjellen på dem, vil du:
+
+- **Ikke forstå feilmeldinger**: "Uventet token i CSS" sier deg ingenting
+- **Ikke kunne styre KI-en presist**: du må vite om du ber om struktur eller utseende
+- **Ikke kunne enkle feilrette**: noen ganger er feilen så enkel at du kan fikse den selv
+
+KI-en kan generere koden, men du må forstå nok til å kvalitetssikre den.
+
+---
+
+## Sjekkliste før du går videre
+
+- [ ] Jeg vet at en nettside er filer på en datamaskin
+- [ ] Jeg vet forskjellen på HTML (struktur), CSS (design) og JavaScript (oppførsel)
+- [ ] Jeg vet hva en filsti er og hvordan filer organiseres i mapper
+
+<Quiz
+  chapter={3}
+  questions={[
+    {
+      question: "Hva bestemmer HTML på en nettside?",
+      options: [
+        { label: "Hvordan nettsiden ser ut (farger og fonter)", feedback: "Det er CSS sin jobb." },
+        { label: "Hva som finnes på nettsiden (overskrifter, bilder, tekst)", feedback: "Riktig! HTML er strukturen og innholdet." },
+        { label: "Hvordan nettsiden reagerer på klikk", feedback: "Det er JavaScript sin jobb." },
+      ],
+    },
+    {
+      question: "Hva gjør du når du åpner en HTML-fil lokalt på datamaskinen din?",
+      options: [
+        { label: "Nettleseren leser filen direkte fra harddisken", feedback: "Riktig! Det er derfor du kan teste nettsider uten å laste dem opp til en server." },
+        { label: "Ingenting   du må laste opp filen til en server først", feedback: "Nei, du kan åpne HTML-filer lokalt for å teste dem." },
+        { label: "Filen blir automatisk lastet opp til internett", feedback: "Nei, den forblir på din maskin." },
+      ],
+    },
+  ]}
+/>

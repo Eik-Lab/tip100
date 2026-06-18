@@ -1,0 +1,141 @@
+---
+title: Installasjon og oppsett
+---
+
+import { Tabs, TabItem, Steps } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+
+For å komme i gang med Vibe Coding trenger du noen verktøy på datamaskinen din. Følg stegene under for operativsystemet ditt.
+
+:::tip[Dersom du har en Windows maskin]
+Husk å trykke på _'Windows (PowerShell)'_ under for å få riktige kommandoer.
+:::
+
+<Tabs>
+<TabItem value="nix" label="Linux/MacOS" icon="linux" default>
+
+<Steps>
+1. **Installer Homebrew**
+   [Homebrew](https://brew.sh/) er en pakkebehandler for Mac/Linux som gjør det enkelt å installere programmer.
+
+   ```sh
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+
+2. **Installer OpenCode**
+   [OpenCode](https://opencode.ai/) er din KI-assistent. Dette er hovedverktøyet du vil bruke for å vibe-code.
+
+   ```sh
+   brew install --cask opencode-desktop
+   ```
+
+3. **Installer VS Code**
+   [VS Code](https://code.visualstudio.com/) er kodeeditoren der du skriver og redigerer filene dine.
+
+   ```sh
+   brew install --cask visual-studio-code
+   ```
+
+4. **Installer Node.js**
+   [Node.js](https://nodejs.org/) trengs for å kjøre JavaScript og for mange utviklingsverktøy. Ikke bekymre deg om du ikke vet hva det er   du trenger det senere i kurset.
+
+   ```sh
+   brew install node
+   ```
+
+</Steps>
+
+</TabItem>
+
+<TabItem value="windoze" label="Windows (PowerShell)" icon="seti:windows">
+
+<Steps>
+1. **Installer WinGet**
+   [WinGet](https://learn.microsoft.com/en-us/windows/package-manager/winget/) er en pakkebehandler for Windows.
+
+   ```powershell
+   Install-Script -Name winget-install
+   ```
+
+2. **Installer OpenCode Desktop**
+   Besøk [OpenCode Download](https://opencode.ai/download) og last ned versjonen for Windows.
+
+3. **Installer VS Code**
+
+   ```cmd
+   winget install -e --id Microsoft.VisualStudioCode
+   ```
+
+4. **Installer Node.js**
+
+   ```cmd
+   winget install -e --id OpenJS.NodeJS
+   ```
+
+</Steps>
+
+</TabItem>
+</Tabs>
+
+## Verifiser at alt fungerer
+
+Etter installasjonen bør du sjekke at alt er riktig satt opp:
+
+### Sjekk VS Code
+Åpne VS Code. Du skal se et velkomstvindu. Prøv å opprette en ny fil: `Fil → Ny tekstfil` og lagre den som `index.html`.
+
+### Sjekk OpenCode
+Åpne OpenCode. Du skal se et chat-vindu. Hvis du ikke allerede har gjort det, logg inn eller opprett en konto. OpenCode trenger tilgang til VS Code   gi den tillatelse når den spør.
+
+### Sjekk Node.js
+Åpne Terminal (Mac/Linux) eller PowerShell (Windows) og skriv:
+
+```sh
+node --version
+```
+
+Du skal få tilbake noe som `v22.x.x`. Hvis du får en feilmelding, prøv å installere Node.js på nytt.
+
+## Første titt på OpenCode
+
+Når du åpner OpenCode ser du:
+
+- **En chat-panel til venstre**: her skriver du promptene dine
+- **En kodevisning til høyre**: her ser du hva KI-en genererer
+- **En "Aksepter" knapp**: trykk for å ta i bruk koden KI-en foreslår
+- **En diff-visning**: viser hva som endres i filene dine (grønt = nytt, rødt = fjernet)
+
+Du starter alltid med å åpne en mappe i VS Code. Deretter bruker du OpenCode-chatten til å beskrive hva du vil lage.
+
+## Opprett ditt første prosjekt
+
+1. Åpne VS Code
+2. Velg `Fil → Åpne mappe...` og opprett en ny mappe som heter `mitt-prosjekt`
+3. Åpne OpenCode (hvis den ikke starter automatisk)
+4. Skriv din første prompt:
+   > *"Lag en index.html-fil med en overskrift og et avsnitt"*
+5. Klikk "Aksepter" når KI-en foreslår koden
+6. Åpne `index.html` i nettleseren din for å se resultatet
+
+---
+
+## Sjekkliste før du går videre
+
+- [ ] VS Code er installert og åpner seg
+- [ ] OpenCode er installert, innlogget og kan snakke med VS Code
+- [ ] Node.js er installert (`node --version` gir et versjonsnummer)
+- [ ] Jeg har opprettet en prosjektmappe og en `index.html`-fil
+
+<Quiz
+  chapter={3}
+  questions={[
+    {
+      question: "Hvilke verktøy trenger du for å komme i gang med vibe coding?",
+      options: [
+        { label: "En 3D-printer og filament", feedback: "3D-printing er ikke en del av vibe coding." },
+        { label: "En kodeeditor (VS Code) og et KI-verktøy (OpenCode)", feedback: "Riktig! VS Code og OpenCode er hovedverktøyene for vibe coding." },
+        { label: "Kun et tekstbehandlingsprogram", feedback: "Du trenger en kodeeditor og et KI-verktøy." },
+      ],
+    },
+  ]}
+/>

@@ -1,0 +1,120 @@
+---
+title: Publiser nettsiden din
+---
+
+import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
+
+Nettsiden din fungerer på din egen datamaskin. Nå skal du gjøre den tilgjengelig for hele verden! Å publisere betyr å laste opp filene dine til en server   en datamaskin som står på 24/7 og serverer nettsiden til alle som besøker adressen.
+
+## Hva er hosting?
+
+Hosting er som å leie plass på internett. Du laster opp filene dine til en server, og folk kan besøke nettsiden din via en URL (internettadresse).
+
+For TIP100 anbefaler vi **GitHub Pages**   det er gratis, enkelt, og krever ingen kompliserte innstillinger.
+
+## Alternativ A: GitHub Pages (anbefalt)
+
+GitHub Pages er gratis hosting som er inkludert med alle GitHub-kontoer. Det er den enkleste måten å publisere en statisk nettside på.
+
+### Steg 1: Opprett en GitHub-konto
+
+Gå til [github.com](https://github.com) og klikk "Sign up". Velg gratisplanen. Bruk skolens e-postadresse hvis mulig.
+
+### Steg 2: Opprett et nytt repository (repo)
+
+Et repository er som en mappe for prosjektet ditt på GitHub.
+
+1. Klikk på "+"-ikonet øverst til høyre → "New repository"
+2. Gi repoet navnet `ditt-brukernavn.github.io` (erstatt `ditt-brukernavn` med ditt faktiske GitHub-brukernavn)
+3. Velg "Public"
+4. Klikk "Create repository"
+
+:::note[Navnet må være nøyaktig]
+Repositoryet ditt må hete `dittbrukernavn.github.io`   ikke noe annet. GitHub Pages bruker dette navnet til å finne nettsiden din.
+:::
+
+### Steg 3: Last opp filene dine
+
+Nå skal du laste opp `index.html`, `style.css`, `script.js` og eventuelle bilder til repositoryet ditt:
+
+1. På GitHub-reposiden din, klikk "Add file" → "Upload files"
+2. Åpne mappen med prosjektet ditt på datamaskinen
+3. Dra og slipp filene inn i GitHub-vinduet
+4. Skriv en commit-melding: "Første versjon av nettsiden min"
+5. Klikk "Commit changes"
+
+### Steg 4: Slå på GitHub Pages
+
+1. Gå til repositoryet ditt på GitHub
+2. Klikk "Settings" (fanen øverst)
+3. I venstremenyen, klikk "Pages"
+4. Under "Branch", velg `main` og `/ (root)" og klikk "Save"
+5. Vent 1-2 minutter
+
+### Steg 5: Besøk nettsiden din
+
+Etter noen minutter vil nettsiden din være tilgjengelig på:
+
+`https://ditt-brukernavn.github.io`
+
+Del linken med venner, familie og medstudenter! Du har akkurat publisert din første nettside.
+
+## Alternativ B: Cloudflare Pages
+
+TIP100 bruker Cloudflare som plattform. Hvis du vil bruke det for ditt prosjekt:
+
+1. Opprett en Cloudflare-konto på [cloudflare.com](https://cloudflare.com)
+2. Klikk "Pages" i menyen
+3. Klikk "Upload assets" eller koble til GitHub-repoet ditt
+4. Følg stegene for å laste opp filene dine
+
+Cloudflare Pages er litt mer avansert, men gir bedre ytelse. For dette kurset er GitHub Pages helt tilstrekkelig.
+
+## Vanlige problemer ved publisering
+
+### Problem: Tom side eller 404-feil
+Sjekk at `index.html` heter nøyaktig `index.html` (små bokstaver). GitHub Pages ser etter `index.html` som startside. Hvis filen heter noe annet, prøv å gi den nytt navn til `index.html`.
+
+### Problem: Bilder vises ikke
+Sjekk at bildefilene dine er lastet opp. På GitHub må du laste opp bildene i samme mappe som HTML-filen (eller i en bildemappe). Sjekk at stien i HTML-en matcher: hvis bildet ligger i `bilder/logo.png`, må `<img src="bilder/logo.png">` stå i HTML-en.
+
+### Problem: Store og små bokstaver
+På din egen datamaskin spiller det ingen rolle om en fil heter `Bilde.jpg` eller `bilde.jpg`. På en ekte server (som GitHub Pages) **har** store og små bokstaver betydning. `Bilde.jpg` og `bilde.jpg` er to forskjellige filer.
+
+### Problem: CSS eller JavaScript fungerer ikke
+Sjekk at `href` og `src` i HTML-en peker til riktige filer. Hvis `style.css` ligger i samme mappe som `index.html`, skal linken være `<link rel="stylesheet" href="style.css">`.
+
+## Slik unngår du publiseringsproblemer
+
+Før du laster opp til GitHub, test alt lokalt:
+
+- [ ] Alle bilder vises (ingen røde X-er)
+- [ ] Alle linker fungerer
+- [ ] Siden ser bra ut på mobil
+- [ ] JavaScript fungerer som forventet
+- [ ] Ingen feilmeldinger i konsollen (høyreklikk → Inspiser → Console)
+
+## Oppdatering av nettsiden
+
+Når du gjør endringer på nettsiden din lokalt, må du laste opp filene på nytt til GitHub. Gjør dette:
+
+1. Gå til repositoryet ditt på GitHub
+2. Klikk "Add file" → "Upload files"
+3. Dra og slipp de oppdaterte filene
+4. Klikk "Commit changes"
+5. Vent 1-2 minutter
+6. Oppdater nettleseren   endringene er der
+
+## Neste steg
+
+Når nettsiden din er publisert, har du en ekte, levende nettside på internett. Gratulerer! Du har gått fra null til publisert på én dag.
+
+Nå kan du:
+- Dele linken i innleveringen din
+- Fortsette å forbedre siden
+- Lære mer om webutvikling
+- Bygge neste prosjekt
+
+:::tip[Feir!]
+Å publisere din første nettside er en stor milepæl. Enten den er enkel eller avansert   du har gjort noe de fleste ikke kan. Det er verdt å være stolt av.
+:::

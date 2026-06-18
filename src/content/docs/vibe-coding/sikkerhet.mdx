@@ -1,0 +1,186 @@
+---
+title: Sikkerhet og personvern
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+
+En av de største risikoene med Vibe Coding er at KI genererer kode med sikkerhetshull. KI forstår ikke sikkerhet slik et menneske gjør. Du må derfor være ekstra oppmerksom når du publiserer kode på internett.
+
+Denne siden går gjennom de vanligste sikkerhetsproblemene KI-generert kode kan inneholde.
+
+## Fallgruve 1: Cross Site Scripting (XSS)
+
+XSS er den vanligste sikkerhetsfeilen i nettsider. Det skjer når en nettside viser brukerinput direkte uten å rense den.
+
+KI kan generere kode som denne:
+
+```javascript
+// USIKKER kode - KI kan foresla dette
+document.getElementById("output").innerHTML = brukerInput;
+```
+
+Hvis brukeren skriver `<script>...onde ting...</script>` i stedet for vanlig tekst, vil nettleseren kjøre det som kode. Angriperen kan da stjele informasjonskapsler, omdirigere brukeren eller endre innholdet på siden.
+
+**Slik unngår du det:** Bruk `textContent` i stedet for `innerHTML`:
+
+```javascript
+// SIKKER - bruk dette
+document.getElementById("output").textContent = brukerInput;
+```
+
+Hvis du må vise HTML (for eksempel rik tekst), spor OpenCode:
+
+> *"Er denne koden sårbar for XSS? Hvordan kan jeg gjøre den sikrere?"*
+
+## Fallgruve 2: API-nøkler og hemmeligheter i frontend
+
+Dette er den farligste feilen nybegynnere gjør. KI kan foreslå at du legger API-nøkler direkte i JavaScript-filen din:
+
+```javascript
+// USIKKER - API-nokkel er synlig for alle
+const apiKey = "sk-proj-abc123...";
+const apiSecret = "sk-secret-xyz789...";
+```
+
+Alt som ligger i JavaScript, HTML eller CSS er **synlig for alle** som besoker nettsiden din. Bare høyreklikk og velg "Vis kildekode".
+
+**Slik unngår du det:**
+- **Aldri** legg API-nøkler eller passord i frontend-kode
+- Hvis du trenger en API-nøkkel, bruk en backend-server som holder noklene skjult
+- For TIP100-prosjektet: unngå API-er som krever nøkler med mindre du vet hva du gjar
+
+Hvis OpenCode genererer kode med en API-nøkkel, si:
+
+> *"Fjern API-nokkelen fra koden og forklar hvordan jeg bor lagre den sikkert."*
+
+## Fallgruve 3: Skjemaer uten validering eller HTTPS
+
+Et skjema som sender data uten validering eller kryptering er et sikkerhetsproblem. KI kan generere skjemaer som:
+
+```html
+<form action="send-epost.php" method="POST">
+  <input type="text" name="epost">
+  <input type="text" name="melding">
+  <button type="submit">Send</button>
+</form>
+```
+
+Problemer med denne koden:
+1. Den validerer ikke at e-posten faktisk er en e-postadresse
+2. Den validerer ikke at meldingen ikke inneholder skadelig kode
+3. Uten HTTPS sendes data i klartekst over nettet
+4. `send-epost.php` finnes sannsynligvis ikke på din enkle nettside
+
+**Slik unngår du det:** Be OpenCode valider input i nettleseren:
+
+> *"Legg til validering på kontaktskjemaet: e-post ma inneholde @, melding ma være minst 10 tegn. Vis feilmeldinger ved siden av hvert felt."*
+
+For TIP100-prosjektet er det nok a vise en bekreftelsesmelding når brukeren trykker Send. Du trenger ikke sende data noe sted.
+
+## Fallgruve 4: Utdaterte biblioteker
+
+KI kan referere til eksterne CSS- eller JavaScript-biblioteker med spesifikke versjonsnumre:
+
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+```
+
+Versjon 1.4.2 av jQuery er over 15 ar gammel og har kjente sikkerhetshull. KI velger ofte eldre versjoner fordi den er trent på data som inkluderer dem.
+
+**Slik unngår du det:** Spor OpenCode:
+
+> *"Bruk siste stabile versjon av alle biblioteker. Fortell meg hvilken version du bruker."**
+
+En tommelfingerregel: unnga eksterne biblioteker med mindre du har en god grunn. For TIP100-prosjektet trenger du sannsynligvis ingen.
+
+## Fallgruve 5: KI-generert innlogging
+
+KI kan foreslå at du bygger et innloggingssystem med brukernavn og passord. Dette høres nyttig ut, men KI-genererte innloggingssystemer er nesten alltid usikre.
+
+**Vanlige feil KI en gjør:**
+- Lagrer passord i klartekst (ulett å lese for mennesker som finner filen)
+- Bruker svake hashing-algoritmer (lette a knekke)
+- Har ingen beskyttelse mot automatiske angrep (brute force)
+- Kan omgas ved a endre URL-en manuelt
+
+**Slik unngår du det:** For TIP100-prosjektet: ikke bruk innlogging med mindre det er strengt nodvendig. Hvis du ma ha innlogging, bruk en etablert tjeneste som Firebase Authentication eller Auth0. Spor faglærer for du legger til innlogging.
+
+## Fallgruve 6: Overdreven tillit til CORS
+
+CORS (Cross-Origin Resource Sharing) er en sikkerhetsfunksjon i nettlesere. KI kan sette:
+
+```javascript
+Access-Control-Allow-Origin: *
+```
+
+Dette betyr: "alle nettsider kan lese dataene dine." Det kan være nodvendig i noen tilfeller, men ofte er det et tegn på at KI-en ikke forstår konsekvensene.
+
+**Slik unngår du det:** Hvis du ser `Access-Control-Allow-Origin: *` i koden din, spor:
+
+> *"Hvorfor trenger vi Access-Control-Allow-Origin: *? Er dette sikkert for mitt brukstilfelle?"*
+
+## Fallgruve 7: Data som lekkes via kommentarer og logging
+
+KI kan legge igjen kommentarer i koden som:
+
+```javascript
+// TODO: Fjern denne debug-utskriften for lansering
+console.log("Brukerdata:", følsomInformasjon);
+```
+
+eller til og med:
+
+```html
+<!-- Slett denne kommentaren: passordet er Test1234 -->
+```
+
+Kommentarer og console.log er fullt synlige for alle som åpner nettleserens utviklerverktøy.
+
+**Slik unngår du det:** For du publiserer, spor OpenCode:
+
+> *"Fjern alle debug-kommentarer og console.log-utsagn fra koden min."*
+
+## Hovedregel: Hva du aldri bor gjøre med KI-generert kode
+
+| Aldri | Fordi |
+|---|---|
+| Legg API-nøkler i frontend-kode | Alle kan se dem |
+| Stol på KI-generert innlogging | Det er nesten alltid usikkert |
+| Vis brukerinput som HTML | XSS-sarbarhet |
+| Bruk utdaterte biblioteker | Kjente sikkerhetshull |
+| Publiser uten a sjekke for debug-kode | Data kan lekke |
+
+**Gullregelen:** Hvis nettsiden din handterer personopplysninger, passord eller betalinger, bor du ikke bruke KI alene for a bygge den. Snakk med faglærer eller en erfaren utvikler.
+
+---
+
+## Sjekkliste for sikkerhet
+
+- [ ] Jeg har sjekket at ingen API-nøkler eller passord ligger i koden
+- [ ] Jeg har sjekket at ingen brukerinput vises som HTML (kun textContent)
+- [ ] Jeg har sjekket at alle eksterne biblioteker er oppdaterte
+- [ ] Jeg har fjernet console.log og debug-kommentarer
+- [ ] Jeg har ikke lagt til innlogging uten a snakke med faglærer
+
+<Quiz
+  chapter={3}
+  questions={[
+    {
+      question: "Hvorfor er det farlig a legge API-nøkler i frontend-kode (JavaScript)?",
+      options: [
+        { label: "Det gjør nettsiden tregere", feedback: "Nei, det handler ikke om hastighet." },
+        { label: "Fordi alle som åpner nettsiden kan se nøklene ved å se på kildekoden", feedback: "Riktig! Alt i frontend-kode er synlig for alle." },
+        { label: "Fordi API-nøkler må lagres i en database", feedback: "Nei, de bør lagres på en server, ikke i frontend." },
+      ],
+    },
+    {
+      question: "Hva bor du bruke i stedet for innerHTML når du viser brukerinput?",
+      options: [
+        { label: "textContent", feedback: "Riktig! textContent behandler input som ren tekst og kan ikke utnyttes til XSS-angrep." },
+        { label: "outerHTML", feedback: "Det er enda farligere enn innerHTML." },
+        { label: "createElement", feedback: "Det er en mate a lage elementer på, men textContent er enklere og tryggere for dette formalet." },
+      ],
+    },
+  ]}
+/>
