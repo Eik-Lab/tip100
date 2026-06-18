@@ -1,0 +1,23 @@
+---
+title: Hva er 3D scanning
+description: test
+---
+
+import Quiz from "../../../../components/Quiz.astro";
+import VideoEmbed from "../../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/zJTsg6-UGwM" title="Hva er 3D scanning" />
+
+<Quiz
+  chapter={4}
+  questions={[
+    {
+      question: "Hva er hovedformålet med 3D-scanning?",
+      options: [
+        { label: "Å redigere bilder", feedback: "3D-scanning handler om 3D-geometri, ikke bilder." },
+        { label: "Å 3D-printe objekter", feedback: "3D-scanning er inngang, printing er utgang." },
+        { label: "Å fange inn den fysiske verden som digitale 3D-modeller", feedback: "Riktig! 3D-scanning gjør om fysiske objekter til digitale modeller." },
+],
+    },
+  ]}
+/>
