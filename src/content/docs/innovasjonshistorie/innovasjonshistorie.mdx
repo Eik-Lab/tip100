@@ -1,0 +1,95 @@
+---
+title: Fra håndverk til digital fabrikasjon
+---
+
+import Quiz from "../../../components/Quiz.astro";
+
+Veien fra en idé til et fysisk produkt har endret seg radikalt gjennom historien. Denne siden tar deg gjennom de viktigste epokene.
+
+## Før-industriell tid — håndverkeren som alt-i-ett
+
+Før den industrielle revolusjonen var produktutvikling og produksjon samme person: **håndverkeren**. En smed, en snekker eller en urmaker hadde hele prosessen i egne hender:
+
+- Designet var i hodet eller på skisse
+- Prototyping var å lage produktet
+- Produksjon var å lage flere av samme
+
+Det fantes ikke noe skille mellom prototype og ferdig produkt. Hver gjenstand var unik, og hver feil kostet like mye som en vellykket gjenstand.
+
+## Den første industrielle revolusjonen (ca. 1760–1840)
+
+Dampteknologi og mekanisering muliggjorde:
+
+- **Spesialisering**: Forskjellige personer designet, laget verktøy og produserte
+- **Standardisering**: Deler kunne byttes — først med våpen (Eli Whitney, 1798)
+- **Delbarhet**: Produkter kunne splittes i komponenter
+
+Men prototyping var fortsatt dyrt. En prototype krevde egne verktøy, former og innstillinger.
+
+## Den andre industrielle revolusjonen (ca. 1870–1914)
+
+Elektrisitet og samlebåndet endret alt:
+
+- **Henry Fords samlebånd** (1913) reduserte tiden for å lage en Model T fra 12 timer til 93 minutter
+- Prototyping ble en **egen avdeling** i store selskaper
+- **Tegnebrettet** var standardverktøyet for design
+
+:::note
+Fords samlebånd var en prototype i seg selv — han testet og justerte kontinuerlig helt til systemet fungerte.
+:::
+
+## Computernes inntog (1960–1990)
+
+CAD (Computer-Aided Design) revolusjonerte designprosessen:
+
+- **1963**: Ivan Sutherland lager Sketchpad, verdens første CAD-program
+- **1970–80**: CAD blir kommersielt tilgjengelig (CATIA, AutoCAD)
+- **1990**: 3D-CAD erstatter tegnebrettet i de fleste bransjer
+
+Men veien fra CAD-modell til fysisk objekt gikk fortsatt via CNC-maskiner eller manuelt arbeid. Prototyping tok dager eller uker.
+
+## Fremveksten av additiv produksjon (1980–i dag)
+
+| År | Milepæl |
+|----|---------|
+| 1983 | Chuck Hull oppfinner stereolithography (SLA) — første 3D-printer |
+| 1988 | FDM (Fused Deposition Modeling) utvikles av Scott Crump |
+| 1990–2000 | 3D-printing brukes hovedsakelig i industriell prototyping |
+| 2005 | RepRap-prosjektet lager åpen kildekode-3D-printer |
+| 2009 | FDM-patentet utløper — eksplosjon av rimelige 3D-printere |
+| 2010+ | Makerspace-bevegelsen gjør digital fabrikasjon tilgjengelig for alle |
+
+## Makerspace-bevegelsen
+
+De siste 15 årene har en ny bevegelse vokst frem: **makerspaces** — åpne verksteder hvor hvem som helst kan bruke profesjonelle fabrikasjonsverktøy.
+
+Dette har senket terskelen for prototyping dramatisk:
+
+- **Før**: Spesialisert fabrikasjonsutstyr kostet millioner og krevde egne teknikere
+- **I dag**: For få tusen kroner (eller gratis på et makerspace) kan du 3D-printе og laserkutte
+
+## Hva dette betyr for deg
+
+Du står på skuldrene til hundrevis av års innovasjon. Verktøyene du bruker i TIP100 er resultatet av en lang utviklingslinje fra håndverkere via industrielle revolusjoner til digital fabrikasjon. Forståelsen av denne historien gjør deg til en bedre produktutvikler.
+
+<Quiz
+  chapter={1}
+  questions={[
+    {
+      question: "Hvorfor var prototyping dyrt før den industrielle revolusjonen?",
+      options: [
+        { label: "Fordi materialer var dyrere enn i dag", feedback: "Materialer var dyre, men det var ikke hovedproblemet." },
+        { label: "Fordi det ikke fantes noe skille mellom prototyping og produksjon — hver feil kostet like mye som et ferdig produkt", feedback: "Riktig! Håndverkeren måtte lage prototypen på samme måte som sluttproduktet." },
+        { label: "Fordi ingen hadde oppfunnet CAD ennå", feedback: "Det kom mye senere." },
+      ],
+    },
+    {
+      question: "Hva gjorde at 3D-printing ble tilgjengelig for folk flest på 2010-tallet?",
+      options: [
+        { label: "Apple lanserte en 3D-printer", feedback: "Apple har aldri laget 3D-printere." },
+        { label: "FDM-patentet utløp, og åpen kildekode-prosjekter som RepRap drev prisene ned", feedback: "Riktig! Da patentet utløp, kunne alle produsere rimelige 3D-printere." },
+        { label: "Regjeringen subsidierte 3D-printere", feedback: "Nei, det var markedsendringer som drev utviklingen." },
+      ],
+    },
+  ]}
+/>

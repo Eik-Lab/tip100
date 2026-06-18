@@ -1,0 +1,83 @@
+---
+title: Verktøy og sjekkliste for prototyping
+---
+
+import Quiz from "../../../components/Quiz.astro";
+
+Før du setter i gang med å prototype, er det nyttig å vite hvilke verktøy du har tilgjengelig, og hvordan du velger riktig metode for oppgaven.
+
+## Verktøy på Eik Lab
+
+| Verktøy | Type | Best for | Materialer |
+|---|---|---|---|
+| **Bambu Lab 3D-printere** | Additiv (FDM) | Funksjonelle deler, mekanismer, holdere | PLA, PETG, TPU (fleksibel) |
+| **Laserkutter** | Subtraktiv (laser) | Flate deler, kabinetter, paneler, gravering | Tre, akryl, papp, MDF, lær |
+| **Fusion 360** | CAD/CAM | 3D-modellering, simulering, CAM | Digitalt |
+| **Bambu Studio** | Slicer | Klargjøring for 3D-print | Digitalt |
+| **LightBurn** | Laserkontroll | Klargjøring for laserkutt | Digitalt |
+| **3D-skanner** | Scanning | Digitalisere eksisterende objekter | Fysisk → digitalt |
+
+## Hvordan velge riktig metode
+
+Still deg selv disse spørsmålene:
+
+1. **Trenger delen styrke?** → 3D-print eller laserkutt i tykkere materiale
+2. **Er delen flat?** → Laserkutter (raskere og mer presis)
+3. **Har den kompleks 3D-geometri?** → 3D-print
+4. **Trenger du mange like deler?** → Vurder laserkutter for flate deler, 3D-print for volum
+5. **Skal den se pen ut?** → 3D-print med etterbehandling, eller laserkutt i akryl
+
+## Sjekkliste for prototyping-syklusen
+
+### Før du starter
+
+- [ ] Jeg har en tydelig problemstilling — hva skal prototypen teste?
+- [ ] Jeg vet hva suksess ser ut for denne iterasjonen
+- [ ] Jeg har en digital 3D-modell eller skisse klar
+- [ ] Jeg har valgt riktig fabrikasjonsmetode
+
+### Under prototyping
+
+- [ ] Modellen er korrekt orientert på build plate / laserbed
+- [ ] Jeg har sjekket for overheng (3D-print) eller materialtykkelse (laser)
+- [ ] Jeg har kontrollert estimert tid og materialforbruk
+- [ ] Jeg har sett gjennom forhåndsvisningen lag for lag
+
+### Etter prototyping
+
+- [ ] Jeg har testet prototypen mot kravene
+- [ ] Jeg har notert hva som fungerte og hva som ikke fungerte
+- [ ] Jeg har dokumentert med bilder
+- [ ] Jeg har planlagt neste iterasjon
+
+## Vanlige feil og hvordan unngå dem
+
+| Feil | Løsning |
+|------|---------|
+| Printer løsner fra plata | Rens plata med isopropanol, bruk limstift, eller legg til brim |
+| Laserkutt blir svidd | Sjekk fokus og hastighet, test først på skrapmateriale |
+| Overheng uten støtte | Legg til supports i sliceren, eller roter modellen |
+| Hullet blir for lite | Legg til 0,2–0,4 mm klaring for skruer og akslinger |
+| Prototypen varer ikke | Bygg den sterkere — tykkere vegger, mer infill, sterkere materiale |
+
+<Quiz
+  chapter={1}
+  questions={[
+    {
+      question: "Hvilket verktøy bør du velge for en rask prototype av en flat plate med hull?",
+      options: [
+        { label: "3D-printer", feedback: "Mulig, men laserkutter er raskere for flate deler." },
+        { label: "Laserkutter", feedback: "Riktig! Laserkutter er rask og presis for flate deler i tre, akryl eller papp." },
+        { label: "3D-skanner", feedback: "Skanneren brukes til å digitalisere, ikke til å lage deler." },
+      ],
+    },
+    {
+      question: "Hva er det første du bør gjøre før du setter i gang en prototyping-syklus?",
+      options: [
+        { label: "Starte printeren med en gang", feedback: "Nei — planlegging sparer tid." },
+        { label: "Ha en tydelig problemstilling for hva prototypen skal teste", feedback: "Riktig! Vet du hva du prøver å lære, får du mer ut av hver iterasjon." },
+        { label: "Kjøpe inn materialer for masseproduksjon", feedback: "Altfor tidlig — start med prototyping først." },
+      ],
+    },
+  ]}
+/>

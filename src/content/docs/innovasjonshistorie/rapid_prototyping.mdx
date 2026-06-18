@@ -1,0 +1,76 @@
+---
+title: Hva er rapid prototyping?
+---
+
+import Quiz from "../../../components/Quiz.astro";
+
+Rapid prototyping handler om å **raskt kunne produsere fysiske modeller av et design** for å teste, evaluere og iterere. Målet er ikke å lage et ferdig produkt, men å oppdage feil tidlig — når de fortsatt er billige å fikse.
+
+## Definisjon
+
+Rapid prototyping (RP) er en samling teknikker for å produsere fysiske modeller direkte fra digitale data. Ordet «rapid» er relativt — det kan bety minutter, timer eller dager, avhengig av kompleksitet og metode.
+
+### Hva skiller RP fra tradisjonell prototyping?
+
+| Tradisjonell prototyping | Rapid prototyping |
+|---|---|
+| Uker eller måneder per iterasjon | Timer eller dager per iterasjon |
+| Dyrt å endre design | Billig å prøve på nytt |
+| Krever spesialverktøy (former, jigger) | Krever digital modell + maskin |
+| Testes sent i prosessen | Testes tidlig og ofte |
+| Én prototype av gangen | Flere varianter parallelt |
+
+## Hvorfor er RP viktig?
+
+**Feil oppdages tidlig.** Jo senere en feil oppdages, jo dyrere er den å fikse. En feil i konseptfasen koster kanskje 1 000 kr. En feil i produksjonsfasen kan koste 1 000 000 kr.
+
+**Iterasjon blir billig og raskt.** Når en prototype tar én time i stedet for én uke, har du råd til å prøve 10 varianter. Sjansen for å finne den beste løsningen øker dramatisk.
+
+**Bedre kommunikasjon.** En fysisk modell sier mer enn tusen ord. Kunder, samarbeidspartnere og investorer forstår produktet bedre når de kan holde det i hånden.
+
+## Typer prototyping
+
+| Type | Hensikt | Eksempel |
+|---|---|---|
+| **Konseptprototype** | Teste om idéen er verdt å forfølge | Pappskisse, enkel 3D-print |
+| **Funksjonell prototype** | Teste om mekanikken fungerer | 3D-printet mekanisme |
+| **Visuell prototype** | Teste utseende og følelse | Fargemodell, overflatebehandlet |
+| **Teknisk prototype** | Teste produksjonsvennlighet | Prototype laget med produksjonsmetode |
+| **MVP** (Minimum Viable Product) | Teste markedet | Enkleste fungerende versjon |
+
+## RP i TIP100
+
+I dette kurset har du tilgang til:
+
+- **3D-printere** (FDM) — for plastdeler og mekanismer
+- **Laserkutter** — for presise flate deler i tre, akryl, papp
+- **3D-skanner** — for å digitalisere eksisterende objekter
+- **Fusion 360** — for å designe alt digitalt
+
+Disse verktøyene lar deg gå fra idé til fysisk prototype på en dag.
+
+:::tip
+RP er en tankegang, ikke bare en teknologi. Det viktigste verktøyet er ikke 3D-printeren — det er viljen til å prøve, feile og prøve igjen.
+:::
+
+<Quiz
+  chapter={1}
+  questions={[
+    {
+      question: "Hva er hovedmålet med rapid prototyping?",
+      options: [
+        { label: "Å lage perfekte produkter første gang", feedback: "Nei — målet er å oppdage feil tidlig, ikke å være perfekt fra start." },
+        { label: "Å raskt kunne produsere fysiske modeller for testing og iterasjon", feedback: "Riktig! Hastighet og muligheten til å prøve mange varianter er kjernen." },
+        { label: "Å erstatte CAD-modellering", feedback: "Rapid prototyping bygger på CAD, det erstatter det ikke." },
+      ],
+    },
+    {
+      question: "Hvorfor er det viktig å oppdage feil tidlig i utviklingsprosessen?",
+      options: [
+        { label: "Fordi feil oppdaget sent er mye dyrere å fikse", feedback: "Riktig! Kostnaden ved en feil øker eksponentielt jo senere den oppdages." },
+        { label: "Fordi det er flaut å levere noe med feil", feedback: "Det er en grunn, men ikke den viktigste." },
+        { label: "Fordi kunder aldri godtar feil", feedback: "Kunder forventer testing og iterasjon." },
+      ],
+    },
+  ]}
+/>

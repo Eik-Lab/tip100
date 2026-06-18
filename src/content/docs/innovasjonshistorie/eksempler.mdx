@@ -1,0 +1,86 @@
+---
+title: Eksempler fra virkeligheten
+---
+
+import Quiz from "../../../components/Quiz.astro";
+
+Rapid prototyping har endret måten produkter utvikles på — fra støvsugere til romraketter. Her er noen av de beste eksemplene.
+
+## Dyson — 5 127 prototyper
+
+James Dyson brukte fem år og 5 127 prototyper før han landet på den første syklon-støvsugeren som fungerte. Hver prototype var en liten forbedring:
+
+- **Prototype 1–1 000:** Grunnleggende syklonteknologi i papp og tape
+- **Prototype 1 000–3 000:** 3D-printede og håndlagde modeller for å teste luftstrøm
+- **Prototype 3 000–5 000:** CNC-fresede deler med stadig bedre presisjon
+- **Prototype 5 127:** Den første som fungerte kommersielt
+
+Dyson sier selv at den viktigste egenskapen hos en produktutvikler er **utholdenhet**, ikke genialitet.
+
+> "Det er 5 126 ganger jeg lærte hva som ikke fungerte. Og én gang jeg fant ut hva som fungerte." — James Dyson
+
+## Medisinsk prototyping — tilpassede implantater
+
+3D-printing har revolusjonert medisinsk prototyping. I stedet for standardimplantater som passer «sånn noenlunde», kan kirurger i dag:
+
+1. Skanne pasientens anatomi med CT/MR
+2. Designe et skreddersydd implantat i CAD
+3. 3D-printe en prototype for kirurgen å øve på
+4. 3D-printe det endelige implantatet i titan
+
+**Resultat:** Kortere operasjoner, bedre pasientutfall, lavere kostnader.
+
+## Bilindustrien — fra leire til 3D-printing
+
+Bilindustrien har alltid brukt fysiske modeller, men metodene har endret seg:
+
+| Før | Nå |
+|---|---|
+| Leiremodeller — uker å lage | 3D-printede skalamodeller — timer |
+| Fullskala tremodeller — måneder | CNC-fresede fullskalamodeller — dager |
+| Én designretning av gangen | Ti varianter kan prøves samtidig |
+| Testing sent i prosessen | Virtuell og fysisk testing parallelt |
+
+Rapid prototyping lar bilprodusenter gå fra skisse til testbar modell på 1–2 uker. Før tok samme prosess 6–12 måneder.
+
+## Romfart — SpaceX og iterative raketter
+
+SpaceX er kanskje det beste eksemplet på iterativt design i ekstrem skala. Elon Musk beskriver tilnærmingen slik:
+
+»Det er ikke et spørsmål om *om* raketten vil eksplodere. Det er et spørsmål om *når*, og hvor mye vi lærer av hver eksplosjon.«
+
+SpaceX bygger, tester, feiler, lærer og bygger på nytt **i en syklus på uker**. Tradisjonelle romfartsselskaper brukte år på samme prosess. Resultatet: SpaceX gjør det alle sa var umulig — gjenbrukbare raketter til en brøkdel av prisen.
+
+## Hva disse eksemplene har til felles
+
+| Dyson | Medisinsk | Bil | SpaceX |
+|-------|-----------|-----|--------|
+| 5 127 prototyper | Skreddersydde løsninger | Uker i stedet for måneder | Eksplosjoner som læring |
+| Utholdenhet | Pasientspesifikt design | Flere varianter parallelt | Ekstrem iterasjonshastighet |
+| Gradvis forbedring | Presisjon og tilpasning | Konstant raffinering | Feil er forventet |
+
+:::note
+Alle disse eksemplene har én ting felles: de bruker prototyper ikke for å bekrefte at noe fungerer, men for å oppdage hva som **ikke** fungerer. Feil er ikke et nederlag — det er data.
+:::
+
+<Quiz
+  chapter={1}
+  questions={[
+    {
+      question: "Hvor mange prototyper lagde James Dyson før støvsugeren fungerte?",
+      options: [
+        { label: "127", feedback: "Det var 5 127, ikke 127." },
+        { label: "5 127", feedback: "Riktig! Fem år og 5 127 prototyper — derfor er Dyson et forbilde for iterativt design." },
+        { label: "12 000", feedback: "Mye, men ikke så mye. Det var 5 127." },
+      ],
+    },
+    {
+      question: "Hva har Dyson, medisinsk prototyping, bilindustrien og SpaceX til felles?",
+      options: [
+        { label: "De bruker alle 3D-printing", feedback: "Ikke alle — Dyson brukte mest håndverk og CNC de første årene." },
+        { label: "De bruker prototyper for å oppdage feil tidlig og iterere raskt", feedback: "Riktig! Fellesnevneren er iterativ tilnærming, ikke en bestemt teknologi." },
+        { label: "De utvikler alle raketter", feedback: "Nei, bare SpaceX gjør det." },
+      ],
+    },
+  ]}
+/>

@@ -1,0 +1,76 @@
+---
+title: Iterativt design og prototyping-syklusen
+---
+
+import Quiz from "../../../components/Quiz.astro";
+
+De beste produktene blir ikke skapt i et genialt øyeblikk. De blir skapt gjennom en kontinuerlig syklus av å bygge, teste og forbedre.
+
+## Hva er iterativt design?
+
+Iterativt design er en metode hvor du går i sykluser:
+
+```
+Bygg → Test → Lær → Bygg på nytt (med ny innsikt)
+```
+
+Hver syklus kalles en **iterasjon**. Målet er ikke å gjøre alt riktig første gang, men å forbedre produktet litt for hver runde.
+
+### Hvorfor iterasjon fungerer
+
+| Problem med "vannfall" (planlegg alt først) | Fordel med iterasjon |
+|---|---|
+| Du oppdager feil for sent | Feil oppdages etter hver iterasjon |
+| Du investerer tungt i én løsning | Du kan skifte retning raskt |
+| Brukerne ser produktet først ved lansering | Brukerne testes underveis |
+| Endringer er dyre sent i prosessen | Endringer er billige hele veien |
+
+## Feile raskt, feile billig
+
+Dette er et av de viktigste prinsippene i produktutvikling. **Jo tidligere du feiler, jo mindre koster det.**
+
+En feil i konseptfasen: et papirark og en time.
+En feil i produksjonsfasen: titusener av kroner og tapte uker.
+
+> "Å feile raskt er en dyd — det betyr at du har lært noe nytt til en lav pris." — Thomas Edison (som testet 6 000 materialer før han fant den rette glødetråden)
+
+## MVP — Minimum Viable Product
+
+Et MVP er den **enkleste versjonen av produktet som fortsatt kan testes**. Det skal:
+
+1. Ha akkurat nok funksjonalitet til å være brukbart
+2. Kunne testes på en ekte bruker
+3. Gi deg læring om hva som fungerer og ikke
+
+**Eksempel:** Du vil lage en telefonholder til sykkel. MVP-en kan være:
+- Første iterasjon: en pappbit med strikk (test: fungerer festet?)
+- Andre iterasjon: 3D-printet klips (test: sitter den fast?)
+- Tredje iterasjon: justert klips med gummi (test: demper den vibrasjoner?)
+
+Hver iterasjon koster minimalt og gir deg verdifull innsikt.
+
+## Prototyping-syklusen for TIP100
+
+Slik kan en typisk prototyping-syklus se ut i løpet av kurset:
+
+<Quiz
+  chapter={1}
+  questions={[
+    {
+      question: "Hva er hovedpoenget med iterativt design?",
+      options: [
+        { label: "Å planlegge alt perfekt før du begynner", feedback: "Det er motsatt av iterativt design." },
+        { label: "Å forbedre produktet gradvis gjennom mange små sykluser av bygg, test og lær", feedback: "Riktig! Itersjon handler om å lære underveis." },
+        { label: "Å bygge produktet ferdig i første forsøk", feedback: "Det er sjelden mulig, og motvirker læring." },
+      ],
+    },
+    {
+      question: "Hva betyr 'å feile raskt, feile billig'?",
+      options: [
+        { label: "At du bør unngå feil for enhver pris", feedback: "Nei — feil er forventet, det handler om å gjøre dem tidlig og billig." },
+        { label: "At du bør oppdage feil tidlig i prosessen når de fortsatt er billige å fikse", feedback: "Riktig! En tidlig feil koster lite, en sen feil koster mye." },
+        { label: "At du bør bruke billige materialer til prototypene", feedback: "Det hjelper, men hovedpoenget er tids- og læringsperspektivet." },
+      ],
+    },
+  ]}
+/>

@@ -1,0 +1,99 @@
+---
+title: Additiv vs subtraktiv produksjon
+---
+
+import Table from "../../../components/Table.astro";
+import Quiz from "../../../components/Quiz.astro";
+
+All fabrikasjon faller inn i to hovedkategorier: **additiv** (bygger opp materiale) og **subtraktiv** (skjærer bort materiale). Hver har sine styrker og svakheter. En god produktutvikler vet når hvilken metode passer best.
+
+## Additiv produksjon (3D-printing)
+
+Additiv produksjon bygger opp et objekt lag for lag fra en digital modell. Ingen materiale går til spille utover støttestrukturer.
+
+**Fordeler:**
+- Ekstrem geometrisk frihet — indre kanaler, undercuts, organiske former
+- Lite materialsvinn — kun materialet som trengs
+- Ingen verktøyskostnader — samme maskin kan lage helt forskjellige deler
+- Perfekt for prototyper og små serier
+
+**Ulemper:**
+- Laglinjer kan gi svakhet i én retning
+- Toleranser på 0,1–0,4 mm (avhengig av teknologi)
+- Langsomt for store volumer
+- Overflatekvalitet krever etterbehandling
+
+## Subtraktiv produksjon (CNC, laserkutter, manuelt)
+
+Subtraktiv produksjon starter med et emne og skjærer, freser eller graverer bort materiale til ønsket form blir igjen.
+
+**Fordeler:**
+- Høy presisjon (toleranser ned til 0,01 mm)
+- Sterke deler — ingen svake laglinjer
+- Raskt når verktøyet er satt opp
+- Overflatekvalitet ofte bedre enn additiv
+
+**Ulemper:**
+- Materialsvin — mye går i søpla
+- Begrenset geometri — verktøyet må komme til
+- Verktøyskostnader — nye verktøy for hver del
+- Vanskeligere å lage interne hulrom
+
+## Sammenligning
+
+<Table
+  columns={["Egenskap", "Additiv (3D-print)", "Subtraktiv (CNC/laser)"]}
+  rows={[
+    ["Geometrisk frihet", "Svært høy", "Begrenset av verktøy"],
+    ["Presisjon", "0,1–0,4 mm", "0,01–0,1 mm"],
+    ["Materialsvin", "Lite", "Mye"],
+    ["Styrke", "Kan være svak langs lag", "Ensartet styrke"],
+    ["Oppstartskostnad", "Lav", "Høy (verktøy)"],
+    ["Hastighet per del", "Langsom", "Rask i volum"],
+    ["Overflatekvalitet", "Krever etterbehandling", "God direkte"],
+    ["Indre geometrier", "Enkelt", "Vanskelig/umulig"],
+    ["Seriestørrelse", "1–100", "100+ (økonomisk)"],
+  ]}
+/>
+
+## Hva passer best til prototyping?
+
+For prototyping er **additiv produksjon ofte best** — den lave oppstartskostnaden og geometriske friheten gjør den ideell for raske iterasjoner. Men det er unntak:
+
+- **Funksjonelle tester** som krever presisjon eller styrke kan trenge subtraktiv
+- **Visuelle modeller** kan med fordel 3D-printes og etterbehandles
+- **Flate deler** (kabinetter, paneler) er ofte raskere å laserkutte
+
+## Kombinasjon — det beste fra begge verdener
+
+De beste resultatene kommer ofte fra å kombinere metodene:
+
+1. **Rask prototyping** med 3D-printing for å teste form og funksjon
+2. **Flate komponenter** laserkuttes for presisjon
+3. **Sluttproduksjon** kan bruke subtraktive metoder eller støping
+
+:::tip
+I TIP100 har du både 3D-printere (additiv) og laserkutter (subtraktiv). Bruk dem sammen! For eksempel: 3D-print en holder, og laserkutt platen den skal monteres på.
+:::
+
+<Quiz
+  chapter={1}
+  questions={[
+    {
+      question: "Hva er den største fordelen med additiv produksjon (3D-printing) for prototyping?",
+      options: [
+        { label: "Høy presisjon ned til 0,01 mm", feedback: "Det er subtraktiv produksjon sin styrke." },
+        { label: "Lav oppstartskostnad og ekstrem geometrisk frihet", feedback: "Riktig! Du trenger ingen spesialverktøy, og kan lage nesten hvilken som helst form." },
+        { label: "Rask produksjon i store volumer", feedback: "Additiv er tregt i store volumer, subtraktiv er raskere." },
+      ],
+    },
+    {
+      question: "Hvilken produksjonsmetode bør du velge hvis du trenger en flat plate med presise hull?",
+      options: [
+        { label: "3D-printing, fordi det er additivt", feedback: "3D-printing kan brukes, men laserkutter er raskere og mer presis for flate deler." },
+        { label: "Laserkutter (subtraktiv), fordi det gir bedre presisjon for flate deler", feedback: "Riktig! Laserkutter gir presise flate deler på minutter." },
+        { label: "Håndverktøy, fordi det er tradisjonelt", feedback: "Mulig, men ikke like presist eller raskt." },
+      ],
+    },
+  ]}
+/>
