@@ -64,7 +64,16 @@ export default defineConfig({
                               { label: 'Løsning Vase', slug: 'fusion_grunnleggende/16losning_vase' },
                           ],
                     },
-                    {
+                      { label: 'Innlevering Dag 2', slug: 'dag2/innlevering_dag2' },
+                  ],
+              },
+              
+              {
+              	label: 'Dag 3',
+                  collapsed: true,
+                  items: [
+                      { label: 'Informasjon Dag 3', slug: 'dag3/informasjon_dag3' },
+                      {
                           label: 'Avansert Fusion 360',
                           collapsed: true,
                           items: [
@@ -78,25 +87,22 @@ export default defineConfig({
                               { label: 'Export og Import Assembly', slug: 'fusion_avansert/24export_import' },
                               { label: 'AI i CAD', slug: 'fusion_avansert/ai' },
                           ],
-                    },
-                      { label: 'Innlevering Dag 2', slug: 'dag2/innlevering_dag2' },
-                  ],
-              },
-              
-              {
-              	label: 'Dag 3',
-                  collapsed: true,
-                  items: [
-                      { label: 'Informasjon Dag 3', slug: 'dag3/informasjon_dag3' },
+                      },
                       { label: 'Innlevering Dag 3', slug: 'dag3/innlevering_dag3' },
                   ],
               },
               {
-              	label: 'Dag 4',
+               	label: 'Dag 4',
                   collapsed: true,
                   items: [
                       { label: 'Informasjon Dag 4', slug: 'dag4/informasjon_dag4' },
-                      { label: 'Installasjoner Vibe Code', slug: 'dag4/installasjon_dag4' },
+                      {
+                          label: 'Vibe Code',
+                          collapsed: true,
+                          items: [
+                              { label: 'Installasjoner Vibe Code', slug: 'dag4/vibe-code/installasjon_vibe' },
+                          ],
+                      },
                       { label: 'Innlevering Dag 4', slug: 'dag4/innlevering_dag4' },
                   ],
               },
@@ -105,6 +111,17 @@ export default defineConfig({
                   collapsed: true,
                   items: [
                       { label: 'Informasjon Dag 5', slug: 'dag5/informasjon_dag5' },
+                      {
+                          label: 'Laserkutting og 3D Scanning',
+                          collapsed: true,
+                          items: [
+                              { label: 'Laserkutting', slug: 'dag5/laser-scan/laser' },
+                              { label: 'Laserkutting Tips', slug: 'dag5/laser-scan/laser-tips' },
+                              { label: 'Lightburn Intro', slug: 'dag5/laser-scan/lightburn-intro' },
+                              { label: 'Bruk Lightburn', slug: 'dag5/laser-scan/lightburn' },
+                              { label: '3D Scanning', slug: 'dag5/laser-scan/3dscan' },
+                          ],
+                      },
                       { label: 'Innlevering Dag 5', slug: 'dag5/innlevering_dag5' },
                   ],
               },
