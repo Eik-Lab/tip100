@@ -1,0 +1,119 @@
+---
+title: Din første laserkutt
+---
+
+import { Steps } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/OueWAVqXbZc" title="Hvordan Bruke Lightburn Programmet" />
+
+Nå skal du kutte din første del. Følg stegene nøye — dette er grunnlaget for alt du skal gjøre videre.
+
+## Steg 1: Ha et design klart
+
+Du trenger et design. For din første laserkutt anbefaler vi noe enkelt:
+
+- **Et nøkkelvedheng** med hull i toppen
+- **En enkel boks** med box joints (finnes mange generatore online)
+- **Ditt navn** gravert i et stykke tre
+
+Designet kan lages i Inkscape (gratis), Illustrator, eller Fusion 360.
+
+## Steg 2: Eksporter som SVG/vektorfil
+
+1. I designprogrammet: tegn kun **tynne linjer** for kutt
+2. For gravering: bruk **fylte områder** (svart)
+3. Eksporter som SVG (anbefalt) eller DXF
+
+:::tip
+SVG-formatet er best for Lightburn. Sørg for at linjene er "hairline" (0.001 mm) eller bare konturer uten fyll.
+:::
+
+## Steg 3: Åpne i Lightburn
+
+1. Åpne Lightburn (tilgjengelig på Eik Labs maskiner)
+2. Klikk "File → Import" eller dra SVG-filen inn
+3. Designet vises i arbeidsområdet
+
+## Steg 4: Plasser på materialet
+
+Lightburn viser et rektangel som representerer materialet ditt (f.eks. 300×300 mm).
+
+- Dra designet dit du vil ha det på materialet
+- Bruk "Center" for å sentrere
+- Sjekk at alt er innenfor materialgrensene
+
+## Steg 5: Velg innstillinger
+
+Høyreklikk på designet og velg "Layer settings":
+
+| Innstilling | Tynn kryssfiner (3 mm) | Tykk kryssfiner (6 mm) | Akryl (3 mm) |
+|---|---|---|---|
+| Effekt | 60 % | 90 % | 50 % |
+| Hastighet | 50 mm/s | 20 mm/s | 30 mm/s |
+| Passeringer | 1 | 2–3 | 1 |
+| Luftassistanse | På | På | På |
+
+For gravering:
+| Innstilling | Tre | Akryl |
+|---|---|---|
+| Effekt | 15 % | 10 % |
+| Hastighet | 150 mm/s | 100 mm/s |
+| Passeringer | 1 | 1 |
+
+## Steg 6: Forhåndsvis
+
+Klikk "Preview" for å se laserens bane. Sjekk:
+- Blir alt kuttet/gravert som forventet?
+- Er rekkefølgen riktig (gravering først, så kutt)?
+- Er kuttelinjene innenfor materialet?
+
+## Steg 7: Fokuser og kjør
+
+1. Plasser materialet i laserkutteren
+2. Juster fokus (skru opp/ned bordet til avstandsstykket passer)
+3. Lukk lokket
+4. Slå på luftassistanse og avtrekk
+5. Trykk "Start"
+
+## Hva gjør jeg hvis noe går galt?
+
+| Problem | Løsning |
+|---|---|
+| Kutter ikke gjennom | Øk effekt 10 % eller senk hastighet 10 mm/s |
+| For mye sot | Øk luftassistanse, sjekk fokus |
+| Graveringen er for dyp | Senk effekt eller øk hastighet |
+| Graveringen er for lys | Øk effekt eller senk hastighet |
+| Kantene er brune | Reduser hastighet eller øk luftassistanse |
+
+## Sjekkliste før du sender til kutter
+
+- [ ] Designet er eksportert som SVG med tynne linjer for kutt
+- [ ] Materialet er riktig type og tykkelse
+- [ ] Innstillingene i Lightburn matcher materialet
+- [ ] Jeg har sjekket forhåndsvisningen
+- [ ] Materialet er plassert og fokusert
+- [ ] Avtrekk og luftassistanse er på
+
+<Quiz
+  chapter={4}
+  questions={[
+    {
+      question: "Hva bør du gjøre hvis laseren ikke kutter gjennom materialet?",
+      options: [
+        { label: "Øke hastigheten", feedback: "Høyere hastighet gir svakere kutt." },
+        { label: "Øke effekten eller senke hastigheten", feedback: "Riktig! Mer effekt eller saktere bevegelse gir dypere kutt." },
+        { label: "Skru av luftassistansen", feedback: "Luftassistanse hjelper kuttet, ikke skru den av." },
+      ],
+    },
+    {
+      question: "I hvilken rekkefølge bør gravering og kutting gjøres?",
+      options: [
+        { label: "Kutt først, graver etterpå", feedback: "Da kan delene bevege seg under gravering." },
+        { label: "Graver først, kutt etterpå", feedback: "Riktig! Gravering først hindrer at deler løsner og flytter seg." },
+        { label: "Rekkefølgen spiller ingen rolle", feedback: "Jo, den gjør det. Gravering før kutt." },
+      ],
+    },
+  ]}
+/>

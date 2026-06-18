@@ -1,0 +1,65 @@
+---
+title: Installasjon og oppsett
+---
+
+import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+
+For å komme i gang med laserkutting trenger du Lightburn — programvaren som styrer laserkutteren. Denne siden går gjennom hva Lightburn er og hvordan du kommer i gang.
+
+## Hva er Lightburn?
+
+Lightburn er en dedicated programvare for laserkutting og lasergravering. Det kombinerer vektorgrafikk-redigering med presis laser-kontroll.
+
+:::caution
+Du behøver ikke å laste ned dette programmet. Vi har tilgang på Eik Lab slik at dere kan sende oss filene dere vil laserkutte eller gravere.
+:::
+
+## Viktige funksjoner i Lightburn
+
+- **Innebygd vektorgrafikk-editor** — importer SVG, AI, DXF, PDF, PNG og JPEG, rediger direkte
+- **Full kontroll over laseren** — juster effekt, hastighet, antall passeringer, luftassistanse og fokuspunkt
+- **Materialbibliotek** — forhåndsdefinerte innstillinger for kryssfinér, MDF, akryl, papp, lær og mer
+- **Kameraassistert posisjonering** — skann arbeidsområdet og plasser designet nøyaktig
+- **Layer-basert arbeidsflyt** — organiser kutt, graveringer og skåringer i separate lag
+
+## Arbeidsflyten: Fra design til ferdig kutt
+
+<Steps>
+1. **Design i vektorgrafikkprogram** — Inkscape, Illustrator, Fusion 360
+2. **Eksporter som SVG eller DXF**
+3. **Åpne i Lightburn** — importer filen
+4. **Plasser på materialet** — juster posisjon og størrelse
+5. **Velg innstillinger** — effekt/hastighet per lag
+6. **Forhåndsvis** — se laserens bane
+7. **Send til laserkutter** — trykk "Start"
+</Steps>
+
+## Design-regler for laserkutting
+
+- **Linjer = kutt** — tynne linjer (0.001 mm / hairline) betyr "kutt her"
+- **Fylte områder = gravering** — arealer med farge betyr "graver her"
+- **Rød = kutt, svart = gravering** — konvensjon i Lightburn
+- **Minste radius** — laseren kan ikke kutte skarpe indre hjørner uten å brenne
+
+<Quiz
+  chapter={4}
+  questions={[
+    {
+      question: "Hvilket filformat fungerer best for laserkutting?",
+      options: [
+        { label: "JPG", feedback: "JPG er raster-basert, ikke egnet for presisjonskutt." },
+        { label: "SVG eller DXF", feedback: "Riktig! Vektorformater som SVG og DXF gir presise kutt." },
+        { label: "MP3", feedback: "Det er lydformat." },
+      ],
+    },
+    {
+      question: "Hva betyr en tynn rød linje i Lightburn?",
+      options: [
+        { label: "Gravering", feedback: "Fylte områder er gravering." },
+        { label: "Kutt", feedback: "Riktig! Tynne linjer = kutt, fylte områder = gravering." },
+        { label: "Ingenting — rød er bare hjelpelinje", feedback: "Rødt har betydning i Lightburn." },
+      ],
+    },
+  ]}
+/>

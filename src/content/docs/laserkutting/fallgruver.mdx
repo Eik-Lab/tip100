@@ -1,0 +1,90 @@
+---
+title: Vanlige fallgruver i laserkutting
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+
+Laserkutting er raskt og effektivt, men det er noen fallgruver som går igjen. De fleste handler om designvalg og materialforståelse.
+
+## Fallgruve 1: Glemme kerf
+
+Du designer en boks med box joints. Tappene er nøyaktig 3 mm brede og sporene er nøyaktig 3 mm brede. Men laseren brenner bort 0.15 mm på hver side av linjen. Resultat: tappene er 2.7 mm og sporene er 3.3 mm. Boksens deler sitter løst.
+
+**Løsning:** Lightburn har kerf-kompensasjon. Slå på "Kerf offset" i lag-innstillingene. Eller design med 0.15–0.2 mm klaring.
+
+## Fallgruve 2: Skarpe indre hjørner
+
+Laseren kan ikke kutte et perfekt 90° skarpt indre hjørne. Fordi laserstrålen er en sirkel (punkt), blir hjørnet avrundet med en radius lik halve kerf-bredden.
+
+**Løsning:** Design med avrundede indre hjørner (R ≥ 1 mm). Eller legg til en liten "T-bone" (en ekstra liten sirkel i hjørnet) som laseren kan brenne ut.
+
+## Fallgruve 3: Ingen testkutt
+
+Du har ett ark med dyr akryl. Du setter inn innstillingene, trykker Start — og det blir ikke gjennomkutt. Hele arket er ødelagt.
+
+**Løsning:** Test ALLtid på en liten bit av samme materiale før du setter i gang hovedprosjektet. Lightburn har en "Frame"-knapp som viser hvor kuttet vil være uten å lasere.
+
+## Fallgruve 4: Feil materiale i laseren
+
+Du finner en plate med ukjent plast. Den ser ut som akryl. Du legger den inn og starter laseren. Rommet fylles med giftig røyk — det var PVC.
+
+**Løsning:** Hvis du ikke vet hva materialet er, ikke kutt det. Spør en tekniker på Eik Lab.
+
+## Fallgruve 5: Gravering før eller etter kutt?
+
+Hvis du graverer etter at delene er kuttet løs, kan de ha flyttet seg. Hvis du kutter etter gravering, er alt på plass.
+
+**Løsning:** Alltid graver først, kutt etterpå. Lightburn kjører lagene i rekkefølgen de vises i lag-panelet (topp til bunn). Sett graveringslaget øverst.
+
+## Fallgruve 6: Sløsing med materiale
+
+Du plasserer delene tilfeldig på arket og får plass til 3 deler. Med optimal plassering kunne du fått 6.
+
+**Løsning:** Bruk Lightburns "Nesting"-funksjon eller plasser delene tett manuelt. Snu deler for å få best mulig utnyttelse.
+
+## Fallgruve 7: For høy forventning til presisjon
+
+Laserkutting er presist (±0.1 mm), men materialet beveger seg. Tre utvider seg med varme og fuktighet. Akryl smelter og flyter litt.
+
+**Løsning:** Design med 0.2–0.3 mm toleranse for deler som skal passe sammen. Test passformen før du produserer mange kopier.
+
+## Fallgruve 8: Glemme brennmerker
+
+Alle kuttede kanter i tre blir brune/svarte. Dette er normalt, men kan komme som en overraskelse hvis du forventet rene, lyse kanter.
+
+**Løsning:** Planlegg for mørke kanter. Hvis du trenger lyse kanter: puss med sandpapir, eller bruk maskeringstape på overflaten før kutting.
+
+## Selvtest
+
+| Spørsmål | Poeng /10 |
+|---|---|
+| Jeg tester alltid på en liten bit før hovedprosjektet | /10 |
+| Jeg vet hva kerf er og kompenserer for det | /10 |
+| Jeg sjekker materialet før jeg legger det i laseren | /10 |
+| Jeg graverer før kutt | /10 |
+| Jeg er til stede mens laseren kjører | /10 |
+
+Total /50. Under 30: les denne siden en gang til.
+
+<Quiz
+  chapter={4}
+  questions={[
+    {
+      question: "Hvorfor kan laseren ikke lage perfekte skarpe indre hjørner?",
+      options: [
+        { label: "Fordi laseren er for treg", feedback: "Hastighet er ikke problemet." },
+        { label: "Fordi laserstrålen er sirkulær og etterlater en radius", feedback: "Riktig! Laserstrålen har en diameter og kan ikke kutte et perfekt 90° hjørne." },
+        { label: "Fordi materialet smelter", feedback: "Ikke hovedårsaken." },
+      ],
+    },
+    {
+      question: "Hva bør du gjøre for å unngå å ødelegge dyre materialer?",
+      options: [
+        { label: "Bare satse — det går nok bra", feedback: "Dårlig idé." },
+        { label: "Test på en liten bit av samme materiale først", feedback: "Riktig! Bruk 'Frame' i Lightburn for å se plassering, og test på en liten bit." },
+        { label: "Kjøpe ekstra materiale", feedback: "Det hjelper ikke å unngå feil." },
+      ],
+    },
+  ]}
+/>

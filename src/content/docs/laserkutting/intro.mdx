@@ -1,0 +1,74 @@
+---
+title: Introduksjon til laserkutting
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/j1gEPsAgDQY" title="Inspirasjon til ideer" />
+
+Velkommen til laserkutting-modulen! Laserkutting er en subtraktiv produksjonsmetode som bruker en kraftig laser til å skjære gjennom eller gravere i materialer. Det er en av de raskeste måtene å gå fra digitalt design til fysisk prototype på.
+
+## Hva er laserkutting?
+
+Laserkutting bruker en fokusert lysstråle (laser) til å varme opp og fordampe materiale langs en forhåndsdefinert bane. Laseren styres av en datamaskin, akkurat som en 3D-printer, men i stedet for å legge til materiale, fjerner den det.
+
+De vanligste lasertypene:
+
+| Type | Bølgelengde | Best for |
+|---|---|---|
+| **CO₂-laser** | 10.6 µm | Tre, akryl, papp, lær, stoff |
+| **Diodelasor** | 445–455 nm | Tre, papp, lær (mindre effekt) |
+| **Fiberlaser** | 1.06 µm | Metallgravering, plastmerking |
+
+På Eik Lab bruker vi **CO₂-laser** — den kraftigste og mest allsidige for prototyping.
+
+## Hva kan du lage med laserkutter?
+
+**Passer godt til:**
+- Presisjonskuttede deler i tre, akryl, papp
+- Graverte skilt, merkelapper og logoer
+- Bokser med box joints (ingen lim trengs)
+- Prototyper og modeller
+- Gjæringer, sjablonger og maler
+
+**Passer dårlig til:**
+- 3D-former (laseren kutter bare 2D-profiler)
+- Tykke materialer (>10 mm avhenger av effekt)
+- Reflekterende metall (kan skade laseren)
+- PVC og vinyl (frigjør giftig klorgass)
+
+## Laserkutting vs. 3D-printing
+
+| Egenskap | Laserkutting | 3D-printing |
+|---|---|---|
+| Metode | Subtraktiv (fjerner materiale) | Additiv (legger til materiale) |
+| Hastighet | Veldig rask (minutter) | Langsom (timer) |
+| 3D-evne | Nei (2D-profiler) | Ja (full 3D) |
+| Presisjon | ±0.1 mm | ±0.2–0.4 mm |
+| Materialutvalg | Tre, akryl, papp, lær | Plast (PLA, PETG, TPU) |
+| Overflate | Glatt, som materialet | Laglinjer |
+
+Ofte brukes begge teknologiene sammen: laser kutte boksen, 3D-printe innmaten.
+
+<Quiz
+  chapter={4}
+  questions={[
+    {
+      question: "Hva er forskjellen på laserkutting og 3D-printing?",
+      options: [
+        { label: "Laserkutting legger til materiale, 3D-printing fjerner", feedback: "Omvendt! Laserkutting fjerner materiale." },
+        { label: "Laserkutting fjerner materiale, 3D-printing legger til", feedback: "Riktig! Laserkutteren brenner/skjærer bort, printeren bygger opp." },
+        { label: "De gjør akkurat det samme", feedback: "Nei, helt forskjellige teknologier." },
+      ],
+    },
+    {
+      question: "Hvilken lasertype bruker vi på Eik Lab?",
+      options: [
+        { label: "Fiberlaser", feedback: "Fiberlaser brukes mest til metall." },
+        { label: "Diodelasor", feedback: "Diodelasorer har lavere effekt." },
+        { label: "CO₂-laser", feedback: "Riktig! CO₂-laser er best for tre, akryl og papp." },
+      ],
+    },
+  ]}
+/>

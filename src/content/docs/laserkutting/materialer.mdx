@@ -1,0 +1,122 @@
+---
+title: Materialer for laserkutting
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/OeFD9SWHotA" title="Noen flere tips til laserkutting" />
+
+Valg av materiale er det viktigste valget du tar i et laserkutt-prosjekt. Feil materiale kan ødelegge både resultatet og maskinen.
+
+## Materialer som fungerer bra
+
+### Kryssfiner
+
+Den vanligste typen for prototyping.
+
+| Egenskap | Verdi |
+|---|---|
+| Kuttehastighet (3 mm) | 50 mm/s @ 60 % |
+| Kuttehastighet (6 mm) | 20 mm/s @ 90 % |
+| Gravering | 150 mm/s @ 15 % |
+| Resultat | Mørk brun kant, fin kontrast |
+| Pris | Lav |
+
+**Tips:** Bruk bjerkekryssfiner for best resultat. Unngå MDF — det krever mye effekt og gir mye røyk.
+
+### Akryl (Plexiglass)
+
+Akryl gir en glassaktig, polert kant når den kuttes.
+
+| Egenskap | Verdi |
+|---|---|
+| Kuttehastighet (3 mm) | 30 mm/s @ 50 % |
+| Kuttehastighet (5 mm) | 15 mm/s @ 70 % |
+| Gravering | 100 mm/s @ 10 % |
+| Resultat | Polert, blank kant (cast akryl) |
+| Pris | Moderat |
+
+**Tips:** Cast akryl gir blank, polert kant. Extrudert akryl gir matt kant. Begge fungerer, men cast er best.
+
+### Papp og kartong
+
+Raskt og billig for prototyper.
+
+| Egenskap | Verdi |
+|---|---|
+| Kuttehastighet (bølgepapp) | 80 mm/s @ 30 % |
+| Kuttehastighet (tynn papp) | 100 mm/s @ 20 % |
+| Resultat | Brune kanter |
+| Pris | Veldig lav |
+
+**Tips:** Perfekt for raske prototyper og modeller. Billig å iterere.
+
+### Lær
+
+| Egenskap | Verdi |
+|---|---|
+| Kuttehastighet (2 mm) | 60 mm/s @ 40 % |
+| Gravering | 120 mm/s @ 12 % |
+| Resultat | Mørk brun kant |
+| Pris | Moderat-høy |
+
+**Tips:** Bruk ekte lær (ikke vinyl). Lukter ganske vondt å kutte.
+
+## Materialer du MÅ unngå
+
+| Materiale | Fare |
+|---|---|
+| **PVC** | Frigjør giftig klorgass — ødelegger maskinen og er farlig å puste inn |
+| **Vinyl** | Samme som PVC — inneholder klor |
+| **Polykarbonat (PC)** | Brenner, gir sotete kanter, kan ta fyr |
+| **ABS** | Frigjør giftig styrengass |
+| **Karbonfiber** | Frigjør svært giftige partikler |
+| **Speil/reflekterende** | Kan reflektere laseren tilbake og skade maskinen |
+| **Metall** | CO₂-laseren kutter ikke metall (bortsett fra veldig tynn folie) |
+
+:::danger[ADVARSEL]
+PVC og vinyl skal ALDRI i laserkutteren. De frigjør klorgass som ødelegger maskinen og kan skade lungene dine. Sjekk alltid hva materialet er før du legger det inn.
+:::
+
+## Hvordan teste et ukjent materiale
+
+1. Finn en liten bit av materialet
+2. Sett effekt til 10 % og hastighet til 100 mm/s
+3. Kjør en kort testlinje
+4. Se hva som skjer: brenner det? Smelter det? Ryker det mye?
+5. Juster derfra
+
+**Hvis materialet smeller, ryker giftig eller antennes:** stopp umiddelbart og fjern materialet.
+
+## Materialguide for TIP100
+
+| Hva du skal lage | Anbefalt materiale |
+|---|---|
+| Prototype, test | Papp eller 3 mm kryssfiner |
+| Boks, produkt | 3–6 mm kryssfiner |
+| Skilt, logo | Akryl (gravert) |
+| Kurv, holder | 3 mm kryssfiner |
+| Smykke, pynt | Akryl eller lær |
+
+<Quiz
+  chapter={4}
+  questions={[
+    {
+      question: "Hvilket materiale bør du ALDRI kutte med laserkutter?",
+      options: [
+        { label: "Kryssfiner", feedback: "Kryssfiner er helt trygt og vanlig." },
+        { label: "PVC", feedback: "Riktig! PVC frigjør giftig klorgass." },
+        { label: "Akryl", feedback: "Akryl er trygt og gir fine resultater." },
+      ],
+    },
+    {
+      question: "Hvorfor er cast akryl bedre enn extrudert akryl?",
+      options: [
+        { label: "Det er billigere", feedback: "Cast er dyrere." },
+        { label: "Det gir en blank, polert kant", feedback: "Riktig! Cast akryl smelter og poleres av laseren." },
+        { label: "Det kuttes raskere", feedback: "Hastigheten er omtrent lik." },
+      ],
+    },
+  ]}
+/>

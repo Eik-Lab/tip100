@@ -1,0 +1,114 @@
+---
+title: Sikkerhet og ansvar
+---
+
+import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+
+Laserkutting er et kraftig verktøy, men det er også potensielt farlig. Denne siden går gjennom sikkerhet, miljø og ansvarlig bruk.
+
+## Fallgruve 1: Brann
+
+Laserkutteren bruker høy effekt til å brenne materiale. Det er alltid en brannrisiko.
+
+**Slik unngår du brann:**
+- **Vær til stede** mens laseren kjører. Forlat aldri rommet.
+- **Hold området ryddig** — fjern brennbare materialer fra arbeidsområdet
+- **Sjekk luftassistanse** — den blåser bort røyk og varme
+- **Sjekk avtrekk** — fjerner røyk og brennbare gasser
+- **Ha brannslukningsutstyr tilgjengelig** — brannslukkerapparat i nærheten
+- **Stopp ved flammer** — trykk på nødstopp hvis du ser flammer
+
+## Fallgruve 2: Giftige gasser
+
+Ulike materialer frigjør ulike gasser ved oppvarming. Noen er ufarlige, andre er dødelige.
+
+| Materiale | Gass | Fare |
+|---|---|---|
+| Tre, papp | Røyk, vanndamp | Lav (irriterende) |
+| Akryl | Monomergass | Moderat (irriterende) |
+| **PVC, vinyl** | **Klorgass** | **LIVSFARLIG — ødelegger maskinen** |
+| Lær | Diverse gasser | Moderat (lukter vondt) |
+| Karbonfiber | Giftige partikler | Farlig — ALDRI i CO₂-laser |
+
+:::danger
+PVC og vinyl skal ALDRI i laserkutteren. Klorgassen ødelegger metallkomponenter og er farlig å puste inn. Sjekk alltid materialet.
+:::
+
+## Fallgruve 3: Laserstrålen
+
+CO₂-laserstrålen er usynlig, men ekstremt kraftig.
+
+**Slik unngår du skader:**
+- **Åpne aldri lokket mens laseren kjører** — maskinen stopper automatisk, men stol ikke på det
+- **Bruk vernebriller for CO₂-laser** hvis du må jobbe i nærheten uten lokk
+- **Ikke se direkte på strålen** — den kan skade synet permanent
+- **Reflekterende materialer** kan sende strålen i uventede retninger
+
+## Fallgruve 4: Strøm og elektrisitet
+
+Laserkutteren bruker høyspenning (10–30 kV) for å drive laserrøret.
+
+**Slik unngår du:**
+- Ikke åpne kabinettet på maskinen
+- Trekk ut støpselet før vedlikehold
+- Ikke bruk skjøteledning med for liten kapasitet
+
+## Fallgruve 5: Opphavsrett
+
+Det er lett å laste ned et design og kutte det. Men hvem eier designet?
+
+**Hovedregler:**
+- Design du lager selv er dine (med mindre du jobber for et selskap)
+- Design lastet ned fra nettet kan ha lisensbegrensninger
+- Logos og merkevarer kan ikke kuttes/selges uten tillatelse
+- For TIP100: lag dine egne design eller bruk åpent lisensierte
+
+## Fallgruve 6: Miljø og avfall
+
+Laserkutting genererer avfall: testbiter, mislykkede kutt, kanter som pusses bort.
+
+**Slik reduserer du avfall:**
+- Planlegg plassering for å utnytte materialet maksimalt
+- Test på små biter før hovedprosjektet
+- Resirkuler treavfall (eller bruk det til nyttige formål)
+- Kast akryl-avfall som restplast
+
+## AI-deklarasjon for laserkutting
+
+Hvis du bruker KI til å generere eller optimalisere laserkutt-design (for eksempel "Generer en boks med målene 100×100×50 mm i 3 mm kryssfiner med box joints"), legg til en AI-deklarasjon i innleveringen:
+
+> **AI-deklarasjon**
+> Dette laserkutt-designet er laget med assistanse fra [KI-verktøy]. Promptene som ble brukt: [liste]. Designet er gjennomgått og verifisert for produksjon i Lightburn.
+
+## Hovedregel
+
+| Gjør dette | Fordi |
+|---|---|
+| Vær til stede mens laseren kjører | Brannsikkerhet |
+| Sjekk materialet før du legger det inn | Giftige gasser kan frigjøres |
+| Test på en liten bit først | Unngå å ødelegge dyre materialer |
+| Rens linsen regelmessig | Bedre kutt og mindre brannrisiko |
+| Bruk luftassistanse og avtrekk | Fjerner røyk og varme |
+
+<Quiz
+  chapter={4}
+  questions={[
+    {
+      question: "Hva er den viktigste sikkerhetsregelen ved laserkutting?",
+      options: [
+        { label: "Å alltid ha vernebriller på", feedback: "CO₂-laseren er innelukket, så vernebriller er ikke nødvendig under normal bruk." },
+        { label: "Å være til stede mens laseren kjører", feedback: "Riktig! Du må kunne stoppe maskinen hvis noe går galt." },
+        { label: "Å skru av luftassistansen", feedback: "Luftassistanse skal være på for å hindre brann." },
+      ],
+    },
+    {
+      question: "Hvilket materiale frigjør LIVSFARLIG klorgass i laserkutteren?",
+      options: [
+        { label: "Kryssfiner", feedback: "Kryssfiner er trygt." },
+        { label: "Akryl", feedback: "Akryl er trygt." },
+        { label: "PVC og vinyl", feedback: "Riktig! PVC/vinyl skal ALDRI i laserkutteren." },
+      ],
+    },
+  ]}
+/>

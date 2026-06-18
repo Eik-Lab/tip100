@@ -1,0 +1,96 @@
+---
+title: Slik fungerer laserkutting
+---
+
+import { Steps } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+
+Før du begynner å laserkutte er det viktig å forstå det grunnleggende: Hvordan skjærer laseren? Hva er effekt, hastighet og kerf? Og hva er forskjellen på kutting og gravering?
+
+## Hvordan en laserkutter fungerer
+
+En CO₂-laserkutter genererer en kraftig lysstråle som reflekteres via speil til et fokuspunkt på materialet. Varmen fra laseren fordamper eller brenner materialet langs en programmert bane.
+
+<Steps>
+1. **Laserrøret genererer strålen** — CO₂-gass exciteres elektrisk og sender ut en lysstråle
+2. **Speil og linser dirigerer strålen** — speil på et XY-gantry-system styrer laseren
+3. **Strålen fokuseres på materialet** — linsen konsentrerer energien til et lite punkt
+4. **Materialet varmes opp og fordamper** — laseren brenner/skjærer gjennom langs banen
+5. **Avtrekk fjerner røyk og partikler** — viktig for sikkerhet og resultat
+</Steps>
+
+## Nøkkelparametere
+
+Laserkutting styres av to hovedparametere som må balanseres:
+
+### Effekt (Power)
+
+Hvor sterk laseren er, angitt i prosent (0–100 %).
+
+| Effekt | Hva skjer |
+|---|---|
+| 5–20 % | Gravering — overflaten brennes uten å skjære gjennom |
+| 30–60 % | Skjæring i tynne materialer (3 mm kryssfiner, 2 mm akryl) |
+| 70–100 % | Skjæring i tykke materialer (6 mm kryssfiner, 5 mm akryl) |
+
+### Hastighet (Speed)
+
+Hvor raskt laserhodet beveger seg, angitt i mm/s.
+
+| Hastighet | Hva skjer |
+|---|---|
+| 10–30 mm/s | Dyp gravering, tykke materialer |
+| 30–60 mm/s | Standard kutting |
+| 60–200 mm/s | Rask gravering, tynne materialer |
+
+### Forholdet er nøkkelen
+
+Samme resultat kan oppnås med høy effekt + høy hastighet eller lav effekt + lav hastighet. Finnes forhåndsinnstillinger i Lightburn.
+
+## Kerf — bredden på kuttet
+
+Laseren brenner bort en liten mengde materiale langs kuttelinjen. Denne bredden kalles **kerf** (typisk 0.1–0.2 mm).
+
+**Hvorfor kerf betyr noe:**
+- Hvis du designer en boks med tapper og spor, må du ta hensyn til kerf
+- Uten kerf-kompensasjon vil tappene være for tynne og sporene for smale
+- Lightburn kan automatisk kompensere for kerf
+
+## Kutting vs. gravering
+
+| Kutting | Gravering |
+|---|---|
+| Laseren skjærer helt gjennom materialet | Laseren fjerner kun overflaten |
+| Høy effekt, lavere hastighet | Lavere effekt, høyere hastighet |
+| 1–3 passeringer avhenger av tykkelse | Én passering |
+| Kantene kan være mørke/sotete | Overflaten blir teksturert |
+
+## Hvorfor dette er viktig for laserkutting
+
+Når du designer en del for laserkutting, må du vite:
+- **Hva materialet tåler** — noen materialer brenner lett, andre smelter
+- **Hvor tykt materialet er** — påvirker effekt og hastighet
+- **Hva kerf er** — toleranser i designet
+- **Hva som kan kuttes** — PVC og vinyl er farlig
+
+<Quiz
+  chapter={4}
+  questions={[
+    {
+      question: "Hva betyr 'kerf' i laserkutting?",
+      options: [
+        { label: "Hastigheten på laseren", feedback: "Det er speed." },
+        { label: "Bredden på kuttet som materialet brennes bort", feedback: "Riktig! Kerf er materialet som forsvinner langs kuttelinjen." },
+        { label: "Effekten på laseren", feedback: "Det er power." },
+      ],
+    },
+    {
+      question: "Hva er forskjellen på kutting og gravering?",
+      options: [
+        { label: "Kutting bruker lavere effekt, gravering høyere", feedback: "Omvendt — kutting trenger høy effekt." },
+        { label: "Kutting skjærer gjennom, gravering fjerner kun overflaten", feedback: "Riktig! Gravering lager et spor i overflaten uten å gå gjennom." },
+        { label: "Det er samme ting med forskjellige navn", feedback: "Nei, helt forskjellige moduser." },
+      ],
+    },
+  ]}
+/>

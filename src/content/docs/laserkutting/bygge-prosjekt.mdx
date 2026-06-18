@@ -1,0 +1,116 @@
+---
+title: Bygg et laserkutt-prosjekt steg for steg
+---
+
+import { Steps } from "@astrojs/starlight/components";
+
+Nå har du alle verktøyene du trenger. I denne modulen skal du bygge et komplett laserkutt-prosjekt — en boks med box joints — fra start til slutt.
+
+## Arbeidsflyten
+
+<Steps>
+1. **Planlegg** — skisser på papir før du åpner designprogrammet
+2. **Design i vektorgrafikkprogram** — tegn delene
+3. **Eksporter som SVG**
+4. **Importer i Lightburn** — juster innstillinger
+5. **Kutt** — send til laserkutteren
+6. **Sett sammen** — monter delene
+7. **Iterer** — juster design basert på resultatet
+</Steps>
+
+## Fase 1: Planlegg på papir
+
+Før du åpner noe program, ta et ark og skisser boksen din. Hvor stor skal den være? Hvor mange rom? Skal den ha lokk?
+
+Tenk på:
+- **Materialtykkelse** — påvirker alle mål
+- **Box joints** — tapper og spor må være samme bredde som materialtykkelsen
+- **Kerf** — Lightburn kompenserer for dette, men du bør vite om det
+- **Hull og utsparinger** — for kabler, knapper, etc.
+
+## Fase 2: Design i vektorgrafikkprogram
+
+Du kan bruke Inkscape (gratis), Illustrator eller Fusion 360.
+
+**For en enkel boks trenger du:**
+- **Bunn** (rektangel: bredde × dybde)
+- **Lokk** (samme som bunn, eller litt større)
+- **4 sider** (høyde × bredde/dybde)
+- **Box joints** — tapper på hver side som passer sammen
+
+**Tips for box joints:**
+- Tapp-bredde = materialtykkelse (f.eks. 3 mm)
+- Antall tapper = del bredden på tapp-bredde og rund ned
+- Hver side må ha motsatt mønster (tapp/mellomrom)
+
+Det finnes mange online box joint-generatorer som gjør dette automatisk. Søk på "box joint generator" og lim inn målene dine.
+
+## Fase 3: Eksporter som SVG
+
+1. Tegn kun tynne linjer (hairline) for kutt
+2. Fylte områder for gravering
+3. Eksporter som SVG
+
+## Fase 4: Importer i Lightburn
+
+1. Åpne Lightburn
+2. Importer SVG-filen
+3. Plasser delene tett sammen for å spare materiale
+4. Konfigurer lag: kutt i rød (60 % effekt, 50 mm/s for 3 mm kryssfiner)
+5. Kjør forhåndsvisning
+
+## Fase 5: Kutt
+
+1. Plasser materialet i laserkutteren
+2. Fokuser
+3. Sjekk at avtrekk/luftassistanse er på
+4. Start kuttet
+
+## Fase 6: Sett sammen
+
+Når delene er kuttet:
+1. Fjern eventuell sot med en fuktig klut
+2. Puss lette kanter med fint sandpapir
+3. Prøv å sette sammen uten lim — hvis delene passer er det godt
+4. Bruk trelim hvis du vil ha permanent sammenføyning
+
+## Fase 7: Iterer
+
+Sjelden blir første kutt perfekt. Vanlige forbedringer:
+- **For trangt:** Øk kerf-kompensasjonen med 0.05 mm
+- **For løst:** Senk kerf-kompensasjonen med 0.05 mm
+- **Brenner for mye:** Senk effekt eller øk hastighet
+- **Kutter ikke gjennom:** Øk effekt eller senk hastighet
+
+## Case study: En verktøykasse i kryssfiner
+
+En student bygde en enkel verktøykasse for 3D-print-verktøy:
+
+### Design
+- Bunn: 200×120 mm
+- Sider: 200×80 mm og 120×80 mm
+- Box joints: 3 mm tapper (matcher 3 mm kryssfiner)
+- Håndtak: 20×80 mm utsparing på langsidene
+
+### Lightburn-innstillinger
+- 3 mm bjerkekryssfiner
+- 60 % effekt, 50 mm/s
+- 1 passering
+- Luftassistanse på
+
+### Resultat
+- Kutttid: 12 minutter
+- Passet perfekt sammen
+- Litt sot på kantene — pusset med fint sandpapir
+
+## Oppgave: Bygg din egen laserkutt-del
+
+Start nå. Følg arbeidsflyten over.
+
+Husk:
+- Planlegg på papir først
+- Mål materialet nøyaktig
+- Box joints = materialtykkelse
+- Plasser deler tett for å spare materiale
+- Kjør alltid forhåndsvisning først
+- 2–3 iterasjoner er normalt for perfekt passform

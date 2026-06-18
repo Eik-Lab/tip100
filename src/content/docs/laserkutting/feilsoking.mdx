@@ -1,0 +1,120 @@
+---
+title: Feilsøking laserkutting
+---
+
+import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+
+Feilsøking er avgjørende for laserkutting. Fordi alt skjer raskt og materialet brennes bort permanent, er det viktig å vite hva som gikk galt og hvordan du fikser det.
+
+## Tankesettet: Test før du kutter
+
+Det beste verktøyet for feilsøking er **forhåndsvisning** og **testruter**. Kjør alltid en liten test før du setter i gang et stort prosjekt.
+
+## Vanlige problemer og løsninger
+
+### 1. Kutter ikke gjennom
+
+**Symptom:** Laseren lager et merke, men skjærer ikke gjennom.
+
+| Årsak | Løsning |
+|---|---|
+| For lav effekt | Øk Power 10–20 % |
+| For høy hastighet | Senk Speed 10–20 mm/s |
+| Feil fokus | Juster fokus med avstandsstykke |
+| Skitten linse | Rens linsen forsiktig med linseklut |
+| For få passeringer | Øk antall passeringer |
+
+### 2. For mye sot/brennemerker
+
+**Symptom:** Kantene er svarte og sotete.
+
+| Årsak | Løsning |
+|---|---|
+| For lav hastighet | Øk Speed 10 mm/s |
+| For høy effekt | Senk Power 5–10 % |
+| Dårlig luftassistanse | Sjekk at luftassistanse er på og fungerer |
+| Skitten linse | Rens linsen |
+| Feil materiale | Noen materialer brenner mer enn andre |
+
+### 3. Graveringen er for dyp eller for lys
+
+**For dyp:**
+- Senk Power 5 % eller øk Speed 20 mm/s
+
+**For lys:**
+- Øk Power 5 % eller senk Speed 20 mm/s
+
+### 4. Ujevnt kutt
+
+**Symptom:** Noen deler av kuttet er dypere enn andre.
+
+| Årsak | Løsning |
+|---|---|
+| Materialet er ujevnt | Bruk Z-Offset for å følge overflaten |
+| Feil fokus | Fokuser på midten av materialet |
+| Skjevt materiale | Sørg for at materialet ligger helt flatt |
+
+### 5. Flammer under kutting
+
+**Symptom:** Synlige flammer.
+
+| Årsak | Løsning |
+|---|---|
+| For høy effekt | Senk Power umiddelbart |
+| For ren luft | Øk luftassistanse |
+| Materialet er for brennbart | Stopp, bruk et annet materiale |
+
+:::danger
+Hvis du ser flammer: Stopp laseren umiddelbart. Vent til materialet er avkjølt før du åpner lokket. Sørg for at brannslukningsutstyr er tilgjengelig.
+:::
+
+### 6. Dårlig graveringskvalitet
+
+| Symptom | Årsak | Løsning |
+|---|---|---|
+| Striper i graveringen | For høy hastighet | Senk Speed 20 % |
+| Ujevne linjer | Feil fokus | Fokuser på nytt |
+| Hvite flekker i tre | Harpikslommer | Øk effekt litt |
+
+## Fremgangsmåte ved feil
+
+<Steps>
+1. **Observer** — hva ser du? Ikke gjennomkutt? Sot? Flammer?
+2. **Identifiser** — bruk tabellene over for å finne årsaken
+3. **Justér én ting** — endre kun én parameter av gangen
+4. **Test på en liten bit** — bruk samme materiale
+5. **Gjenta** — til resultatet er bra
+</Steps>
+
+## Slik unngår du feil
+
+- [ ] Sjekk at materialet er egnet for laserkutting
+- [ ] Rens linsen regelmessig
+- [ ] Bruk forhåndsvisning før hver jobb
+- [ ] Test alltid på en liten bit først
+- [ ] Sjekk at fokus er riktig
+- [ ] Sørg for god luftassistanse og avtrekk
+- [ ] Vær til stede mens laseren kjører
+
+<Quiz
+  chapter={4}
+  questions={[
+    {
+      question: "Hva er den viktigste sikkerhetsregelen under laserkutting?",
+      options: [
+        { label: "Å ha høy musikk", feedback: "Musikk hjelper ikke sikkerheten." },
+        { label: "Å være til stede og følge med", feedback: "Riktig! Laserkutting krever tilsyn — brann kan oppstå." },
+        { label: "Å skru av alt lys", feedback: "Du trenger å se hva som skjer." },
+      ],
+    },
+    {
+      question: "Hva gjør du hvis du ser flammer under kutting?",
+      options: [
+        { label: "Fortsette — det er normalt", feedback: "Flammer er IKKE normalt." },
+        { label: "Stoppe laseren umiddelbart", feedback: "Riktig! Stopp, vent på avkjøling, sjekk årsaken." },
+        { label: "Åpne lokket og blåse", feedback: "Åpning av lokket stopper laseren automatisk, men ikke blås." },
+      ],
+    },
+  ]}
+/>
