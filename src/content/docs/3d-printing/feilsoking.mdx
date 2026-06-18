@@ -1,0 +1,129 @@
+---
+title: Feilsøking 3D-printing
+---
+
+import { Tabs, TabItem, Steps } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+
+Feilsøking er den viktigste ferdigheten du kan utvikle som 3D-print-bruker. Ting vil gå galt. Ofte. Nøkkelen er å vite hvordan du gjenkjenner problemet og fikser det.
+
+## Tankesettet: Feil er informasjon
+
+Når en print mislykkes, har du ikke mislyktes — du har fått informasjon. Problemet viser seg som et symptom, og symptomet forteller deg hva som er galt.
+
+## De 7 vanligste problemene
+
+### 1. Første lag fester seg ikke
+
+**Symptom:** Plast trukket av plata, eller løse tråder som ikke legger seg.
+
+**Årsaker og løsninger:**
+
+| Årsak | Løsning |
+|---|---|
+| Skitten build plate | Rens med isopropanol og mikrofiberklut |
+| Feil Z-offset | Juster Z-offset i Bambu Studio (senk 0.05 mm) |
+| For lav temperatur | Øk build plate-temperatur 5 °C |
+| Dårlig lim | Påfør limstift (Eik Lab har dette) |
+
+### 2. Warping (kantene løfter seg)
+
+**Symptom:** Hjørnene på modellen løfter seg fra plata.
+
+| Årsak | Løsning |
+|---|---|
+| Rask avkjøling | Reduser part cooling de første lagene |
+| Dårlig adhesion | Bruk brim i Bambu Studio |
+| For kaldt rom | Lukk printerdøren eller bruk kammer |
+| Feil materiale | PETG warper mer enn PLA — bruk brim |
+
+### 3. Stringing (spindelvev)
+
+**Symptom:** Tynne plasttråder mellom deler av modellen.
+
+| Årsak | Løsning |
+|---|---|
+| For høy temperatur | Senk nozzle-temp 5 °C |
+| For lite retraction | Øk retraction distance (1–2 mm for direct drive) |
+| For våt filament | Tørk filamentet (60 °C i 6 timer) |
+
+### 4. Layer shift (lagforskyvning)
+
+**Symptom:** Øvre del av modellen er forskjøvet sidelengs i forhold til nedre del.
+
+| Årsak | Løsning |
+|---|---|
+| Slark i belter | Stram beltene på printeren |
+| For høy akselerasjon | Reduser akselerasjonsverdier |
+| Kollisjon | Har printerhodet truffet noe? Flytt modellen midt på plata |
+
+### 5. Under-extrusion
+
+**Symptom:** Tynne lag, hull i overflaten, manglende vegger.
+
+| Årsak | Løsning |
+|---|---|
+| Tett nozzle | Rens med nålesett eller bytt nozzle |
+| For lav temperatur | Øk 5–10 °C |
+| For høy hastighet | Reduser print-hastighet |
+| Filament viklet | Sjekk at filamentet ruller av fritt |
+
+### 6. Over-extrusion
+
+**Symptom:** Klumper på overflaten, innsnevret hull, blobs.
+
+| Årsak | Løsning |
+|---|---|
+| For høy temperatur | Senk 5 °C |
+| Feil flow rate | Juster flow ratio i Bambu Studio (0.95–0.98) |
+| For vått filament | Tørk filamentet |
+
+### 7. Gaping mellom vegg og infill
+
+**Symptom:** Synlige hull mellom ytterveggen og fyllingen.
+
+| Årsak | Løsning |
+|---|---|
+| Feil infill overlap | Øk "Infill overlap" i Bambu Studio (15–25 %) |
+| For mye part cooling | Reduser part cooling 10–20 % |
+
+## Fremgangsmåte ved feil
+
+<Steps>
+1. **Observer** — se på printen. Hva er symptomet?
+2. **Identifiser** — bruk tabellen over. Hvilket problem passer?
+3. **Justér én ting** — endre kun EN innstilling av gangen
+4. **Print på nytt** — bruk en liten testmodell
+5. **Gjenta** — hvis det ikke fungerer, prøv neste løsning
+</Steps>
+
+## Slik unngår du de vanligste feilene
+
+- [ ] Rens build plate før hver print
+- [ ] Sjekk at filamentet er tørt (oppbevar i tett boks med silica gel)
+- [ ] Bruk brim for deler med lite kontaktflate
+- [ ] Sjekk forhåndsvisningen lag for lag før du trykker "Print"
+- [ ] Vær til stede de første 5 lagene
+- [ ] Ikke la printeren stå uten tilsyn over natten
+
+<Quiz
+  chapter={4}
+  questions={[
+    {
+      question: "Hva er den vanligste årsaken til at første lag ikke fester seg?",
+      options: [
+        { label: "For høy temperatur", feedback: "For høy temperatur gir over-extrusion, ikke dårlig feste." },
+        { label: "Skitten build plate", feedback: "Riktig! Fett fra fingre og støv hindrer feste." },
+        { label: "For høy hastighet", feedback: "Hastighet påvirker kvalitet, men førstelags-feste handler mest om rens." },
+      ],
+    },
+    {
+      question: "Hva bør du gjøre hvis du ser stringing på printen?",
+      options: [
+        { label: "Øke temperaturen 10 grader", feedback: "Høyere temperatur gir MER stringing." },
+        { label: "Senke temperaturen 5 grader eller øke retraction", feedback: "Riktig! Lavere temperatur og mer retraction reduserer stringing." },
+        { label: "Slå av part cooling", feedback: "Part cooling hjelper faktisk mot stringing." },
+      ],
+    },
+  ]}
+/>

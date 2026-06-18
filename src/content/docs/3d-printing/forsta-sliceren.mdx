@@ -1,0 +1,111 @@
+---
+title: Forstå sliceren
+---
+
+import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/hOph7buewvI" title="Forstå Supports bambu studio" />
+
+Sliceren (Bambu Studio) er bindeleddet mellom 3D-modellen din og printeren. Den bestemmer alt som påvirker kvalitet, styrke og printetid. Denne siden går gjennom de viktigste innstillingene.
+
+## Layer height (laghøyde)
+
+Laghøyden er den viktigste innstillingen for kvalitet vs. hastighet:
+
+| Laghøyde | Kvalitet | Tid | Bruk til |
+|---|---|---|---|
+| 0.08 mm | ★★★★★ Svært høy | Veldig treg | Små detaljerte deler |
+| 0.12 mm | ★★★★ Høy | Treg | Fine modeller, synlige deler |
+| 0.20 mm | ★★★ Standard | Normal | De fleste deler (anbefalt) |
+| 0.28 mm | ★★ Grove | Rask | Prototyper, skjulte deler |
+| 0.32 mm | ★ Rå | Svært rask | Grovskisser, testprint |
+
+## Infill (fyllingsgrad)
+
+Infill er den indre strukturen i modellen. Høy infill = sterkere, tyngre og tregere.
+
+| Infill % | Styrke | Tid | Bruk til |
+|---|---|---|---|
+| 0–5 % | Svak | Raskest | Lette modeller, veggdekor |
+| 10–15 % | Moderat | Normal | Vanlige deler (anbefalt) |
+| 20–30 % | Sterk | Langsom | Funksjonelle deler |
+| 50–100 % | Svært sterk | Veldig treg | Verktøy, belastede deler |
+
+**Infill-mønstre:**
+- **Grid/Gyroid** — god styrke i alle retninger (standard)
+- **Lines** — raskt, men svakere i en retning
+- **Cubic** — sterk, bra for belastning
+- **Lightning** — kun der det trengs, sparer materiale
+
+## Supports (støttestrukturer)
+
+Supports bygges under overheng for å hindre kollaps.
+
+**Når trenger du supports?**
+- Overheng > 45° fra vertikal
+- Broer som strekker seg > 10 mm
+- Utstikkende detaljer som henger i luften
+
+**Support-typer:**
+- **Normal** — tett struktur, fungerer for de fleste deler
+- **Tree** — grenlignende struktur, lettere å fjerne, mindre materiale
+- **Organic** — ny type, best balanse mellom støtte og fjerning
+
+:::tip
+Prøv å designe deler UTEN supports hvis mulig. Supports etterlater merker på overflaten og øker printetid/materialbruk.
+:::
+
+## Adhesion (feste til plata)
+
+For å hindre at modellen løsner under printing:
+
+| Type | Når bruke | Materiale |
+|---|---|---|
+| **Skirt** | Alltid — renser dysen før print | Ingen ekstra |
+| **Brim** | Små deler, høye deler | 5–15 mm kant rundt modellen |
+| **Raft** | Vanskelige materialer (ABS, PETG) | Rist under modellen |
+
+**Anbefaling:** Bruk brim for deler med lite kontaktflate mot plata.
+
+## Veggtykkelse (Wall thickness)
+
+Antall vegger bestemmer styrke og vanntetthet:
+
+- **2 vegger** — standard, for de fleste deler
+- **3 vegger** — sterkere, for funksjonelle deler
+- **4+ vegger** — for deler som skal maskineres etter printing
+
+En tommelfingerregel: minimum 0.8 mm veggtykkelse i designet ditt.
+
+## Skriv ut eller trenger du bare å kjenne til dette?
+
+Du trenger ikke å kunne alle slicer-innstillingene utenat. Det viktigste er å vite:
+- Hvilke knapper du kan trykke på (layer height, infill, supports)
+- Hva de forskjellige innstillingene gjør
+- Hvordan du gjenkjenner når noe er feil
+
+Bambu Studio har gode forhåndsinnstillinger for vanlige materialer og formål. Start med disse og juster etter hvert.
+
+<Quiz
+  chapter={4}
+  questions={[
+    {
+      question: "Hvilken infill-prosent anbefales for vanlige funksjonelle deler?",
+      options: [
+        { label: "0–5 %", feedback: "For lite for funksjonelle deler." },
+        { label: "100 %", feedback: "Alt for mye og tar ekstremt lang tid." },
+        { label: "10–15 %", feedback: "Riktig! God balanse styrke/hastighet." },
+      ],
+    },
+    {
+      question: "Når bør du unngå å bruke supports?",
+      options: [
+        { label: "Når modellen har overheng > 45°", feedback: "Da trenger du supports." },
+        { label: "Når du kan designe deler uten overheng", feedback: "Riktig! Best å designe for printing uten supports." },
+        { label: "Aldri — supports er alltid nødvendig", feedback: "Mange deler trenger ingen supports." },
+      ],
+    },
+  ]}
+/>

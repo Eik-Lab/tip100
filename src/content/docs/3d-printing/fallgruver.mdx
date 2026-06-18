@@ -1,0 +1,97 @@
+---
+title: Vanlige fallgruver i 3D-printing
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+
+3D-printing er tilgivende, men det er noen fallgruver som går igjen. Mange handler ikke om teknologien, men om designvalg og forventninger.
+
+## Fallgruve 1: For tynne vegger
+
+Designere lager vegger som er 0.4 mm tykke fordi det ser pent ut på skjermen. En 0.4 mm vegg er én enkelt linje med plast — den knekker med et lite trykk.
+
+**Løsning:** Minimum 0.8 mm (2 vegger). For funksjonelle deler, 1.2–1.6 mm.
+
+## Fallgruve 2: Glemme kerf og toleranser
+
+3D-printing er ikke presist nok til at to deler passer perfekt uten klaring. Hvis du designer et hull for en M3-skrue med diameter 3.0 mm, får du ikke skruen inn.
+
+**Løsning:** Legg til 0.3–0.4 mm klaring for skruer og akslinger. For bevegelige deler, 0.2 mm gap.
+
+| Type | Klaring |
+|---|---|
+| Skruehull (M3) | 3.3–3.4 mm |
+| Aksling i lager | 0.2 mm gap |
+| Snap-fit | 0.15–0.3 mm |
+| Boks-lokk | 0.3–0.5 mm |
+
+## Fallgruve 3: Overheng som kollapser
+
+Du designer en kul detalj som stikker ut på skrå. Printeren prøver å legge plast i luften. Resultatet blir en spaghetti.
+
+**Løsning:** Overheng over 45° trenger supports. Eller enda bedre: design slik at overheng unngås.
+
+## Fallgruve 4: Glemme print-orientering
+
+Du designer en del og printer den slik den ser best ut i Fusion 360. Men styrken følger lagene — delen brekker langs lagene når den belastes.
+
+**Løsning:** Tenk på hvilken retning kraften kommer fra. Orienter delen slik at lagene ligger på tvers av belastningen.
+
+## Fallgruve 5: Supports overalt... eller ingen steder
+
+Noen legger til supports på alt "for sikkerhets skyld". Andre nekter å bruke supports "av prinsipp". Begge deler er feil.
+
+**Løsning:** Bruk supports der de trengs, ikke der de ikke trengs. Sjekk forhåndsvisningen i Bambu Studio.
+
+## Fallgruve 6: For rask printing
+
+Du vil ha delen fort ferdig, så du skrur opp hastigheten. Resultat: stringing, under-extrusion, dårlig kvalitet.
+
+**Løsning:** Bruk standardhastighetene i Bambu Studio. De er kalibrert for printeren.
+
+## Fallgruve 7: Vått filament
+
+Du oppbevarer filamentet i en åpen boks på skrivebordet. Etter en uke printer delen dårligere og dårligere. PLA og spesielt PETG absorberer fuktighet fra luften.
+
+**Løsning:** Oppbevar filament i tett boks med silica gel. Hvis filamentet er vått: tørk det i en filament-tørker eller i ovn på 50–60 °C i 4–6 timer.
+
+## Fallgruve 8: Overtenkt design
+
+Du designer en del med 50 funksjoner, kompleks geometri og avanserte kjølekanaler. Etter 4 dagers iterering har du fortsatt ikke en fungerende prototype.
+
+**Løsning:** Start enkelt. Få en grunnleggende fungerende del først. Legg til funksjoner én om gangen. En enkel, fungerende del er bedre enn en halvferdig kompleks del.
+
+## Selvtest
+
+| Spørsmål | Poeng /10 |
+|---|---|
+| Jeg sjekker forhåndsvisningen lag for lag | /10 |
+| Jeg vet hva som er minimum veggtykkelse | /10 |
+| Jeg designer med toleranser og klaring | /10 |
+| Jeg tenker på print-orientering før jeg eksporterer | /10 |
+| Jeg oppbevarer filamentet tørt | /10 |
+
+Total /50. Under 30: les denne siden en gang til.
+
+<Quiz
+  chapter={4}
+  questions={[
+    {
+      question: "Hvilken klaring bør du ha for et M3-skruehull i 3D-print?",
+      options: [
+        { label: "3.0 mm (nøyaktig M3)", feedback: "Da får du ikke skruen inn." },
+        { label: "3.3–3.4 mm", feedback: "Riktig! 0.3–0.4 mm klaring for skruer." },
+        { label: "4.0 mm", feedback: "Da blir det for løst." },
+      ],
+    },
+    {
+      question: "Hva er den viktigste regelen for å unngå supports?",
+      options: [
+        { label: "Design med flate partier ned", feedback: "Riktig! Ingen overheng > 45°." },
+        { label: "Bruk mer infill", feedback: "Infill påvirker ikke behovet for supports." },
+        { label: "Øk laghøyden", feedback: "Laghøyde påvirker ikke overheng." },
+      ],
+    },
+  ]}
+/>

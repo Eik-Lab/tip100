@@ -1,0 +1,119 @@
+---
+title: Bygg et 3D-print-prosjekt steg for steg
+---
+
+import { Steps } from "@astrojs/starlight/components";
+
+Nå har du alle verktøyene du trenger. I denne modulen skal du bygge et komplett prosjekt — en funksjonell 3D-printet del — fra start til slutt.
+
+## Arbeidsflyten
+
+<Steps>
+1. **Planlegg** — skisser på papir før du åpner Fusion 360
+2. **Design i Fusion 360** — bygg modellen
+3. **Eksporter** — STL/3MF med riktige innstillinger
+4. **Slicing** — velg materiale, laghøyde, infill, supports
+5. **Print** — send til printer og følg med
+6. **Etterbehandling** — fjern supports, puss, test
+7. **Iterer** — juster design basert på resultatet
+</Steps>
+
+## Fase 1: Planlegg
+
+Før du åpner Fusion 360, ta et ark og skisser delene du skal printe. Tenk på:
+
+- **Hvilken funksjon skal delen ha?** Hva må den tåle?
+- **Hvordan skal den orienteres på build plata?** Hvilken retning gir best styrke?
+- **Trenger den supports?** Kan du designe bort overheng?
+- **Hvilke toleranser trenger du?** Skal noe passe sammen?
+
+## Fase 2: Design i Fusion 360
+
+Bygg modellen i Fusion 360. Husk design for 3D-printing:
+
+- **Minimum veggtykkelse:** 0.8 mm (2 vegger på 0.4 mm nozzle)
+- **Unngå bratte overheng:** Hold deg under 45° hvis mulig
+- **Legg til fillets (avrundinger)** på skarpe hjørner — de reduserer stress og ser bedre ut
+- **Hull for skruer:** 0.3–0.4 mm klaring for M3/M4-skruer
+- **Tekst:** Gjør teksten minst 1 mm dyp og 2 mm bred
+
+## Fase 3: Eksporter
+
+I Fusion 360:
+1. Høyreklikk komponenten → "Save as Mesh"
+2. Velg STL eller 3MF
+3. Oppløsning: "High" for detaljer, "Medium" for standard
+4. Lagre
+
+## Fase 4: Slicing
+
+I Bambu Studio:
+
+1. Importer STL-filen
+2. Velg riktig filament-profil (PLA, PETG, etc.)
+3. Still inn:
+   - **Laghøyde:** 0.2 mm for standard
+   - **Infill:** 10–15 % for vanlige deler
+   - **Supports:** kun hvis nødvendig
+   - **Brim:** anbefalt for små deler
+4. Klikk "Slice plate"
+5. Sjekk forhåndsvisningen lag for lag
+
+## Fase 5: Print
+
+Send til printer og følg med de første 5 lagene. Hvis første lag legger seg pent, er du på rett vei.
+
+## Fase 6: Etterbehandling
+
+Når printen er ferdig:
+
+1. Fjern fra build plate (forsiktig med spatelen!)
+2. Fjern supports med tang
+3. Puss med sandpapir (220 → 400 → 800 korn)
+4. Test passform og funksjon
+
+## Fase 7: Iterer
+
+Sjelden blir første print perfekt. Vanlige forbedringer:
+
+- **Justér toleranser** — hvis noe er for trangt, øk klaringen med 0.1 mm
+- **Endre orientering** — hvis overflaten er for grov, prøv en annen orientering
+- **Øk infill** — hvis delen sprekker under belastning
+- **Legg til fillets** — hvis hjørner sprekker
+
+## Case study: En tilpasset telefonholder
+
+Her er et eksempel på hvordan en student bygde en telefonholder:
+
+### Skisse
+En enkel L-formet holder som settes fast på skrivebordet med dobbeltsidig tape.
+
+### Fusion 360
+- En baseplate (100×60×5 mm)
+- En rygg (100×50×3 mm) med 15° helling
+- Fileter på alle kanter (R3)
+
+### Slicing
+- PLA, 0.2 mm layer height
+- 15 % gyroid infill
+- Brim for stabilitet
+- Ingen supports (ingen overheng)
+
+### Print
+- 2 timer 15 minutter
+- 12 gram PLA
+
+### Resultat
+Holdt telefonen perfekt. En iterasjon: lagde hull for ladekabel.
+
+## Oppgave: Bygg din egen del
+
+Start nå. Følg arbeidsflyten over.
+
+Husk:
+- Planlegg på papir først
+- Design for printing (ingen overheng > 45°)
+- Velg riktig materiale
+- Sjekk forhåndsvisningen grundig
+- Ikke forvent perfeksjon på første forsøk
+- 2–3 iterasjoner er normalt

@@ -1,0 +1,84 @@
+---
+title: Slik fungerer 3D-printing
+---
+
+import { Steps } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+
+Før du begynner å 3D-printe er det viktig å forstå det grunnleggende: Hvordan bygges et objekt lag for lag? Hva er filament, nozzle og build plate? Og hva er egentlig en slicer?
+
+Uten denne grunnforståelsen vil feilmeldinger være uforståelige, og du vil være prisgitt maskinen uten å vite hvorfor noe går galt.
+
+## Hvordan en FDM-printer fungerer
+
+En FDM-printer smelter plastfilament og presser det ut gjennom en dyse (nozzle) som beveger seg i X-, Y- og Z-retning for å bygge objektet lag for lag.
+
+<Steps>
+1. **Filament mates inn** — en motor (extruder) presser plasttråd inn i en varm blokk (hotend)
+2. **Plasten smelter** — hotenden varmer filamentet til ca. 180–260 °C avhengig av materiale
+3. **Nozzlen legger lag** — printerens hode beveger seg i et mønster og legger smeltet plast på build plate
+4. **Build plate senkes** — ett lags tykkelse (0.1–0.3 mm) og neste lag legges oppå
+5. **Gjenta** — lag for lag til objektet er ferdig
+</Steps>
+
+## Nøkkelkomponenter
+
+| Komponent | Hva den gjør |
+|---|---|
+| **Nozzle** | Dysen plasten presses ut gjennom (0.4 mm er standard) |
+| **Hotend** | Varmer opp filamentet til smeltepunkt |
+| **Extruder** | Mater filament inn i hotenden (direct eller bowden) |
+| **Build plate** | Plattformen objektet printes på (oftest oppvarmet) |
+| **Filament** | Plastråden som er råmaterialet |
+| **Part cooling fan** | Kjølevifte som størkner plasten raskt |
+
+## Lag-for-lag-prinsippet
+
+Hvert lag er en tynn skive av modellen din. Laghøyden bestemmer:
+
+- **0.1 mm** — fine detaljer, glatt overflate, men treg print (4–8 timer for en kopp)
+- **0.2 mm** — standard, god balanse kvalitet/hastighet
+- **0.3 mm** — grov, rask print, mindre detaljer
+
+Lagene smeltes sammen av varmen fra foregående lag. Dette betyr at printede deler er **sterke i XY-retning** (langs lagene) men **svakere i Z-retning** (mellom lagene).
+
+## Hva er en slicer?
+
+En slicer (som Bambu Studio) er programvaren som gjør 3D-modellen din om til instruksjoner printeren forstår (G-code). Den:
+
+1. Deler modellen opp i horisontale lag (slices)
+2. Beregner hvor printerhodet skal bevege seg
+3. Bestemmer innstillinger som temperatur, hastighet og infill
+4. Genererer støttestrukturer der det trengs
+
+## Hvorfor dette er viktig for 3D-printing
+
+Når du designer en modell og sender den til printing, vil du se resultatet på build plata. Hvis du ikke forstår hvordan printing fungerer, vil du:
+
+- **Ikke forstå hvorfor printen mislykkes** — "Hvorfor løsnet hjørnet?"
+- **Ikke kunne velge riktige innstillinger** — "Skal jeg bruke 0.1 eller 0.2 mm laghøyde?"
+- **Ikke kunne designe printbare deler** — "Hvorfor trenger jeg supports her?"
+
+KI-en kan generere 3D-modeller i Fusion 360, men du må forstå nok til å designe for produksjon.
+
+<Quiz
+  chapter={4}
+  questions={[
+    {
+      question: "Hvilken retning er et 3D-printet objekt sterkest?",
+      options: [
+        { label: "På tvers av lagene (Z-retning)", feedback: "Mellom lagene er det svakere — limfugen er det svake punktet." },
+        { label: "Langs med lagene (XY-retning)", feedback: "Riktig! Lagene smeltes sammen i XY-planet og er sterkest der." },
+        { label: "Alle retninger er like sterke", feedback: "Nei, FDM-print er anisotropt — styrken varierer med retningen." },
+      ],
+    },
+    {
+      question: "Hva gjør en slicer?",
+      options: [
+        { label: "Skjærer filament i biter", feedback: "Nei, sliceren er programvare." },
+        { label: "Deler 3D-modellen i lag og genererer G-code", feedback: "Riktig! Sliceren gjør modellen om til printerinstruksjoner." },
+        { label: "Renser printerdysen", feedback: "Det er vedlikehold, ikke slicing." },
+      ],
+    },
+  ]}
+/>

@@ -1,0 +1,63 @@
+---
+title: Installasjon og oppsett
+---
+
+import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+For å komme i gang med 3D-printing trenger du et slicer-program som gjør Fusion 360-modellen om til instruksjoner printeren forstår. I TIP100 bruker vi **Bambu Studio**.
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/Z8pOzy4Qudc" title="Introduksjon til Bambu Studio + export av 3D modell" />
+
+## Hva er Bambu Studio?
+
+Bambu Studio er et slicer-program utviklet for Bambu Lab-printere (de vi har på Eik Lab). Det fungerer både på Windows og macOS.
+
+Du trenger ikke installere noe — Bambu Studio er allerede tilgjengelig på Eik Labs maskiner. Hvis du vil installere det på din egen maskin:
+
+1. Gå til [bambulab.com/en/download/studio](https://bambulab.com/en/download/studio)
+2. Last ned versjonen for ditt operativsystem
+3. Installer og åpne programmet
+
+## Arbeidsflyten: Fra Fusion 360 til Bambu Studio
+
+<Steps>
+1. **Eksporter modellen** fra Fusion 360 som STL eller 3MF
+2. **Åpne filen** i Bambu Studio
+3. **Juster innstillinger** — laghøyde, infill, supports
+4. **Slice** — la programmet beregne printerbanene
+5. **Forhåndsvis** — se lag-for-lag hvordan printen blir
+6. **Send til printer** — overfør G-koden til printeren
+</Steps>
+
+## Første titt på Bambu Studio
+
+Når du åpner Bambu Studio ser du:
+
+- **3D-visning** — modellen din i midten
+- **Innstillingspanel til høyre** — laghøyde, infill, temperatur
+- **Forhåndsvisning** — se hvordan printen blir lag for lag
+- **Send-knapp** — send til printer over nettverk
+
+## Eksporter fra Fusion 360
+
+I Fusion 360 høyreklikker du på komponenten og velger "Save as STL" (eller 3MF). Velg høy oppløsning for detaljerte deler, standard for vanlige deler.
+
+:::tip
+STL-formatet fungerer overalt, men 3MF er nyere og kan inneholde mer informasjon (farger, materialer). For TIP100 holder STL fint.
+:::
+
+<Quiz
+  chapter={4}
+  questions={[
+    {
+      question: "Hvilke filformater fungerer for 3D-printing?",
+      options: [
+        { label: "PDF og DOCX", feedback: "Dette er dokumentformater." },
+        { label: "STL og 3MF", feedback: "Riktig! Dette er standardformater for 3D-printing." },
+        { label: "JPG og PNG", feedback: "Dette er bildeformater." },
+      ],
+    },
+  ]}
+/>

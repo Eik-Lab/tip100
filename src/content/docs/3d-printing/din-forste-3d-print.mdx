@@ -1,0 +1,113 @@
+---
+title: Din første 3D-print
+---
+
+import { Steps } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+
+Nå skal du printe din første 3D-modell. Følg stegene nøye — dette er grunnlaget for alt du skal gjøre videre.
+
+## Steg 1: Ha en modell klar
+
+Du trenger en 3D-modell. Du kan enten:
+
+- **Designe din egen** i Fusion 360 (følg de andre modulene)
+- **Laste ned en ferdig modell** fra printables.com eller thingiverse.com (for testformål)
+
+For din første print anbefaler vi en enkel geometri: en boks, en ring eller et nøkkelvedheng.
+
+## Steg 2: Eksporter til STL
+
+I Fusion 360:
+
+1. Høyreklikk på komponenten i browseren
+2. Velg "Save as Mesh" → STL
+3. Velg oppløsning: "High" for detaljerte deler, "Medium" for vanlige deler
+4. Lagre filen på datamaskinen
+
+## Steg 3: Åpne i Bambu Studio
+
+1. Åpne Bambu Studio
+2. Klikk "Import" eller dra STL-filen inn i vinduet
+3. Modellen vises på build plata
+
+## Steg 4: Plasser og juster
+
+**Plassering:** Dra modellen dit du vil ha den på plata. Prøv å plassere den midt på plata for jevn varme.
+
+**Orientering:** Dette er kritisk! Still deg selv spørsmålet: "Hvilken vei gir færrest overheng og best styrke?"
+
+- Unngå bratte overheng (over 45°) uten supports
+- Legg flate sider ned mot plata for best overflate
+- Tenk på hvilken retning som blir sterkest
+
+**Tips:** Den flaten som vender ned mot build plata blir penest (glatt). Toppen blir matt, sider kan ha laglinjer.
+
+## Steg 5: Slicing
+
+Klikk "Slice plate" — Bambu Studio beregner:
+
+- **Printetid** — hvor lang tid tar det?
+- **Filamentmengde** — hvor mye plast går med?
+- **Lag-for-lag-visning** — bla gjennom lagene
+
+**Sjekk før du slicer:**
+- [ ] Er modellen riktig orientert?
+- [ ] Er den innenfor byggevolumet (256×256×256 mm)?
+- [ ] Er supports riktig plassert (eller unødvendige)?
+
+## Steg 6: Forhåndsvis
+
+Bla gjennom lagene i forhåndsvisningen. Se etter:
+- Tynne vegger som kan falle sammen
+- Tomme områder som burde ha infill
+- Overheng uten supports
+
+## Steg 7: Send til printer
+
+Hvis alt ser bra ut:
+1. Klikk "Send"
+2. Velg printeren på Eik Lab
+3. Vent på at printen starter
+4. Gå bort til printeren og sjekk at første lag legger seg pent
+
+## Hva gjør jeg hvis noe går galt?
+
+| Problem | Løsning |
+|---|---|
+| Første lag fester seg ikke | Rens build plata med isopropanol, påfør limstift |
+| Modellen løsner under printing | Legg til brim i Bambu Studio |
+| Stringing (spindelvev) | Senk temperaturen eller øk retraction |
+| Lagene sprekker | Øk temperatur 5 °C eller reduser part cooling |
+| Støttestrukturen sitter fast | Juster "Support gap" i Bambu Studio |
+
+## Sjekkliste før du sender til printer
+
+- [ ] Jeg har eksportert STL/3MF fra Fusion 360
+- [ ] Modellen er riktig orientert på build plata
+- [ ] Supports er plassert der det trengs
+- [ ] Jeg har sjekket forhåndsvisningen lag for lag
+- [ ] Jeg har valgt riktig filament-type i Bambu Studio
+- [ ] Jeg vet hvor lang tid printen tar
+
+<Quiz
+  chapter={4}
+  questions={[
+    {
+      question: "Hva er den viktigste faktoren når du orienterer en modell på build plata?",
+      options: [
+        { label: "At den ser penest mulig ut", feedback: "Utseende er viktig, men funksjon er viktigere." },
+        { label: "Å minimere overheng og optimalisere styrke", feedback: "Riktig! Orientering påvirker både printbarhet og styrke." },
+        { label: "At den står opp ned", feedback: "Ikke nødvendigvis." },
+      ],
+    },
+    {
+      question: "Hva gjør du hvis første lag ikke fester seg til build plata?",
+      options: [
+        { label: "Øker printerhastigheten", feedback: "Hastighet hjelper ikke på adhesjon." },
+        { label: "Renser plata og påfører limstift", feedback: "Riktig! Rens med isopropanol og bruk limstift for bedre feste." },
+        { label: "Slår av varmen i build plata", feedback: "Varme hjelper på feste, ikke skru den av." },
+      ],
+    },
+  ]}
+/>

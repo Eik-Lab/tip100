@@ -1,0 +1,111 @@
+---
+title: Sikkerhet og ansvar
+---
+
+import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
+import Quiz from "../../../components/Quiz.astro";
+
+3D-printing er stort sett trygt, men det er noen ting du må være oppmerksom på. Denne siden går gjennom sikkerhet, miljø og ansvarlig bruk.
+
+## Fallgruve 1: Ventilasjon
+
+Når plast smeltes, frigjøres partikler og gasser. Mengden varierer med materialet:
+
+| Materiale | Risiko | Anbefaling |
+|---|---|---|
+| PLA | Lav | God ventilasjon er nok |
+| PETG | Moderat | God ventilasjon, unngå lang eksponering |
+| ABS | Høy | AVGIR STYGGE GASSER — bruk lukket printer med filter |
+| ASA | Høy | Samme som ABS |
+| TPU | Moderat | Kan frigjøre isocyanater ved overoppheting |
+
+**Hovedregel:** Printere på Eik Lab står i et ventilert rom. Hvis du printer hjemme, sørg for god luftgjennomstrømning. Ikke stå rett ved printeren i timevis.
+
+## Fallgruve 2: Brannrisiko
+
+3D-printere blir varme (200+ °C) og har bevegelige deler som kan svikte.
+
+**Slik unngår du brann:**
+- Ikke la printeren stå uten tilsyn over natten
+- Hold brennbare materialer unna printeren
+- Sjekk at alle kabler er hele og riktig tilkoblet
+- Rens printeren regelmessig for rester
+
+## Fallgruve 3: Brennbare materialer
+
+Noen materialer skal **aldri** i en 3D-printer:
+
+| Materiale | Fare |
+|---|---|
+| PVC | Frigjør giftig klorgass |
+| Polykarbonat (PC) | Krever høy temp, kan brytes ned |
+| Materiale du ikke kjenner | Hvis du ikke vet hva det er, ikke bruk det |
+
+Bruk kun filament merket for 3D-printing fra anerkjente leverandører.
+
+## Fallgruve 4: Skarpe kanter og små deler
+
+3D-printede deler kan ha skarpe kanter (spesielt etter fjerning av supports). Små deler kan være kvelningsfare for barn.
+
+**Slik unngår du:** Puss skarpe kanter. Oppbevar små deler utilgjengelig for barn.
+
+## Fallgruve 5: Opphavsrett og deling
+
+Det er lett å laste ned en kul modell fra Printables.com og printe den. Men hvem eier designet?
+
+**Hovedregler:**
+- De fleste modeller på Printables/Thingiverse har Creative Commons-lisens
+- Sjekk lisensen: "Non-Commercial" betyr at du ikke kan selge printen
+- "Attribution" betyr at du må kreditere skaperen
+- "No Derivatives" betyr at du ikke kan endre designet
+
+For TIP100: design dine egne deler eller bruk modeller med åpen lisens.
+
+## Fallgruve 6: Miljø og avfall
+
+3D-printing genererer avfall: mislykkede print, støttestrukturer, brim.
+
+**Slik reduserer du avfall:**
+- Design for å lykkes første gang (sjekk forhåndsvisningen!)
+- Prøv å designe uten supports
+- Resirkuler PLA-avfall (noen steder tar imot det)
+- Bruk minst mulig infill der det ikke påvirker funksjonen
+
+## Hovedregel: Hva du alltid bør gjøre
+
+| Gjør dette | Fordi |
+|---|---|
+| Rens build plate før hver print | Bedre feste, færre feil |
+| Hold oppsyn de første lagene | Fange opp feil tidlig |
+| Oppbevar filament tørt | Bedre kvalitet, mindre søl |
+| Sjekk forhåndsvisningen | Oppdage problemer før printing |
+| Ikke la printeren stå uten tilsyn | Brannsikkerhet |
+
+## AI-deklarasjon for 3D-printing
+
+Hvis du bruker KI til å generere eller optimalisere 3D-modeller (for eksempel "Generer en holder for en ESP32"), legg til en AI-deklarasjon i innleveringen din:
+
+> **AI-deklarasjon**
+> Denne 3D-modellen er designet med assistanse fra [KI-verktøy]. Promptene som ble brukt: [liste]. Modellen er gjennomgått og verifisert for printbarhet i Bambu Studio.
+
+<Quiz
+  chapter={4}
+  questions={[
+    {
+      question: "Hvilket materiale bør du ALDRI printe på grunn av giftige gasser?",
+      options: [
+        { label: "PLA", feedback: "PLA er trygt." },
+        { label: "PETG", feedback: "PETG er stort sett trygt med god ventilasjon." },
+        { label: "PVC", feedback: "Riktig! PVC frigjør giftig klorgass ved oppvarming." },
+      ],
+    },
+    {
+      question: "Hva er hovedregelen for å unngå brann med 3D-printer?",
+      options: [
+        { label: "Skru ned temperaturen til 100 °C", feedback: "Da smelter ikke plasten." },
+        { label: "Ikke la printeren stå uten tilsyn", feedback: "Riktig! Varme komponenter og bevegelige deler kan svikte." },
+        { label: "Bruk kun PLA", feedback: "Alle materialer har brannrisiko ved høye temperaturer." },
+      ],
+    },
+  ]}
+/>

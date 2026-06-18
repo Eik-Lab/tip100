@@ -1,0 +1,60 @@
+---
+title: Introduksjon til 3D-printing
+---
+
+import Quiz from "../../../components/Quiz.astro";
+
+Velkommen til 3D-printing-modulen! 3D-printing er en additiv produksjonsmetode som bygger opp objekter lag for lag. I motsetning til tradisjonell produksjon hvor du skjærer bort materiale (subtractive), legger 3D-printing til materiale kun der det trengs.
+
+## Hva er 3D-printing?
+
+3D-printing, også kalt additiv produksjon, er prosessen med å lage fysiske objekter fra en digital 3D-modell. Skriveren legger ned tynne lag av materiale oppå hverandre til objektet er ferdig.
+
+De vanligste teknologiene er:
+
+| Type | Forklaring | Best for |
+|---|---|---|
+| **FDM** (Fused Deposition Modeling) | Smelter plastfilament og legger lag for lag | Prototyper, funksjonelle deler, store objekter |
+| **SLA** (Stereolithography) | Herder flytende harpiks med UV-lys | Detaljerte modeller, glatte overflater |
+| **SLS** (Selective Laser Sintering) | Smelter pulver med laser | Sterke, komplekse deler uten støttestrukturer |
+
+I TIP100 bruker vi **FDM-printere** (Bambu Lab) — de er enkle å bruke, rimelige og gir gode resultater for prototyping.
+
+## Hva kan du lage med 3D-printing?
+
+**Passer godt til:**
+- Funksjonelle prototyper og testmodeller
+- Erstatningsdeler og tilpasninger
+- Jigger og fiksturer (verktøy som hjelper deg å bygge noe annet)
+- Skreddersydde produkter (én av én)
+- Geometrier som er umulige å lage med tradisjonelle metoder (f.eks. indre kanaler)
+
+**Passer dårlig til:**
+- Store serier (støping/bearbeiding er raskere og billigere i volum)
+- Svært presise deler (toleranser på 0.1–0.4 mm er typisk)
+- Deler som tåler høy varme eller mye belastning
+- Matkontakt uten spesialfilament
+
+## Hvordan fungerer arbeidsflyten?
+
+<Quiz
+  chapter={4}
+  questions={[
+    {
+      question: "Hva betyr 'additiv produksjon'?",
+      options: [
+        { label: "Å skjære bort materiale fra en blokk", feedback: "Det er subtraktiv produksjon (f.eks. CNC)." },
+        { label: "Å bygge opp objektet lag for lag", feedback: "Riktig! 3D-printing legger til materiale kun der det trengs." },
+        { label: "Å støpe materiale i en form", feedback: "Det er støping, ikke 3D-printing." },
+      ],
+    },
+    {
+      question: "Hvilken 3D-printing-teknologi bruker vi i TIP100?",
+      options: [
+        { label: "SLA (harpiks)", feedback: "SLA brukes mest for tannlege/smykker, ikke i TIP100." },
+        { label: "FDM (filament)", feedback: "Riktig! Vi bruker Bambu Lab FDM-printere." },
+        { label: "SLS (pulver)", feedback: "SLS er industrielt og dyrt." },
+      ],
+    },
+  ]}
+/>

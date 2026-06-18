@@ -1,0 +1,111 @@
+---
+title: Materialer for 3D-printing
+---
+
+import Quiz from "../../../components/Quiz.astro";
+
+Valg av filament er like viktig som designet. Feil materiale kan gjøre en perfekt modell ubrukelig. Denne siden går gjennom de vanligste filamentene og når du bør bruke dem.
+
+## PLA — Premium (standard)
+
+PLA er det enkleste og mest brukte filamentet. Perfekt for nybegynnere.
+
+| Egenskap | Verdi |
+|---|---|
+| Skrive temperatur | 190–220 °C |
+| Build plate | 0–60 °C (varme anbefales) |
+| Styrke | God — best i klassen for vanlige deler |
+| Fleksibilitet | Stiv, kan være sprø |
+| Varmebestandighet | Lav (60 °C, mykner i sola) |
+| Kjemisk resistens | Dårlig (løses opp av aceton) |
+| Vanskelighetsgrad | ★☆☆☆☆ (lett) |
+
+**Beste bruk:** Prototyper, modeller, skjermer, enkle verktøy, dekorasjoner.
+
+## PETG — Premium
+
+PETG kombinerer enkel printing med bedre styrke og varmebestandighet.
+
+| Egenskap | Verdi |
+|---|---|
+| Skrive temperatur | 230–250 °C |
+| Build plate | 70–80 °C |
+| Styrke | Bedre enn PLA, mer slagfast |
+| Fleksibilitet | Litt fleksibel |
+| Varmebestandighet | Moderat (80 °C) |
+| Kjemisk resistens | God |
+| Vanskelighetsgrad | ★★☆☆☆ (moderat) |
+
+**Beste bruk:** Funksjonelle deler, deler som utsettes for belastning, utendørs bruk.
+
+## TPU — Premium
+
+TPU er et fleksibelt filament som kan bøyes og strekkes.
+
+| Egenskap | Verdi |
+|---|---|
+| Skrive temperatur | 210–230 °C |
+| Build plate | 40–60 °C |
+| Styrke | Høy slagfasthet |
+| Fleksibilitet | Svært fleksibel |
+| Varmebestandighet | Moderat |
+| Kjemisk resistens | God |
+| Vanskelighetsgrad | ★★★★☆ (vanskelig, treg printing) |
+
+**Beste bruk:** Pakninger, beskyttelsesdeksler, grep, dempere, hjul.
+
+## ASA — Premium
+
+ASA er som ABS, men UV-bestandig (falmer ikke i sollys).
+
+| Egenskap | Verdi |
+|---|---|
+| Skrive temperatur | 240–260 °C |
+| Build plate | 90–110 °C |
+| Styrke | Høy |
+| Fleksibilitet | Stiv |
+| Varmebestandighet | Høy (100 °C) |
+| Kjemisk resistens | God |
+| Vanskelighetsgrad | ★★★★☆ (vanskelig, lukter, krever lukket kammer) |
+
+**Beste bruk:** Utendørs deler, bildeler, deler som utsettes for sol og varme.
+
+## Materialguide for TIP100
+
+| Hva du skal lage | Anbefalt materiale |
+|---|---|
+| Prototype, visuell modell | PLA |
+| Funksjonell del (belastet) | PETG |
+| Fleksibel del | TPU |
+| Utendørs del | ASA eller PETG |
+| Rask testprint | PLA (raskest og billigst) |
+
+## Dette må du huske
+
+- **PLA er best for nybegynnere** — det er tilgivende og krever minst justering
+- **PETG trenger tørr filament** — fuktig PETG blir uklar og bobler
+- **TPU må printes sakte** — 15–30 mm/s, ikke 60+
+- **ASA avgir stygge lukter** — bruk god ventilasjon eller lukket printer
+- **Bland aldri materialer** — hvert materiale har sin profil i Bambu Studio
+
+<Quiz
+  chapter={4}
+  questions={[
+    {
+      question: "Hvilket filament anbefales for en nybegynner?",
+      options: [
+        { label: "ASA", feedback: "ASA er avansert, krever høy temperatur og god ventilasjon." },
+        { label: "TPU", feedback: "TPU er fleksibelt og vanskelig å printe." },
+        { label: "PLA", feedback: "Riktig! PLA er enklest, mest tilgivende og krever minst justering." },
+      ],
+    },
+    {
+      question: "Hvilket materiale bør du velge for en funksjonell del som skal tåle belastning?",
+      options: [
+        { label: "PLA", feedback: "PLA er for sprø for belastning." },
+        { label: "PETG", feedback: "Riktig! PETG er sterkere, mer slagfast og tåler mer." },
+        { label: "TPU", feedback: "TPU er for fleksibel til de fleste funksjonelle deler." },
+      ],
+    },
+  ]}
+/>
