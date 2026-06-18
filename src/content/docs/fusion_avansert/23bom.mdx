@@ -1,0 +1,68 @@
+---
+title: Ha full kontroll Forstå BOM + Live Demo
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/QQsKhtwnf8M" title="Ha full kontroll Forstå BOM + Live Demo" />
+
+BOM står for **Bill of Materials** — en komplett liste over alle komponenter, materialer og deler som inngår i et produkt. Dette er et kritisk dokument for produksjon og innkjøp.
+
+## Hva er en BOM?
+
+En BOM er en strukturert liste som viser:
+
+| Kolonne | Inneholder | Eksempel |
+|---|---|---|
+| Item # | Løpenummer | 001 |
+| Part Number | Din interne delkode | BRK-001 |
+| Navn | Beskrivelse | Viftebrakett, venstre |
+| Antall | Hvor mange trengs | 2 |
+| Materiale | Hva er den laget av? | PLA |
+| Leverandør | Hvem lager den? | Eik Lab (3D-print) |
+| Merknad | Spesiell info | Supports må fjernes |
+
+## Hvorfor BOM er viktig
+
+| Formål | Hvorfor |
+|---|---|
+| **Innkjøp** | Vet nøyaktig hva du må bestille |
+| **Produksjon** | Vet hva som skal lages |
+| **Montering** | Vet hvilke deler som hører sammen |
+| **Kostnadskalkyle** | Kan regne ut totalpris |
+| **Revisjon** | Holder styr på endringer |
+
+## Automatisk BOM i Fusion 360
+
+Fusion 360 kan generere BOM automatisk fra en assembly:
+
+1. Åpne assembly-filen
+2. Høyreklikk på toppnoden i browseren
+3. Velg "Bill of Materials"
+4. Se komplette liste med antall per komponent
+5. Eksporter som CSV eller Excel
+
+## Struktur vs. flat BOM
+
+| Flat BOM | Strukturert BOM |
+|---|---|
+| Én flat liste | Hierarkisk (under-assemblies) |
+| Alle deler på samme nivå | Vises i nivåer |
+| Enkelt, men uoversiktlig for store produkter | Nødvendig for komplekse produkter |
+
+For TIP100-prosjektet holder en flat BOM fint.
+
+<Quiz
+  chapter={2}
+  questions={[
+    {
+      question: "Hva står BOM for i produktutvikling?",
+      options: [
+        { label: "Build Order Method", feedback: "Nei, BOM betyr Bill of Materials." },
+        { label: "Basis Object Model", feedback: "Nei, BOM betyr Bill of Materials." },
+        { label: "Bill of Materials — en liste over alle komponenter i et produkt", feedback: "Riktig! BOM er en komplett liste over materialer, deler og komponenter." },
+],
+    },
+  ]}
+/>

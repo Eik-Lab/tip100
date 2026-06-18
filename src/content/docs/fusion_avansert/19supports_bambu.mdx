@@ -1,0 +1,52 @@
+---
+title: Forstå Supports bambu studio
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/hOph7buewvI" title="Forstå Supports bambu studio" />
+
+Supports (støttestrukturer) er nødvendige når 3D-modellen din har overheng som printeren ikke kan legge plast i luften over. Denne leksjonen går gjennom hvordan supports fungerer i Bambu Studio.
+
+## Når trenger du supports?
+
+En FDM-printer kan legge plast i en vinkel opp til ca. 45° fra vertikalen. Overheng som er brattere enn dette trenger supports.
+
+**Trenger supports:**
+- Horisontale flater som stikker ut (> 45° overheng)
+- Broer over lengre avstander (> 10 mm uten støtte)
+- Innvendige hulrom som er utilgjengelige
+
+**Trenger ikke supports:**
+- Flate partier som vender ned mot build plate
+- Skråflater under 45°
+- Korte broer (< 10 mm)
+
+## Support-typer i Bambu Studio
+
+| Type | Beskrivelse | Best for |
+|---|---|---|
+| **Normal** | Tett søyle-struktur | Enkle overheng |
+| **Tree** | Grenlignende struktur | Komplekse modeller, enklere å fjerne |
+| **Organic** | Ny type, organisk form | Best balanse mellom støtte og fjerning |
+
+## Tips for å redusere supports
+
+- **Design med overheng under 45°** — da trengs ingen supports
+- **Del modellen** — print i flere deler som settes sammen
+- **Orientering** — prøv ulike vinkler på build plate
+
+<Quiz
+  chapter={2}
+  questions={[
+    {
+      question: "Hva er formålet med supports (støttestrukturer) i 3D-printing?",
+      options: [
+        { label: "Å gjøre modellen sterkere etter printing", feedback: "Supports fjernes etter printing." },
+        { label: "Å forbedre overflatekvaliteten", feedback: "Supports kan faktisk etterlate merker på overflaten." },
+        { label: "Å støtte opp overhengende deler som ellers ville kollapset", feedback: "Riktig! Supports hindrer at utstikkende deler faller sammen under printing." },
+],
+    },
+  ]}
+/>

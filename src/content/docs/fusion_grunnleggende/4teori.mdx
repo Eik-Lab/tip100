@@ -1,0 +1,77 @@
+---
+title: Teori 2D Sketch og Constraints
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/Mu5zzTEJVh0" title="Teori 2D Sketch og Constraints" />
+
+Alt i Fusion 360 starter med en 2D-skisse. En skisse er et todimensjonalt utgangspunkt som du deretter bruker 3D-verktøy som Extrude eller Revolve på for å lage en solid body.
+
+## Hva er en sketch?
+
+En sketch er en samling av 2D-geometri (linjer, sirkler, buer, rektangler) tegnet på et plan. Tenk på det som en tegning på et ark som du deretter "drar ut" i 3D.
+
+## Skisseplan
+
+Når du oppretter en ny skisse, må du velge hvilket plan den skal ligge på:
+
+| Plan | Beskrivelse |
+|---|---|
+| **Topplanet (XY)** | Vanligst å starte på — horisontalt plan |
+| **Frontplanet (XZ)** | Vertikalt plan forfra |
+| **Sideplanet (YZ)** | Vertikalt plan fra siden |
+
+Du kan også tegne på flater av eksisterende 3D-modeller, ikke bare på origo-planene.
+
+## Hvorfor constraints er viktig
+
+En constraint (begrensning) forteller Fusion 360 hvordan skisse-elementer forholder seg til hverandre. Uten constraints kan linjer og sirkler flytte på seg når du endrer mål.
+
+**Geometriske constraints styrer FORMEN:**
+- `Horisontal` / `Vertikal` — låser linjer til aksene
+- `Parallell` — to linjer peker samme vei
+- `Vinkelrett` — linjer står 90° på hverandre
+- `Tangent` — sirkel/bue berører en linje
+- `Konsentrisk` — to sirkler deler sentrum
+- `Lik` — to linjer/sirkler har samme lengde/radius
+
+**Dimensjonsconstraints styrer STØRRELSEN:**
+- `Lineær avstand` — hvor lang en linje er
+- `Vinkel` — vinkelen mellom to linjer
+- `Diameter/Radius` — størrelsen på sirkler/buer
+
+## Fullt definert vs. underdefinert
+
+Fusion 360 viser deg statusen til skissen med farger:
+
+| Farge | Betydning |
+|---|---|
+| **Svart** | Fullt definert — alle linjer har faste posisjoner |
+| **Blå** | Underdefinert — linjer kan fortsatt flytte seg |
+| **Rød/gul** | Overdefinert — motstridende constraints |
+
+Målet er en **fullt definert (svart) skisse**. Da oppfører modellen seg forutsigbart når du endrer parametere.
+
+<Quiz
+  chapter={1}
+  questions={[
+    {
+      question: "Hva er formålet med constraints i en 2D-skisse?",
+      options: [
+        { label: "Å begrense bevegelsen og definere geometriske forhold mellom linjer", feedback: "Riktig! Constraints bestemmer hvordan skisse-elementer forholder seg til hverandre, som parallellitet og vinkelrett." },
+        { label: "Å eksportere skissen til 3D-printing", feedback: "Det gjøres i en annen del av arbeidsflyten." },
+        { label: "Å fargelegge skissen", feedback: "Det er et visuelt valg, ikke en constraint." },
+],
+    },
+    {
+      question: "Hvorfor er det viktig at en skisse er fullt definert (fully constrained)?",
+      options: [
+        { label: "For å kunne 3D-printe skissen", feedback: "En skisse må ekstruderes før den kan printes." },
+        { label: "For å gjøre skissen penere å se på", feedback: "Utseendet påvirkes ikke av constraints." },
+        { label: "For å sikre at modellen oppdateres forutsigbart når parametere endres", feedback: "Riktig! En fullt definert skisse gir forutsigbar oppførsel ved endringer." },
+],
+    },
+  ]}
+/>

@@ -1,0 +1,65 @@
+---
+title: Lær prinsippene bak parametrisk design
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/b0YBcgpvaHM" title="Lær prinsippene bak parametrisk design" />
+
+Parametrisk design er hjertet av Fusion 360. I stedet for å skrive inn faste tall, bruker du parametere (variabler) som styrer alle dimensjoner. Når du endrer en parameter, oppdateres hele modellen automatisk.
+
+## Hva er parametrisk design?
+
+Tenk på en parameter som en "huskelapp": I stedet for å si "hullet er 5 mm", sier du "hullet er `skrue_diameter`". Da kan du senere endre `skrue_diameter` fra 5 til 6 mm, og alle hull som bruker denne parameteren oppdateres automatisk.
+
+## Hvordan bruke parametere
+
+1. Når du setter en dimensjon, klikk på "fx"-knappen
+2. Skriv inn et navn (f.eks. `lengde`, `bredde`, `hoyde`)
+3. Skriv inn verdien (f.eks. `100 mm`)
+4. Neste gang du trenger samme mål, skriv `lengde` i stedet for `100 mm`
+
+## Formler og uttrykk
+
+Parametere kan inneholde formler:
+
+| Uttrykk | Betydning |
+|---|---|
+| `lengde * 0.5` | Halvparten av lengde |
+| `bredde + 10 mm` | Bredde pluss 10 mm |
+| `sqrt(areal)` | Kvadratroten av areal |
+| `floor(lengde / 10)` | Lengde delt på 10, rundet ned |
+
+## Modify → Change Parameters
+
+Du finner alle parametere under `Modify → Change Parameters`. Her kan du:
+
+- Se alle parametere i en tabell
+- Endre verdier
+- Legge til nye parametere
+- Slette ubrukte parametere
+- Se favoritter (stjernemerkede)
+
+## Hvorfor parametrisk design er viktig
+
+| Uten parametere | Med parametere |
+|---|---|
+| Må tegne på nytt hvis mål endres | Endrer én verdi, alt oppdateres |
+| Vanskelig å prøve ulike størrelser | Enkelt å eksperimentere |
+| Feil forplanter seg | Én kilde til sannhet |
+| Rotete filhistorikk | Ren, forståelig historikk |
+
+<Quiz
+  chapter={1}
+  questions={[
+    {
+      question: "Hva menes med parametrisk design i Fusion 360?",
+      options: [
+        { label: "At man bruker variabler og formler til å styre dimensjoner", feedback: "Riktig! Parametrisk design betyr at mål styres av parametere som kan endres når som helst." },
+        { label: "At man tegner alt for hånd", feedback: "Det er motsatt av parametrisk design." },
+        { label: "At man kun bruker ferdige maler", feedback: "Parametrisk design handler om å definere egne variable mål." },
+],
+    },
+  ]}
+/>

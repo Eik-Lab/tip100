@@ -1,0 +1,58 @@
+---
+title: Bruk av «Sweep Tool» og modellering av et PVC albueledd
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/yGJif7cEH2o" title="Bruk av Sweep Tool og modellering av et PVC albueledd" />
+
+Sweep er et avansert modelleringsverktøy som fører en 2D-profil langs en bane. Perfekt for rør, kanaler, kabler og PVC-ledd.
+
+## Hvordan Sweep fungerer
+
+I stedet for å ekstrudere en profil rett ut (Extrude) eller rotere den rundt en akse (Revolve), følger Sweep en valgt bane i 3D-rommet.
+
+**Du trenger:**
+1. **En profil** — 2D-skissen som skal "sveipes" (f.eks. en sirkel for et rør)
+2. **En bane** — linjen profilen skal følge (f.eks. en kurve for et albueledd)
+
+## Sweep vs. Extrude vs. Revolve
+
+| Verktøy | Bevegelse | Best for |
+|---|---|---|
+| **Extrude** | Rett linje | Enkle, firkantede former |
+| **Revolve** | Rotasjon rundt akse | Symmetriske, runde former |
+| **Sweep** | Valgfri bane | Rør, kanaler, buede former |
+
+## PVC-standard dimensjoner
+
+Når du designer PVC-albueledd er det nyttig å kjenne standarddimensjonene:
+
+| DN (nominell) | Ytre diameter | Innerdiameter | Veggtykkelse |
+|---|---|---|---|
+| DN20 | 26 mm | 20 mm | 3 mm |
+| DN25 | 32 mm | 25 mm | 3.5 mm |
+| DN32 | 40 mm | 32 mm | 4 mm |
+| DN40 | 50 mm | 40 mm | 5 mm |
+
+## Tips for Sweep
+
+- **Banen må være jevn** — skarpe hjørner i banen gir skarpe hjørner på resultatet
+- **Bruk Fillet** på banen før du Sweeper for en jevnere overgang
+- **Profilet bør være vinkelrett på banen** i startpunktet
+- **Orientation:** Velg "Parallel" hvis profilen skal holdes parallell med startplanet
+
+<Quiz
+  chapter={2}
+  questions={[
+    {
+      question: "Hva brukes Sweep-verktøyet til i Fusion 360?",
+      options: [
+        { label: "Å lage en jevn overgang mellom profiler", feedback: "Det er Loft-verktøyet." },
+        { label: "Å rotere en profil rundt en akse", feedback: "Det er Revolve-verktøyet." },
+        { label: "Å føre en profil langs en bane for å lage en 3D-form", feedback: "Riktig! Sweep trekker en 2D-profil langs en valgt bane." },
+],
+    },
+  ]}
+/>

@@ -1,0 +1,65 @@
+---
+title: Forstå CUT operasjon, inngravering og tekst
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/9hghZV4SjR4" title="Forstå CUT operasjon, inngravering og tekst" />
+
+Cut er det motsatte av Extrude — i stedet for å legge til materiale, fjerner du det. Dette er avgjørende for å lage hull, spor, inngraveringer og tekst.
+
+## Extrude vs. Cut
+
+| Extrude | Cut |
+|---|---|
+| Legger til materiale | Fjerner materiale |
+| Øker volumet | Reduserer volumet |
+| Starter med en skisse, lager en body | Starter med en skisse, skjærer i en body |
+
+Forskjellen ligger i **Operation**-feltet i Extrude-dialogen: velg `Cut` i stedet for `New Body`.
+
+## Cut Through All
+
+Den vanligste cut-operasjonen er `Cut → Through All`. Den skjærer gjennom hele modellen uansett tykkelse.
+
+**Bruk til:** Hull for skruer, gjennomgående spor, utsparinger.
+
+## Cut to Depth
+
+Noen ganger vil du ikke skjære helt gjennom — du vil lage en fordypning (pocket).
+
+**Bruk til:** Fordypninger for innlegg, dekorative spor, seter for komponenter.
+
+## Inngravering og tekst
+
+Du kan lage tekst på to måter:
+
+1. **3D-tekst** — Bruk `Text`-verktøyet i Sketch, skriv teksten, og ekstruder/cut den
+2. **Inngravering for 3D-print** — Bruk en skisse med tekst og Cut med en grunn dybde (0.3–0.5 mm)
+
+## Hvordan legge til tekst
+
+1. Opprett en skisse på den flaten du vil ha tekst på
+2. Klikk `Sketch → Text` (eller trykk `T`)
+3. Klikk for å plassere teksten
+4. Velg font, størrelse og justering
+5. Fullfør skissen og bruk Extrude med `Cut`-operasjon
+
+:::tip
+Velg en font uten for tynne streker — tynne detaljer kan forsvinne når du 3D-printer eller freser. Sans-serif-fonter fungerer best.
+:::
+
+<Quiz
+  chapter={1}
+  questions={[
+    {
+      question: "Hva er forskjellen på Extrude og Cut i Fusion 360?",
+      options: [
+        { label: "Extrude legger til materiale, Cut fjerner materiale", feedback: "Riktig! Extrude bygger ut, mens Cut skjærer bort materiale." },
+        { label: "Extrude fjerner materiale, Cut legger til", feedback: "Det er motsatt! Extrude bygger ut og Cut fjerner." },
+        { label: "De gjør akkurat det samme", feedback: "De er motsatte operasjoner." },
+],
+    },
+  ]}
+/>

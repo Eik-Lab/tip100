@@ -1,0 +1,61 @@
+---
+title: Hvordan lage mutter og bolt
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/SVuCFaAIV4g" title="Hvordan lage mutter og bolt" />
+
+Gjenger er en av de mest praktiske funksjonene i Fusion 360. Her lærer du å modellere en bolt og en mutter med korrekte gjenger.
+
+## Thread-verktøyet
+
+Fusion 360 har et dedikert `Thread`-verktøy som legger standardgjenger til sylindriske flater. Du trenger ikke å tegne gjengene manuelt.
+
+**Slik bruker du det:**
+1. Lag en sylinder (Extrude av en sirkel)
+2. Klikk `Create → Thread` (eller høyreklikk på sylinderflaten)
+3. Velg standard (ISO, UNC, etc.) og størrelse (M3, M4, M5, M6...)
+4. Velg lengde på gjengene
+5. Klikk OK
+
+## Modellering vs. kosmetiske gjenger
+
+| Kosmetiske gjenger | Modellerte gjenger |
+|---|---|
+| Vises som et bilde på skjermen | Vises som 3D-geometri |
+| Raskere, mindre filstørrelse | Tyngre, større fil |
+| Bra for tegninger og utseende | Nødvendig for 3D-printing |
+| Ingen effekt på STL-eksport | Blir med i STL-eksporten |
+
+For 3D-printing: bruk **modellerte gjenger** (huk av "Modeled" i Thread-dialogen).
+
+## Standard vs. custom gjenger
+
+| Standard (ISO, UNC) | Custom |
+|---|---|
+| M2, M3, M4, M5, M6... | Spesialstørrelser |
+| Følger standardmål | Må settes manuelt |
+| Bruk for vanlige skruer | Bruk for spesialgjenger |
+
+## Tips for gjenger i 3D-print
+
+- **Klaring:** En M3-skrue trenger 3.3–3.4 mm hull for å passe
+- **Test alltid** på en liten prøve før du printer hele delen
+- **Stående gjenger** printer best (sylinderen stående opp)
+- **Supports kan ødelegge gjenger** — prøv å unngå supports på gjengeparti
+
+<Quiz
+  chapter={1}
+  questions={[
+    {
+      question: "Hvilket verktøy er mest sentralt for å lage gjenger på en bolt i Fusion 360?",
+      options: [
+        { label: "Thread-verktøyet", feedback: "Riktig! Thread-verktøyet brukes for å legge til gjenger på sylindriske flater." },
+        { label: "Fillet-verktøyet", feedback: "Fillet lager avrundinger, ikke gjenger." },
+        { label: "Extrude-verktøyet", feedback: "Extrude kan ikke lage gjenger direkte." },
+],
+    },
+  ]}
+/>

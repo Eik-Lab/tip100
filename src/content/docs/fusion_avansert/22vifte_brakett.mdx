@@ -1,0 +1,47 @@
+---
+title: Eksempel Prosjekt Vifte med Brakett
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/6SPskJCBebE" title="Eksempel Prosjekt Vifte med Brakett" />
+
+Denne leksjonen viser et komplett eksempelprosjekt: design en brakett for å montere en vifte. Du kombinerer assembly, datablad-lesing og modellering i én oppgave.
+
+## Hva er en brakett?
+
+En brakett er en komponent som fester eller støtter en annen komponent. I dette tilfellet skal vi lage en brakett som holder en PC-vifte fast i et kabinett.
+
+## Fremgangsmåte
+
+1. **Last ned viftemodell** — finn en 3D-modell av viften (f.eks. en 80×80 mm PC-vifte) fra McMaster-Carr eller produsentens nettside
+2. **Importer i Fusion 360** — bruk Insert → Insert CAD File
+3. **Mål viften** — bruk databladet for å finne hullavstand og tykkelse
+4. **Design braketten** — skisser rundt viftemålingene
+5. **Lag hull** — plasser skruehull på samme senteravstand som viften
+6. **Sett sammen** — bruk assembly constraints for å montere viften på braketten
+
+## Viktige hensyn
+
+| Hensyn | Hvorfor |
+|---|---|
+| Hulldiameter | M3-skrue = 3.3 mm hull, M4 = 4.3 mm hull |
+| Senteravstand | Hullene må være nøyaktig der viften har hull |
+| Godstykkelse | 3–5 mm for stivhet, men ikke tyngre enn nødvendig |
+| Luftgjennomstrømning | Ikke blokker viftens åpning |
+| Vibrasjonsdemping | Vurder gummibøsninger mellom vifte og brakett |
+
+<Quiz
+  chapter={2}
+  questions={[
+    {
+      question: "Hva er en brakett i en sammenstilling?",
+      options: [
+        { label: "En komponent som fester eller støtter en annen komponent", feedback: "Riktig! En brakett brukes til å montere og støtte komponenter som en vifte." },
+        { label: "En type 3D-printing-materiale", feedback: "En brakett er en komponent, ikke et materiale." },
+        { label: "Et verktøy i Fusion 360", feedback: "Brakett er en deltype, ikke et verktøy." },
+],
+    },
+  ]}
+/>

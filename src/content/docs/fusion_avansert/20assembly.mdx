@@ -1,0 +1,74 @@
+---
+title: Forstå bruk av assembly og assembly contraints
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/UW_HeUSuprs" title="Forstå bruk av assembly og assembly contraints" />
+
+En assembly (sammenstilling) lar deg sette sammen flere komponenter til én komplett modell. Dette er avgjørende for produkter som består av flere deler.
+
+## Hva er en assembly?
+
+En assembly er en fil som refererer til én eller flere komponentfiler (parts). I stedet for å modellere alt i én stor fil, lager du hver del separat og setter dem sammen i en assembly.
+
+**Fordeler med assemblies:**
+- Hver del kan redigeres uavhengig
+- Samme del kan brukes i flere assemblies
+- Enklere å samarbeide (flere jobber på hver sin del)
+- Bedre oversikt over komplekse produkter
+
+## Når bruke assembly vs. én stor fil?
+
+| Én stor fil | Assembly |
+|---|---|
+| Enkle modeller | Komplekse produkter |
+| Én person jobber alene | Flere samarbeider |
+| Ingen bevegelige deler | Deler som skal bevege seg |
+| Rask prototyping | Endelig produkt |
+
+## Assembly constraints
+
+Constraints i en assembly bestemmer hvordan delene forholder seg til hverandre:
+
+| Constraint | Hva den gjør | Eksempel |
+|---|---|---|
+| **Rigid** | Låser delene fast i posisjon | Limit to deler |
+| **Revolute** | Tillater rotasjon rundt én akse | Hjul på aksling |
+| **Slider** | Tillater glidning langs én akse | Skuff i skinne |
+| **Cylindrical** | Tillater rotasjon + glidning | Sylinder i hull |
+| **Planar** | To flater glir mot hverandre | Brettspillbrikke på bord |
+
+## Joints (moderne constraints)
+
+Fusion 360 har også **Joints** — en nyere, mer intuitiv måte å sette sammen deler på:
+
+- **Rigid** — fast sammenføyning
+- **Revolute** — hengsel
+- **Slider** — skyve
+- **Ball** — kuleledd
+
+Joints er ofte enklere å bruke enn tradisjonelle constraints fordi de håndterer orienteringen automatisk.
+
+<Quiz
+  chapter={2}
+  questions={[
+    {
+      question: "Hva er en assembly i Fusion 360?",
+      options: [
+        { label: "En enkelt 3D-modell", feedback: "Det er en part (enkeltdel), ikke en assembly." },
+        { label: "En 2D-tegning av en modell", feedback: "En assembly er en 3D-sammenstilling." },
+        { label: "En samling av flere komponenter som settes sammen", feedback: "Riktig! En assembly lar deg sette sammen flere deler til en komplett modell." },
+],
+    },
+    {
+      question: "Hva brukes assembly constraints til?",
+      options: [
+        { label: "Å begrense fargevalg på delene", feedback: "Constraints påvirker ikke farger." },
+        { label: "Å låse filstørrelsen", feedback: "Constraints har ingen påvirkning på filstørrelse." },
+        { label: "Å bestemme hvordan deler forholder seg til hverandre i sammenstillingen", feedback: "Riktig! Constraints i assembly styrer posisjon og bevegelse mellom komponenter." },
+],
+    },
+  ]}
+/>

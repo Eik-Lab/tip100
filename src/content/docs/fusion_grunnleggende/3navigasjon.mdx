@@ -1,0 +1,75 @@
+---
+title: Hvordan navigere seg rundt
+description: test
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/hdXSFFSqnw4" title="Hvordan navigere seg rundt" />
+
+Før du begynner å modellere i Fusion 360 må du kunne navigere i 3D-rommet. Uten dette vil selv enkle oppgaver føles vanskelige.
+
+## Navigasjon med musen
+
+Fusion 360 bruker standard 3D-navigasjon med mus og tastatur:
+
+| Handling | Mus | Tastatur |
+|---|---|---|
+| **Zoom** | Scroll-hjulet | Ctrl+midtklikk + dra (eller trykk `Z` for zoom-vindu) |
+| **Panorer** | Midtklikk + dra | Hold nede Shift + midtklikk + dra |
+| **Roter (Orbit)** | Høyreklikk + dra | Shift + midtklikk + dra |
+
+## View Cube
+
+I øvre høyre hjørne finner du **View Cube** — en kube som viser orienteringen din i 3D-rommet.
+
+- Klikk på en side (Front, Top, Right) for å se rett på det planet
+- Klikk på et hjørne for en isometrisk visning (3D)
+- Klikk på hjem-ikonet (huset) for å gå tilbake til standardvisningen
+- Høyreklikk på View Cube for flere alternativer (perspektiv/ortografisk)
+
+## Browseren (venstre sidepanel)
+
+Browseren til venstre viser hierarkiet av alt i filen din:
+
+- **Origin** — referansepunkter og plan (X-, Y- og Z-aksene)
+- **Bodies** — 3D-volumene du har laget
+- **Sketches** — 2D-skissene dine
+- **Features** — operasjoner som Extrude, Cut, Fillet
+
+Navnene du gir ting i browseren er viktige — gode navn gjør det enkelt å finne tilbake.
+
+## Viktige snarveier
+
+| Snarvei | Hva den gjør |
+|---|---|
+| `Ctrl+S` | Lagre (gjør det OFTE) |
+| `Ctrl+Z` | Angre |
+| `Ctrl+C` / `Ctrl+V` | Kopier / Lim inn |
+| `F` | Zoom tilpass (fit) |
+| `F6` | Bytt mellom perspektiv/ortografisk |
+| `Hold Shift midt under modellering» | Midlertidig deaktiver snapping |
+| `D` | Aktiver dimensjonsverktøyet |
+
+<Quiz
+  chapter={1}
+  questions={[
+    {
+      question: "Hva brukes musehjulets midtknapp (scroll-hjulet) til i Fusion 360?",
+      options: [
+        { label: "Å zoome inn og ut", feedback: "Riktig! Scroll-hjulet zoomer inn og ut i 3D-visningen." },
+        { label: "Å velge objekter", feedback: "Venstreklikk brukes for å velge objekter." },
+        { label: "Å rotere visningen", feedback: "Det er venstre museknapp + dra som roterer visningen." },
+],
+    },
+    {
+      question: "Hvilken knapp på musen bruker du for å rotere 3D-modellen?",
+      options: [
+        { label: "Høyre museknapp + dra", feedback: "Høyreklikk og dra roterer visningen i Fusion 360. Riktig!" },
+        { label: "Venstre museknapp + dra", feedback: "Venstreklikk og dra markerer/velger objekter." },
+        { label: "Scroll-hjulet", feedback: "Scroll-hjulet brukes til å zoome, ikke rotere." },
+],
+    },
+  ]}
+/>

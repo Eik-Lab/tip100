@@ -1,0 +1,59 @@
+---
+title: 2D Sketch Forstå Orientering
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/0W7iqoNvqgM" title="2D Sketch Forstå Orientering" />
+
+Når du oppretter en ny skisse i Fusion 360, må du velge hvilket plan skissen skal ligge på. Dette valget påvirker alt du gjør videre.
+
+## Hvilket plan skal du velge?
+
+Fusion 360 har tre standardplan som utgangspunkt:
+
+| Plan | Synlig som | Best for |
+|---|---|---|
+| **Topp (XY)** | Sett ovenfra | Startpunkt for de fleste modeller |
+| **Front (XZ)** | Sett forfra | Profiler som strekker seg i dybden |
+| **Side (YZ)** | Sett fra siden | Profiler som strekker seg sidelengs |
+
+## Hvorfor planvalg betyr noe
+
+Planet du velger bestemmer hvordan modellen orienterer seg i forhold til:
+
+- **3D-printing** — modellen må orienteres riktig på build plate
+- **CNC-fresing** — referansepunkter for maskinering
+- **Sammenstillinger** — hvordan deler møtes i en assembly
+- **2D-tegninger** — hvordan modellen ser ut i top/front/right-visning
+
+## Tips for orientering
+
+- **Start på topplanet** for de fleste modeller — det gir mest intuitiv 3D-visning
+- **Bruk frontplanet** for profiler som skal ekstruderes bakover (f.eks. en veggprofil)
+- **Roter skissen** hvis du trenger å tegne på et annet plan i etterkant
+- **Lag nye plan** hvis standardplanene ikke passer — bruk `Construct → Plane`
+
+## Roter eksisterende skisser
+
+Hvis du har tegnet på feil plan, kan du rotere skissen i etterkant:
+1. Høyreklikk på skissen i browseren
+2. Velg `Redefine Sketch Plane`
+3. Velg et nytt plan
+
+Du slipper å tegne alt på nytt.
+
+<Quiz
+  chapter={1}
+  questions={[
+    {
+      question: "Hvilket plan bør man vanligvis starte en 2D-skisse på?",
+      options: [
+        { label: "Topplanet (XY)", feedback: "Riktig! Topplanet er ofte det mest naturlige planet å starte på for de fleste modeller." },
+        { label: "Frontplanet (XZ)", feedback: "Frontplanet kan brukes, men topplanet er vanligst å starte med." },
+        { label: "Sideplanet (YZ)", feedback: "Sideplanet brukes ofte for spesifikke detaljer, ikke som utgangspunkt." },
+],
+    },
+  ]}
+/>

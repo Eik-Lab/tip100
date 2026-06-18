@@ -1,0 +1,64 @@
+---
+title: Export og Import av en assembly
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/95V-iIodsyY" title="Export og Import av en assembly" />
+
+Når du samarbeider med andre eller skal produsere delene dine, må du eksportere modellene i riktig format. Valg av format avhenger av hva mottakeren skal gjøre med filen.
+
+## Hvilket format skal du velge?
+
+| Format | Best for | Bevarer |
+|---|---|---|
+| **STEP (.stp)** | CAD-utveksling mellom ulike programmer | Full 3D-geometri |
+| **IGES (.igs)** | Eldre systemer | 3D-geometri (eldre standard) |
+| **STL** | 3D-printing | Kun overflategeometri (mesh) |
+| **3MF** | 3D-printing med farger | Geometri + farger |
+| **F3D / F3Z** | Fusion 360-brukere | Hele modellhistorikken |
+| **DXF** | 2D-laserkutting | 2D-profil |
+| **PDF** | 2D-tegninger | Mål og toleranser |
+
+## Eksport for 3D-printing
+
+| Steg | Hva du gjør |
+|---|---|
+| 1 | Høyreklikk komponenten i Fusion 360 |
+| 2 | Velg "Save as Mesh" |
+| 3 | Velg STL eller 3MF |
+| 4 | Velg oppløsning (High for detaljerte deler) |
+| 5 | Lagre |
+
+## Eksport for samarbeid
+
+Når du sender modeller til andre som ikke bruker Fusion 360:
+
+- **STEP** — best for mekanisk design, bevarer nøyaktig geometri
+- **STL** — hvis de bare skal vises eller 3D-printes
+- **F3D** — hvis de også har Fusion 360 (da får de hele historikken)
+
+## Import av standardkomponenter
+
+For å importere en STEP-fil i Fusion 360:
+1. Klikk `Insert → Insert CAD File`
+2. Velg STEP-filen (eller dra den inn)
+3. Velg hvordan den skal importeres (ny komponent eller ny design)
+4. Klikk OK
+
+Den importerte modellen kan brukes i assemblies, males på, eller måles.
+
+<Quiz
+  chapter={2}
+  questions={[
+    {
+      question: "Hvilket filformat brukes ofte for å eksportere en assembly fra Fusion 360?",
+      options: [
+        { label: "MP3 — et lydformat", feedback: "MP3 er et lydformat, ikke egnet for 3D-modeller." },
+        { label: "STEP (.stp) — et standardformat for 3D-datautveksling", feedback: "Riktig! STEP er et mye brukt format for å dele 3D-modeller mellom ulike programmer." },
+        { label: "PDF — for å vise tegninger", feedback: "PDF er for dokumenter, ikke 3D-modeller." },
+      ],
+    },
+  ]}
+/>

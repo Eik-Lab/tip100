@@ -1,0 +1,53 @@
+---
+title: Design en boks
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/2K-2wyy_XGg" title="Design en boks" />
+
+Å designe en boks er en perfekt øvelse for å lære parametrisk design. Du lærer Extrude, Shell, Cut og bruk av parametere — alt i én modell.
+
+## Hvordan bygge en boks
+
+En enkel boks består av:
+
+1. **Bunnplate** — Et rektangel som ekstruderes til riktig høyde
+2. **Hult rom** — Bruk Shell for å gjøre innsiden hul
+3. **Lokk** — En egen body med samme ytre mål, men litt mindre innerkant
+
+## Parametrisk boks
+
+I stedet for å skrive inn faste mål, lag parametere:
+
+| Parameter | Navn | Verdi |
+|---|---|---|
+| Lengde | `lengde` | 100 mm |
+| Bredde | `bredde` | 60 mm |
+| Høyde | `hoyde` | 40 mm |
+| Veggtykkelse | `vegg` | 2 mm |
+| Klaring | `klaring` | 0.3 mm |
+
+Da kan du senere endre `lengde` fra 100 til 150 mm, og hele boksen oppdateres automatisk.
+
+## Tips for bokser
+
+- **Bruk Shell** for å gjøre boksen hul — velg toppflaten som åpning
+- **Legg til fillets** (avrundinger) på ytre kanter for et mer moderne utseende
+- **Hull i bunnen** for kabelgjennomføring hvis boksen skal inneholde elektronikk
+- **Toleranser:** Hvis lokket skal passe, legg til 0.3 mm klaring rundt hele omkretsen
+
+<Quiz
+  chapter={1}
+  questions={[
+    {
+      question: "Hvorfor er det lurt å bruke parametere når man designer en boks i Fusion 360?",
+      options: [
+        { label: "Fordi man enkelt kan endre dimensjonene på boksen i ettertid", feedback: "Riktig! Parametrisk design gjør det enkelt å justere mål uten å tegne alt på nytt." },
+        { label: "Fordi det sparer fillagringsplass", feedback: "Parametere har ingen betydning for filstørrelse." },
+        { label: "Fordi det gjør boksen penere", feedback: "Utseendet påvirkes, men hovedgevinsten er fleksibilitet." },
+],
+    },
+  ]}
+/>

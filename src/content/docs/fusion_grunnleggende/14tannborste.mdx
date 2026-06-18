@@ -1,0 +1,49 @@
+---
+title: Tannbørste Etui løsning
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/8z7MVHDknns" title="Tannbørste Etui løsning" />
+
+I denne leksjonen bygger du et tannbørsteetui — en praktisk oppgave som kombinerer flere av verktøyene du har lært så langt.
+
+## Hvilke verktøy brukes?
+
+| Verktøy | Hva det brukes til i etuiet |
+|---|---|
+| **Extrude** | Lage grunnformen av etuiet |
+| **Shell** | Gjøre etuiet hult |
+| **Fillet** | Runde av kanter for en behagelig følelse |
+| **Cut** | Lage fordypning til tannbørsten |
+| **Revolve** | Eventuelt for avrundede former på etuiet |
+
+## Fremgangsmåte
+
+1. **Skisser bunnprofilen** på topplanet — et avlangt rektangel med avrundede ender
+2. **Ekstruder til riktig høyde** — etuiet må være dypt nok til tannbørsten
+3. **Bruk Shell** for å gjøre det hult (velg toppflaten som åpning)
+4. **Legg til fillets** på ytre og indre kanter
+5. **Skjær ut en fordypning** hvis tannbørsten skal ligge fast
+
+## Tips
+
+- Mål tannbørsten din før du designer — lengde og bredde varierer
+- Legg til 3–5 mm klaring rundt tannbørsten så den ikke sitter for trangt
+- Runde hjørner (Fillet) gjør etuiet mer behagelig å holde og penere å se på
+- Et dreneringshull i bunnen hindrer vannansamling
+
+<Quiz
+  chapter={1}
+  questions={[
+    {
+      question: "Hvilke verktøy er mest relevante for å lage et tannbørstetui?",
+      options: [
+        { label: "Loft og Thread", feedback: "Loft og Thread er mindre relevante for et etui." },
+        { label: "Revolve og Sweep", feedback: "Disse er mer aktuelle for runde eller buede former." },
+        { label: "Extrude, Shell og Fillet", feedback: "Riktig! Extrude lager formen, Shell gjør den hul, og Fillet runder av kanter." },
+],
+    },
+  ]}
+/>

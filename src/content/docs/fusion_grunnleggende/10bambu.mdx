@@ -1,0 +1,53 @@
+---
+title: Introduksjon til Bambu Studio + export av 3D modell
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/Z8pOzy4Qudc" title="Introduksjon til Bambu Studio + export av 3D modell" />
+
+Når 3D-modellen din er ferdig i Fusion 360, må du eksportere den til et format 3D-printeren forstår. Denne prosessen kalles **slicing**.
+
+## Fra Fusion 360 til 3D-printer
+
+Arbeidsflyten er:
+
+1. **Design i Fusion 360** — lag modellen
+2. **Eksporter som STL eller 3MF** — høyreklikk på komponenten → "Save as Mesh"
+3. **Åpne i Bambu Studio** — sliceren som forbereder filen
+4. **Slice** — del modellen i lag og generer G-code
+5. **Send til printer** — print!
+
+## STL vs. 3MF
+
+| STL | 3MF |
+|---|---|
+| Eldre format, støttes overalt | Nyere format med flere funksjoner |
+| Kun geometri, ingen farger | Kan inneholde farger og materialer |
+| Større filstørrelse | Mindre filstørrelse |
+| Funksjoner overalt | God støtte, men noen eldre slicere støtter det ikke |
+
+For TIP100: STL fungerer fint. 3MF er et godt alternativ hvis du vil ha med farger.
+
+<Quiz
+  chapter={1}
+  questions={[
+    {
+      question: "Hva er formålet med Bambu Studio?",
+      options: [
+        { label: "Å tegne 3D-modeller fra bunnen av", feedback: "Det er Fusion 365 som brukes til 3D-modellering." },
+        { label: "Å laste ned ferdige modeller fra nettet", feedback: "Bambu Studio har et bibliotek, men hovedfunksjonen er slicing." },
+        { label: "Å forberede 3D-modeller for printing (slicing)", feedback: "Riktig! Bambu Studio er et slicer-program som gjør 3D-modeller klare for printing." },
+],
+    },
+    {
+      question: "Hvilket filformat eksporterer man vanligvis fra Fusion 360 for å kunne printe?",
+      options: [
+        { label: "STL eller 3MF", feedback: "Riktig! STL og 3MF er standardformater for 3D-printing." },
+        { label: "PDF eller DOCX", feedback: "Disse er dokumentformater, ikke 3D-formater." },
+        { label: "JPG eller PNG", feedback: "Dette er bildeformater." },
+],
+    },
+  ]}
+/>

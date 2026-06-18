@@ -1,0 +1,60 @@
+---
+title: Intro 2D Sketch Dimensjoner og Contraints
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/HUjz67WzHps" title="Intro 2D Sketch Dimensjoner og Contraints" />
+
+Nå som du vet hva constraints er, skal du lære å bruke dem i praksis. Dimensjoner og constraints jobber sammen for å gjøre skissen din presis og forutsigbar.
+
+## Dimensjoner vs. Constraints
+
+| Dimensjoner | Constraints |
+|---|---|
+| Setter eksakte mål (10 mm, 45°) | Styrer geometriske forhold (parallell, vinkelrett) |
+| Gir tallverdier | Gir relasjoner |
+| Kan endres når som helst | Kan være usynlige (men er der) |
+| Eksempel: en linje er 50 mm lang | Eksempel: to linjer er parallelle |
+
+Begge er nødvendige for en fullt definert skisse.
+
+## Hvordan legge til dimensjoner
+
+1. Trykk `D` på tastaturet (snarvei for Dimension)
+2. Klikk på linjen eller sirkelen du vil måle
+3. Dra ut for å plassere målet
+4. Skriv inn verdien og trykk Enter
+
+Fusion 360 viser et blått måltall. Når skissen blir fullt definert, blir tallet svart.
+
+## Hvordan legge til constraints
+
+De fleste constraints finner du i `Sketch → Constraints`-menyen, eller du kan bruke `Sketch Palette` (høyreklikk i skissen):
+
+1. Velg to eller flere elementer (hold Ctrl for å velge flere)
+2. Velg constraint-type (f.eks. `Parallel`)
+3. Elementene justeres automatisk
+
+**Tips:** Fusion 360 legger ofte til constraints automatisk når du tegner. Hvis du tegner en horisontal linje, legger den til en Horizontal-constraint automatisk.
+
+## Hva skjer hvis du overdefinerer?
+
+Hvis du legger til en constraint som motsier en eksisterende, får du en advarsel. For eksempel: hvis du allerede har satt at linje A er 50 mm og linje B er lik linje A, kan du ikke også sette linje B til 60 mm.
+
+Fusion 360 forteller deg hvilken constraint som er i konflikt, slik at du kan fjerne den rette.
+
+<Quiz
+  chapter={1}
+  questions={[
+    {
+      question: "Hva er forskjellen på en dimensjon og en constraint i Fusion 360?",
+      options: [
+        { label: "En constraint setter mål, mens en dimensjon styrer geometri", feedback: "Det er motsatt! Dimensjoner setter mål, constraints styrer geometriske forhold." },
+        { label: "En dimensjon setter en spesifikk måling, mens en constraint definerer geometriske forhold", feedback: "Riktig! Dimensjoner setter eksakte mål, mens constraints styrer forhold som parallellitet og horisontalitet." },
+        { label: "De er det samme, bare ulike navn", feedback: "De er forskjellige verktøy med ulike formål." },
+],
+    },
+  ]}
+/>

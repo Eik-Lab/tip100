@@ -1,0 +1,64 @@
+---
+title: Forstå bruk av «Loft» og «Shell» ved å lage terracotta vase
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/6D-ytC9n2fE" title="Forstå bruk av Loft og Shell ved å lage terracotta vase" />
+
+Loft og Shell er to avanserte verktøy som gir deg mye frihet i formgivningen. De brukes ofte sammen, som i en terracotta-vase.
+
+## Loft — jevn overgang mellom profiler
+
+Loft skaper en jevn 3D-overflate mellom to eller flere 2D-profiler. I stedet for å ekstrudere en rett form, kan du lage former som utvider seg og smalner inn.
+
+**Når bruke Loft:**
+- Flasker og vaser (vid munn, smal hals, bred bunn)
+- Overganger mellom ulike former
+- Organiske, frie former
+
+**Loft-innstillinger:**
+
+| Innstilling | Hva den gjør |
+|---|---|
+| **Rail** | En bane som styrer overgangen (for mer kontroll) |
+| **Centerline** | Senterlinje som formen følger |
+| **Condition** | Start/slutt-betingelse (Tangent, Curvature, etc.) |
+
+## Shell — gjør modellen hul
+
+Shell fjerner innsiden av en solid modell og lar deg bestemme veggtykkelsen. Tenk på det som å "grave ut" innsiden av en form.
+
+**Slik bruker du Shell:**
+1. Ha en solid body (f.eks. en vase laget med Loft)
+2. Klikk `Modify → Shell`
+3. Velg flaten(e) som skal være åpningen (f.eks. toppen av vasen)
+4. Angi veggtykkelse (f.eks. 2 mm)
+
+**Tips:**
+- Standard veggtykkelse for 3D-print: 1.2–2.0 mm
+- For tynne vegger (< 0.8 mm) kan printen bli skjør
+- Shell fungerer best på enkle, avrundede former
+
+<Quiz
+  chapter={1}
+  questions={[
+    {
+      question: "Hva gjør Loft-verktøyet i Fusion 360?",
+      options: [
+        { label: "Det runder av kanter", feedback: "Det er Fillet-verktøyet." },
+        { label: "Det lager et speilbilde av en modell", feedback: "Det er Mirror-verktøyet." },
+        { label: "Det lager en jevn overgang mellom to eller flere profiler", feedback: "Riktig! Loft skaper en jevn 3D-overflate mellom ulike 2D-profiler." },
+],
+    },
+    {
+      question: "Hva brukes Shell-verktøyet til?",
+      options: [
+        { label: "Å dele en modell i to", feedback: "Det er Split Body-verktøyet." },
+        { label: "Å gjøre en solid modell hul med en bestemt veggtykkelse", feedback: "Riktig! Shell fjerner innsiden av en modell og lar deg bestemme veggtykkelsen." },
+        { label: "Å legge til tekstur på overflaten", feedback: "Shell påvirker ikke overflatetekstur." },
+],
+    },
+  ]}
+/>

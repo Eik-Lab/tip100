@@ -1,0 +1,52 @@
+---
+title: Hvordan funker AI i CAD?
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/TUVkP8KCuaU" title="Hvordan funker AI i CAD?" />
+
+Fusion 360 har en innebygd AI-assistent som kan hjelpe deg med modelleringsprosessen. Den analyserer hva du jobber med og gir relevante forslag til neste steg.
+
+## Hva kan AI-assistenten hjelpe med?
+
+| Oppgave | Hva AI-en gjør |
+|---|---|
+| Foreslå neste steg | Analyserer modellen din og foreslår neste operasjon |
+| Veiledning | Forklarer hvordan et verktøy fungerer |
+| Feilsøking | Hjelper med å identifisere problemer i skisser |
+| Best practices | Foreslår alternative, bedre måter å modellere på |
+
+## Hvordan bruke AI-assistenten
+
+AI-assistenten er tilgjengelig via:
+
+1. Et lite AI-ikon i hjørnet av Fusion 360-vinduet
+2. Høyreklikk → "Ask AI Assistant"
+3. Skriv inn spørsmålet ditt på vanlig språk (f.eks. "Hvordan lager jeg en tråd?")
+
+## Begrensninger
+
+- AI-assistenten **kan ikke designe for deg** — du må fortsatt gjøre modelleringen selv
+- Den **kan ikke 3D-printe** eller styre maskiner
+- Den er best på **vanlige, standardoppgaver** — sjeldne eller komplekse operasjoner kan den være dårligere på
+- **Hallusinasjoner** kan forekomme — den kan finne på funksjoner eller metoder som ikke finnes
+
+#### For mer informasjon vennligst les dette offisielle BLOG innlegget til Autodesk i lenken under:
+
+https://www.autodesk.com/products/fusion-360/blog/autodesk-assistant-in-fusion-a-step-by-step-guide/
+
+<Quiz
+  chapter={2}
+  questions={[
+    {
+      question: "Hva kan AI-assistenten i Fusion 360 hjelpe med?",
+      options: [
+        { label: "Å tegne hele modellen autonomt", feedback: "AI-assistenten gir veiledning, men designer ikke autonomt." },
+        { label: "Å foreslå neste steg og gi veiledning i modelleringsprosessen", feedback: "Riktig! AI-assistenten kan analysere hva du jobber med og gi relevante forslag." },
+        { label: "Å 3D-printe modellen for deg", feedback: "AI-assistenten styrer ikke 3D-printere direkte." },
+],
+    },
+  ]}
+/>

@@ -1,0 +1,57 @@
+---
+title: Lære å lese datablad og laste ned CAD modell
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/CUd831MWuSo" title="Lære å lese datablad og laste ned CAD modell" />
+
+I virkeligheten bruker man sjelden spesialdesignede komponenter til alt. Standardkomponenter som motorer, lagre og skruer finnes fra leverandører, og du må kunne designe rundt dem.
+
+## Hva er et datablad?
+
+Et datablad er et dokument fra produsenten som inneholder alle tekniske spesifikasjoner for en komponent.
+
+**Det viktigste du finner i et datablad:**
+
+| Informasjon | Hvorfor det betyr noe |
+|---|---|
+| Ytre mål (lengde, bredde, høyde) | For å designe feste og plass |
+| Hulldiameter og plassering | For skruer og montering |
+| Toleranser | Hvor nøyaktig må du være? |
+| Materiale | Hva er delen laget av? |
+| Elektriske data | Spenning, strøm (for motorer/sensorer) |
+
+## Hvordan lese et datablad
+
+1. **Finn måltegningen** — vanligvis en 2D-tegning med alle mål
+2. **Identifiser kritiske mål** — det som påvirker ditt design
+3. **Sjekk toleranser** — trenger du klaring eller presisjon?
+4. **Noter hullplassering** — boret du hull på rett sted?
+
+## Last ned CAD-modell
+
+Mange leverandører tilbyr ferdige 3D-modeller:
+
+- **McMaster-Carr** — stort utvalg, STEP-format
+- **Misumi** — japanske standardkomponenter
+- **Grainger** — industrielle komponenter
+- **RS Components** — elektronikk og mekanikk
+- **Produsentens nettside** — ofte direkte nedlasting
+
+**Format:** STEP (.stp) er best for import i Fusion 360. Det bevarer geometri og kan redigeres.
+
+<Quiz
+  chapter={2}
+  questions={[
+    {
+      question: "Hvorfor er datablad nyttige når man designer med standardkomponenter?",
+      options: [
+        { label: "De viser fargevalg for komponenten", feedback: "Farger er mindre relevante; mål og toleranser er det viktige." },
+        { label: "De gir nøyaktige mål og spesifikasjoner for komponenten", feedback: "Riktig! Datablad inneholder alle tekniske mål man trenger for å designe rundt en komponent." },
+        { label: "De inneholder 3D-printinnstillinger", feedback: "Datablad handler om komponentens spesifikasjoner, ikke 3D-printing." },
+],
+    },
+  ]}
+/>

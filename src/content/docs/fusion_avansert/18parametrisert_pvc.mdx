@@ -1,0 +1,58 @@
+---
+title: Parameterisert PVC ledd Løsning
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/5FpEqPVZuvg" title="Parameterisert PVC ledd Løsning" />
+
+I denne leksjonen ser du hvordan et PVC-albueledd kan parameteriseres slik at det tilpasses ulike rørstørrelser automatisk.
+
+## Hvorfor parametrisere PVC-ledd?
+
+PVC-rør finnes i mange størrelser (DN20, DN25, DN32, DN40). Uten parametere må du tegne hvert ledd på nytt for hver størrelse. Med parametere endrer du én verdi — alt oppdateres.
+
+## Nøkkelparametere for et PVC-ledd
+
+| Parameter | Hva den styrer | Eksempelverdi |
+|---|---|---|
+| `rordiameter` | Ytre diameteren på røret | 32 mm |
+| `vegg` | Veggtykkelse på leddet | 3.5 mm |
+| `radius` | Bøyeradius på albuen | 50 mm |
+| `lengde` | Lengde på rett del før bøy | 30 mm |
+| `klaring` | Hvor tett leddet sitter på røret | 0.2 mm |
+
+## Skalering vs. parametrisk redesign
+
+| Skalering (Scale) | Parametrisk redesign |
+|---|---|
+| Endrer alt proporsjonalt | Endrer kun det du vil |
+| Veggtykkelse blir feil | Veggtykkelse beholdes |
+| Radius skaleres feil | Radius kan styres uavhengig |
+| Raskt, men upresist | Mer arbeid, mye mer fleksibelt |
+
+## Lag brukervalgte parametere
+
+1. Gå til `Modify → Change Parameters`
+2. Klikk "Add Parameter"
+3. Gi parameteren et navn (f.eks. `rordiameter`)
+4. Velg enhet (mm)
+5. Skriv inn en verdi
+6. Bruk parameteren i skissedimensjoner
+
+Når du deler filen med andre, kan de endre `rordiameter` og få et ledd som passer deres rør.
+
+<Quiz
+  chapter={2}
+  questions={[
+    {
+      question: "Hvorfor er parametrisk design spesielt nyttig for PVC-ledd?",
+      options: [
+        { label: "Fordi man kan tilpasse dimensjonene til ulike rørstørrelser", feedback: "Riktig! Parametrisk design gjør det enkelt å skalere leddet til forskjellige rørdiametre." },
+        { label: "Fordi det gjør modellen lettere", feedback: "Parametre påvirker ikke vekten direkte." },
+        { label: "Fordi det gjør PVC-leddet sterkere", feedback: "Styrken påvirkes av designet, ikke av parametrene i seg selv." },
+],
+    },
+  ]}
+/>

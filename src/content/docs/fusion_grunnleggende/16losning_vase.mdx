@@ -1,0 +1,51 @@
+---
+title: Løsningsforslag parametrisk terracotta vase
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/9hCLvUIznkc" title="Løsningsforslag parametrisk terracotta vase" />
+
+Denne leksjonen viser et komplett løsningsforslag for en parametrisk terracotta-vase. Den kombinerer Revolve, Spline, Shell og parametrisk design i én modell.
+
+## Hva gjør denne vasen parametrisk?
+
+Vasen styres av noen få parametere som gjør den enkel å tilpasse:
+
+| Parameter | Hva den styrer |
+|---|---|
+| `hoyde` | Total høyde på vasen |
+| `bunn_bredde` | Bredde i bunnen |
+| `topp_bredde` | Bredde ved munningen |
+| `midt_bredde` | Bredde på det bredeste punktet |
+| `vegg` | Veggtykkelse (Shell) |
+
+Ved å endre én av disse oppdateres hele vasen automatisk.
+
+## Hvordan vasen er bygget
+
+1. **Skisse med Spline** — tegn profilen av vasen (halve tverrsnittet)
+2. **Revolve** — roter profilen 360° rundt senteraksen
+3. **Shell** — gjør vasen hul med valgt veggtykkelse
+4. **Fillet** — runde av kanter for en myk overflate
+
+## Hvorfor dette er nyttig
+
+- **Eksperimentering** — prøv ulike proporsjoner uten å tegne på nytt
+- **Tilpasning** — kunden vil ha en høyere vase? Endre `hoyde`
+- **Rask prototyping** — gå fra skisse til 3D-print på minutter
+
+<Quiz
+  chapter={1}
+  questions={[
+    {
+      question: "Hvorfor er parametrisk design spesielt nyttig når man designer en vase?",
+      options: [
+        { label: "Fordi man enkelt kan justere høyde, bredde og form i ettertid", feedback: "Riktig! Med parametrisk design kan man eksperimentere med proporsjoner uten å tegne på nytt." },
+        { label: "Fordi det sparer filament", feedback: "Filamentforbruk påvirkes av størrelsen, ikke parametrene i seg selv." },
+        { label: "Fordi det gjør vasen vanntett", feedback: "Parametrisk design påvirker ikke vanntetthet." },
+],
+    },
+  ]}
+/>

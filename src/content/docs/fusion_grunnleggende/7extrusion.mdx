@@ -1,0 +1,53 @@
+---
+title: Forstå gode 3D Extrusion metoder
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/kq7yaUicKHM" title="Forstå gode 3D Extrusion metoder" />
+
+Extrude er det viktigste verktøyet i Fusion 360. Det forvandler en 2D-skisse til et 3D-volum ved å "dra den ut" i en retning.
+
+## Hvordan Extrude fungerer
+
+Når du har tegnet en lukket 2D-profil (en skisse), klikker du `Extrude` (eller trykker `E`), velger profilen og angir en høyde. Fusion 360 fyller området og lager en solid body.
+
+## Extrude-innstillinger
+
+| Innstilling | Forklaring |
+|---|---|
+| **Distance** | Hvor langt ekstruderes profilen (f.eks. 10 mm) |
+| **Direction** | Én retning, Symmetrisk (midtstilt), eller To retninger (ulike lengder) |
+| **Operation** | New Body (ny del), Join (slå sammen), Cut (skjær bort) |
+| **Extent Type** | Distance, Through All, To Object |
+
+## Når bruke hvilke Extent Types
+
+| Type | Når bruke |
+|---|---|
+| **Distance** | Når du vet nøyaktig tykkelse |
+| **Through All** | Når du vil kutte gjennom hele modellen |
+| **To Object** | Når ekstruderingen skal stoppe ved en annen flate |
+
+## Vanlige fallgruver
+
+| Problem | Løsning |
+|---|---|
+| Skissen er ikke lukket | Sjekk at alle linjer møtes — Fusion 360 viser åpne punkter med sirkler |
+| Ekstruderer i feil retning | Klikk på retningspilen i forhåndsvisningen for å snu |
+| Får "hull" i modellen | Sjekk at profilen ikke har selvkryssende linjer |
+
+<Quiz
+  chapter={1}
+  questions={[
+    {
+      question: "Hva gjør Extrude-verktøyet i Fusion 360?",
+      options: [
+        { label: "Det roterer en skisse rundt en akse", feedback: "Det er Revolve-verktøyet." },
+        { label: "Det kutter hull i en 3D-modell", feedback: "Det er Cut-operasjonen, ikke Extrude." },
+        { label: "Det trekker en 2D-skisse opp eller ned til en 3D-form", feedback: "Riktig! Extrude forvandler en 2D-profil til en 3D-volum ved å trekke den i en retning." },
+],
+    },
+  ]}
+/>

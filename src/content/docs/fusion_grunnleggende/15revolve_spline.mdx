@@ -1,0 +1,68 @@
+---
+title: Forstå bruk av «Revolve Tool» og Spline
+---
+
+import Quiz from "../../../components/Quiz.astro";
+import VideoEmbed from "../../../components/VideoEmbed.astro";
+
+<VideoEmbed src="https://www.youtube-nocookie.com/embed/OwOO6Hj5cn4" title="Forstå bruk av Revolve Tool og Spline" />
+
+Revolve og Spline er to kraftige verktøy for å lage organiske, runde former som ville vært vanskelige med Extrude alene.
+
+## Revolve — roter en profil rundt en akse
+
+Revolve skaper en 3D-form ved å rotere en 2D-profil rundt en senterlinje. Alle symmetriske, runde objekter lages best med Revolve.
+
+**Når bruke Revolve:**
+- Flasker, kopper, skåler
+- Hjul, akslinger
+- Sirkulære hus
+- Kleshengere
+
+**Revolve-innstillinger:**
+
+| Innstilling | Forklaring |
+|---|---|
+| **Axis** | Linjen profilen roteres rundt |
+| **Angle** | Hvor mange grader (360° = full sirkel) |
+| **Direction** | Én retning, symmetrisk eller to retninger |
+
+## Spline — frie, organiske kurver
+
+Spline er et verktøy for å tegne jevne, bøyelige kurver. I stedet for å sette sammen mange små linjestykker, tegner du én glatt kurve.
+
+**Fit Point Spline:**
+- Du setter punkter som kurven går gjennom
+- Enkelt og intuitivt
+- God kontroll over formen
+
+**Control Point Spline:**
+- Du setter punkter som kurven nærmer seg
+- Mer presis kontroll over kurvens retning
+- Brukes for avanserte overflater
+
+## Kombinasjon: Revolve + Spline
+
+En av de kraftigste kombinasjonene er å tegne en profil med Spline og deretter rotere den med Revolve. Dette gir organiske, symmetriske former som en vase eller en flaske.
+
+<Quiz
+  chapter={1}
+  questions={[
+    {
+      question: "Hva gjør Revolve-verktøyet i Fusion 360?",
+      options: [
+        { label: "Det flytter en profil langs en bane", feedback: "Det er Sweep-verktøyet." },
+        { label: "Det speiler en modell", feedback: "Det er Mirror-verktøyet." },
+        { label: "Det roterer en 2D-profil rundt en akse for å lage en 3D-form", feedback: "Riktig! Revolve skaper symmetriske 3D-former ved å rotere en profil rundt en senterakse." },
+],
+    },
+    {
+      question: "Hva er en Spline i Fusion 360?",
+      options: [
+        { label: "En fri form-kurve som kan bøyes og tilpasses", feedback: "Riktig! En spline er en jevn, bøyelig kurve som gir fri formgivning." },
+        { label: "En rett linje mellom to punkter", feedback: "Det er en linje, ikke en spline." },
+        { label: "En sirkelbue", feedback: "En bue er en annen type kurve." },
+],
+    },
+  ]}
+/>
