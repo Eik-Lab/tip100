@@ -34,8 +34,23 @@ export default defineConfig({
                       // Each item here is one entry in the navigation menu.
                       { label: 'Informasjon Dag 1', slug: 'dag1/informasjon_dag1' },
                       { label: 'Introduksjon Fusion 360', slug: 'dag1/1kursintro_fusion' },
-                      { label: 'Installasjon av Fusion 360', slug: 'dag1/2installasjon' },
-                      { label: 'Innlevering Dag 1', slug: 'dag1/innlevering_dag1' },
+                    { label: 'Installasjon av Fusion 360', slug: 'dag1/2installasjon' },
+                    {
+                        label: 'Innovasjonshistorie og Rapid Prototyping',
+                        collapsed: true,
+                        items: [
+                            { label: 'Introduksjon', slug: 'innovasjonshistorie/intro' },
+                            { label: 'Leonardo, Jobs — kunst og vitenskap', slug: 'innovasjonshistorie/kunst_og_vitenskap' },
+                            { label: 'Fra håndverk til digital fabrikasjon', slug: 'innovasjonshistorie/innovasjonshistorie' },
+                            { label: 'Hva er rapid prototyping?', slug: 'innovasjonshistorie/rapid_prototyping' },
+                            { label: 'Additiv vs subtraktiv produksjon', slug: 'innovasjonshistorie/additiv_vs_subtraktiv' },
+                            { label: 'Iterativt design', slug: 'innovasjonshistorie/iterativ_design' },
+                            { label: 'Eksempler fra virkeligheten', slug: 'innovasjonshistorie/eksempler' },
+                            { label: 'Verktøy og sjekkliste', slug: 'innovasjonshistorie/sjekkliste_og_verktoy' },
+                            { label: 'Oppsummering', slug: 'innovasjonshistorie/oppsummering' },
+                        ],
+                    },
+                    { label: 'Innlevering Dag 1', slug: 'dag1/innlevering_dag1' },
                   ],
               },
 
@@ -92,17 +107,30 @@ export default defineConfig({
                   ],
               },
               {
-               	label: 'Dag 4',
+                  label: 'Dag 4',
                   collapsed: true,
                   items: [
                       { label: 'Informasjon Dag 4', slug: 'dag4/informasjon_dag4' },
                       {
-                          label: 'Vibe Code',
-                          collapsed: true,
-                          items: [
-                              { label: 'Installasjoner Vibe Code', slug: 'dag4/vibe-code/installasjon_vibe' },
-                          ],
-                      },
+                        label: 'Vibe Coding',
+                        collapsed: false,
+                        items: [
+                            { label: 'introduksjon til vibe coding', slug: 'vibe-coding/intro' },
+                            { label: 'slik fungerer nettsider', slug: 'vibe-coding/hvordan-nettsider-fungerer' },
+                            { label: 'installasjon og oppsett', slug: 'vibe-coding/installasjon_vibe' },
+                            { label: 'din første nettside', slug: 'vibe-coding/forste-nettside' },
+                            { label: 'prompting som en proff', slug: 'vibe-coding/prompt' },
+                            { label: 'forstå html-koden', slug: 'vibe-coding/html-og-struktur' },
+                            { label: 'design og styling med css', slug: 'vibe-coding/design-og-styling' },
+                            { label: 'gjør nettsiden interaktiv', slug: 'vibe-coding/interaktivitet' },
+                            { label: 'bygg et prosjekt steg for steg', slug: 'vibe-coding/bygge-prosjekt' },
+                            { label: 'feilsøking med ai', slug: 'vibe-coding/feilsoking' },
+                            { label: 'publiser nettsiden din', slug: 'vibe-coding/publisering' },
+                            { label: 'sikkerhet og personvern', slug: 'vibe-coding/sikkerhet' },
+                            { label: 'vanlige fallgruver', slug: 'vibe-coding/fallgruver' },
+                            { label: 'etikk og ansvarlig bruk', slug: 'vibe-coding/etikk' },
+                        ],
+                        },
                       { label: 'Innlevering Dag 4', slug: 'dag4/innlevering_dag4' },
                   ],
               },
@@ -111,17 +139,39 @@ export default defineConfig({
                   collapsed: true,
                   items: [
                       { label: 'Informasjon Dag 5', slug: 'dag5/informasjon_dag5' },
-                      {
-                          label: 'Laserkutting og 3D Scanning',
-                          collapsed: true,
-                          items: [
-                              { label: 'Laserkutting', slug: 'dag5/laser-scan/laser' },
-                              { label: 'Laserkutting Tips', slug: 'dag5/laser-scan/laser-tips' },
-                              { label: 'Lightburn Intro', slug: 'dag5/laser-scan/lightburn-intro' },
-                              { label: 'Bruk Lightburn', slug: 'dag5/laser-scan/lightburn' },
-                              { label: '3D Scanning', slug: 'dag5/laser-scan/3dscan' },
-                          ],
-                      },
+              {
+                  label: '3D-printing',
+                  collapsed: true,
+                  items: [
+                      { label: 'Introduksjon til 3D-printing', slug: '3d-printing/intro' },
+                      { label: 'Slik fungerer 3D-printing', slug: '3d-printing/slik-fungerer-3d-printing' },
+                      { label: 'Installasjon og oppsett', slug: '3d-printing/installasjon-og-oppsett' },
+                      { label: 'Din første 3D-print', slug: '3d-printing/din-forste-3d-print' },
+                      { label: 'Forstå sliceren', slug: '3d-printing/forsta-sliceren' },
+                      { label: 'Materialer', slug: '3d-printing/materialer' },
+                      { label: 'Bygg et prosjekt steg for steg', slug: '3d-printing/bygge-prosjekt' },
+                      { label: 'Feilsøking', slug: '3d-printing/feilsoking' },
+                      { label: 'Vanlige fallgruver', slug: '3d-printing/fallgruver' },
+                      { label: 'Sikkerhet og ansvar', slug: '3d-printing/sikkerhet' },
+                  ],
+              },
+              {
+                  label: 'Laserkutting',
+                  collapsed: true,
+                  items: [
+                      { label: 'Introduksjon til laserkutting', slug: 'laserkutting/intro' },
+                      { label: 'Slik fungerer laserkutting', slug: 'laserkutting/slik-fungerer-laserkutting' },
+                      { label: 'Installasjon og oppsett', slug: 'laserkutting/installasjon-og-oppsett' },
+                      { label: 'Din første laserkutt', slug: 'laserkutting/din-forste-laserkutt' },
+                      { label: 'Forstå Lightburn', slug: 'laserkutting/forsta-lightburn' },
+                      { label: 'Materialer', slug: 'laserkutting/materialer' },
+                      { label: 'Bygg et prosjekt steg for steg', slug: 'laserkutting/bygge-prosjekt' },
+                      { label: 'Feilsøking', slug: 'laserkutting/feilsoking' },
+                      { label: 'Vanlige fallgruver', slug: 'laserkutting/fallgruver' },
+                      { label: 'Sikkerhet og ansvar', slug: 'laserkutting/sikkerhet' },
+                  ],
+              },
+              { label: '3D-scanning', slug: 'dag5/laser-scan/3dscan' },
                       { label: 'Innlevering Dag 5', slug: 'dag5/innlevering_dag5' },
                   ],
               },
@@ -136,14 +186,16 @@ export default defineConfig({
                   ],
               },
 
-              {
-                  label: 'GitHub',
-                  collapsed: true,
-                  items: [
-                      // Each item here is one entry in the navigation menu.
-                      { label: 'GitHub', slug: 'github/github' },
-                  ],
-              },
+              { label: 'Tilbakemelding', slug: 'tilbakemelding' },
+
+              // {
+              //     label: 'GitHub',
+              //     collapsed: true,
+              //     items: [
+              //         // Each item here is one entry in the navigation menu.
+              //         { label: 'GitHub', slug: 'github/github' },
+              //     ],
+              // },
 
           ],
       }),
