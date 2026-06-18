@@ -6,7 +6,7 @@ head:
     content: Getting Started
 ---
 
-import { Tabs, TabItem, FileTree, Steps } from "@astrojs/starlight/components";
+import { Tabs, TabItem, FileTree, Steps, Icon } from "@astrojs/starlight/components";
 
 :::tip
 
@@ -19,13 +19,12 @@ For å laste ned disse applikasjonene må du åpne Terminalen på Mac eller Linu
 
 <Tabs>
 
-<TabItem value="nix" label="Linux/Mac OS" icon="linux" default>
+<TabItem value="nix" label="Linux/MacOS" icon="linux" default>
 
 <Steps>
 
 1. **Installer Homebrew** 
-
-   [Homebrew](https://brew.sh/)
+    <Icon name="homebrew" /> [Homebrew](https://brew.sh/)
 
    ```sh
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
