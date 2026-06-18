@@ -13,6 +13,6 @@ title: Hvordan funker AI i CAD?
   </iframe>
 </div>
 
-### For mer informasjon vennligst les dette offisielle BLOG innlegget til Autodesk
+#### For mer informasjon vennligst les dette offisielle BLOG innlegget til Autodesk i lenken under:
 
 https://www.autodesk.com/products/fusion-360/blog/autodesk-assistant-in-fusion-a-step-by-step-guide/
