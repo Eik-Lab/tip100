@@ -1,0 +1,194 @@
+---
+export interface Option {
+  label: string;
+  feedback: string;
+}
+
+export interface StoryQuestion {
+  speaker?: string;
+  question: string;
+  options: Option[];
+}
+
+export interface Props {
+  questions: StoryQuestion[];
+  chapter: number;
+}
+
+const { questions, chapter } = Astro.props;
+const id = `storyquiz-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<div class="story-quiz not-content" id={id}>
+  <ol class="story-questions">
+    {questions.map((q, i) => (
+      <li class="story-question" data-question={i}>
+        {q.speaker && (
+          <p class="speaker">{q.speaker}</p>
+        )}
+        <p class="question-text">{q.question}</p>
+        <div class="options">
+          {q.options.map((opt, j) => (
+            <label class="option" data-index={j}>
+              <input type="radio" name={`${id}-q${i}`} value={j} />
+              <span class="option-label">{opt.label}</span>
+            </label>
+          ))}
+        </div>
+        {q.options.map((opt, j) => (
+          <div class="feedback" data-for={j} aria-live="polite">{opt.feedback}</div>
+        ))}
+      </li>
+    ))}
+  </ol>
+</div>
+
+<style>
+  .story-quiz {
+    border: 1px solid var(--sl-color-gray-4);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 2rem 0;
+    background: var(--sl-color-gray-7);
+  }
+
+  .story-questions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .story-question {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--sl-color-gray-5);
+  }
+
+  .story-question:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .speaker {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--sl-color-accent);
+    margin-bottom: 0.35rem;
+  }
+
+  .question-text {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.1em;
+    line-height: 1.5;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .option {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    border-radius: 0.625rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1.5px solid var(--sl-color-gray-5);
+    background: color-mix(in srgb, var(--sl-color-gray-6) 50%, transparent);
+  }
+
+  .option:hover {
+    background: var(--sl-color-gray-6);
+    border-color: var(--sl-color-accent);
+    transform: translateY(-1px);
+  }
+
+  .option input[type="radio"] {
+    accent-color: var(--sl-color-accent);
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+  }
+
+  .option-label {
+    font-size: 0.975em;
+    line-height: 1.5;
+  }
+
+  .option.selected {
+    border-color: var(--sl-color-accent);
+    background: color-mix(in srgb, var(--sl-color-accent) 14%, transparent);
+  }
+
+  .option.answered {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .option.answered.selected {
+    opacity: 1;
+  }
+
+  .feedback {
+    margin-top: 0.85rem;
+    padding: 1rem 1.15rem;
+    border-radius: 0.625rem;
+    background: var(--sl-color-gray-6);
+    border-left: 3px solid var(--sl-color-accent);
+    display: none;
+    font-size: 0.95em;
+    line-height: 1.6;
+    animation: fadeSlideIn 0.25s ease-out;
+  }
+
+  .feedback.visible {
+    display: block;
+  }
+
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var quiz = document.currentScript.previousElementSibling;
+    if (!quiz || !quiz.classList.contains('story-quiz')) return;
+
+    quiz.querySelectorAll('input[type="radio"]').forEach(function (input) {
+      input.addEventListener('change', function () {
+        var question = this.closest('.story-question');
+        var selected = question.querySelector('input[type="radio"]:checked');
+        if (!selected) return;
+
+        var selectedIndex = parseInt(selected.value);
+
+        question.querySelectorAll('.option').forEach(function (opt) {
+          opt.classList.add('answered');
+          if (parseInt(opt.dataset.index) === selectedIndex) {
+            opt.classList.add('selected');
+          }
+        });
+
+        question.querySelectorAll('.feedback').forEach(function (fb) {
+          if (parseInt(fb.dataset.for) === selectedIndex) {
+            fb.classList.add('visible');
+          }
+        });
+      });
+    });
+  })();
+</script>

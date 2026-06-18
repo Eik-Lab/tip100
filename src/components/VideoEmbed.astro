@@ -1,0 +1,45 @@
+---
+export interface Props {
+  title?: string;
+  src?: string;
+}
+
+const { title = 'Introduksjon til kurset', src = 'https://www.youtube-nocookie.com/embed/VUWc9PPp8us' } = Astro.props;
+---
+
+<div class="video-section not-content">
+  <div class="video-wrapper">
+    <iframe
+      src={src}
+      title={title}
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+<style>
+  .video-section {
+    margin: 2rem 0;
+  }
+
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: var(--sl-color-gray-6);
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+</style>
